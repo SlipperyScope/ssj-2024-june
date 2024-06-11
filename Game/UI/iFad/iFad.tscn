@@ -1,0 +1,71 @@
+[gd_scene load_steps=6 format=3 uid="uid://b5dbljdhl2t71"]
+
+[ext_resource type="Script" path="res://UI/iFad/iFad.gd" id="1_hid1e"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h3v65"]
+bg_color = Color(0.188235, 0.188235, 0.188235, 1)
+corner_radius_top_left = 32
+corner_radius_top_right = 32
+corner_radius_bottom_right = 32
+corner_radius_bottom_left = 32
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_4l2w2"]
+size = Vector2(32, 32)
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_mwlws"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_fae6p"]
+
+[node name="iFad" type="Node2D"]
+script = ExtResource("1_hid1e")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer"]
+offset_right = 480.0
+offset_bottom = 640.0
+metadata/_edit_use_anchors_ = true
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/MarginContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_h3v65")
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/MarginContainer/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/MarginContainer/PanelContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 10
+
+[node name="Screen" type="PanelContainer" parent="CanvasLayer/MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Buttons" type="HBoxContainer" parent="CanvasLayer/MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="pad" type="ReferenceRect" parent="CanvasLayer/MarginContainer/PanelContainer/MarginContainer/VBoxContainer/Buttons"]
+layout_mode = 2
+size_flags_horizontal = 3
+border_color = Color(1, 0, 0, 0)
+editor_only = false
+
+[node name="TextureButton" type="TextureButton" parent="CanvasLayer/MarginContainer/PanelContainer/MarginContainer/VBoxContainer/Buttons"]
+layout_mode = 2
+texture_normal = SubResource("PlaceholderTexture2D_4l2w2")
+texture_pressed = SubResource("PlaceholderTexture2D_mwlws")
+texture_hover = SubResource("PlaceholderTexture2D_fae6p")
+
+[node name="pad2" type="ReferenceRect" parent="CanvasLayer/MarginContainer/PanelContainer/MarginContainer/VBoxContainer/Buttons"]
+layout_mode = 2
+size_flags_horizontal = 3
+border_color = Color(1, 0, 0, 0)
+editor_only = false

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://lyhgh0c1l66l"
-path="res://.godot/imported/dance_solo_shuffle.png-ce201feef6fd98f6042e64247ef3cb89.ctex"
+uid="uid://c3xbs68d6h0ev"
+path="res://.godot/imported/gumbk.png-1934284b546bb7a0b3b61533d05a6b7c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/Dances/dance_solo_shuffle.png"
-dest_files=["res://.godot/imported/dance_solo_shuffle.png-ce201feef6fd98f6042e64247ef3cb89.ctex"]
+source_file="res://UI/Fapplets/Testee/gumbk.png"
+dest_files=["res://.godot/imported/gumbk.png-1934284b546bb7a0b3b61533d05a6b7c.ctex"]
 
 [params]
 
