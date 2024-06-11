@@ -58,7 +58,8 @@ size_flags_horizontal = 3
 border_color = Color(1, 0, 0, 0)
 editor_only = false
 
-[node name="TextureButton" type="TextureButton" parent="CanvasLayer/MarginContainer/PanelContainer/MarginContainer/VBoxContainer/Buttons"]
+[node name="Home" type="TextureButton" parent="CanvasLayer/MarginContainer/PanelContainer/MarginContainer/VBoxContainer/Buttons"]
+unique_name_in_owner = true
 layout_mode = 2
 texture_normal = SubResource("PlaceholderTexture2D_4l2w2")
 texture_pressed = SubResource("PlaceholderTexture2D_mwlws")
