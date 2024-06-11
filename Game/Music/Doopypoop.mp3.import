@@ -12,7 +12,7 @@ dest_files=["res://.godot/imported/Doopypoop.mp3-08945147de87475ebde9572b294a4c6
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0
 bpm=120.0
 beat_count=0
