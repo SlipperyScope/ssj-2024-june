@@ -1,6 +1,8 @@
 extends Control
 class_name Fapplet
 
+var IconTexture
+
 func Open():
 	pass
 

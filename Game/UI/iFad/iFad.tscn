@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://b5dbljdhl2t71"]
+[gd_scene load_steps=8 format=3 uid="uid://b5dbljdhl2t71"]
 
 [ext_resource type="Script" path="res://UI/iFad/iFad.gd" id="1_hid1e"]
+[ext_resource type="Texture2D" uid="uid://cge81muhvmc5a" path="res://UI/iFad/R.png" id="2_nhy3e"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h3v65"]
 bg_color = Color(0.188235, 0.188235, 0.188235, 1)
@@ -8,6 +9,10 @@ corner_radius_top_left = 32
 corner_radius_top_right = 32
 corner_radius_bottom_right = 32
 corner_radius_bottom_left = 32
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vv3j7"]
+bg_color = Color(0.0323822, 0.0323822, 0.0323821, 1)
+border_blend = true
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_4l2w2"]
 size = Vector2(32, 32)
@@ -44,10 +49,33 @@ layout_mode = 2
 layout_mode = 2
 theme_override_constants/margin_top = 10
 
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/MarginContainer/PanelContainer/MarginContainer/VBoxContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/MarginContainer/PanelContainer/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+text = "Dapper™️"
+
+[node name="Label2" type="Label" parent="CanvasLayer/MarginContainer/PanelContainer/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+text = "iFad™️"
+
+[node name="ReferenceRect" type="ReferenceRect" parent="CanvasLayer/MarginContainer/PanelContainer/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+border_width = 0.0
+editor_only = false
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/MarginContainer/PanelContainer/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("2_nhy3e")
+expand_mode = 2
+
 [node name="Screen" type="PanelContainer" parent="CanvasLayer/MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_vv3j7")
 
 [node name="Buttons" type="HBoxContainer" parent="CanvasLayer/MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
@@ -58,7 +86,8 @@ size_flags_horizontal = 3
 border_color = Color(1, 0, 0, 0)
 editor_only = false
 
-[node name="TextureButton" type="TextureButton" parent="CanvasLayer/MarginContainer/PanelContainer/MarginContainer/VBoxContainer/Buttons"]
+[node name="Home" type="TextureButton" parent="CanvasLayer/MarginContainer/PanelContainer/MarginContainer/VBoxContainer/Buttons"]
+unique_name_in_owner = true
 layout_mode = 2
 texture_normal = SubResource("PlaceholderTexture2D_4l2w2")
 texture_pressed = SubResource("PlaceholderTexture2D_mwlws")
