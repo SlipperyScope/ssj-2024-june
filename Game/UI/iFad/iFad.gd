@@ -8,7 +8,7 @@ var Launcher:FappLauncher
 func _ready():
 	InstallLauncher(preload("res://UI/Fapplets/Launcher/Launcher.tscn"))
 	InstallFapplet("Testee", preload("res://UI/Fapplets/Testee/Testee.tscn"))
-	InstallFapplet("Testee2", preload("res://UI/Fapplets/Testee/Testee.tscn"))
+	InstallFapplet("DikDok", preload("res://UI/Fapplets/DikDok/DikDok.tscn"))
 	%Home.pressed.connect(OpenLauncher)
 
 class FappData:

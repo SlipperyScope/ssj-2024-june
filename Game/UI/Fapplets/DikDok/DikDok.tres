@@ -1,0 +1,24 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://dkq3wn3wyc4k0"]
+
+[sub_resource type="GDScript" id="GDScript_vubvb"]
+script/source = "@export var Name:String = \"\"
+@export var SongID:int = 0
+@export var DanceID:int = 0
+@export var Emojis = [0,0,0,0]
+@export var Words = [0,0,0,0]
+@export var Plays:int = 0
+@export var Likes:int = 0
+@export var Shares:int = 0
+@export var Date:int = 0"
+
+[resource]
+script = SubResource("GDScript_vubvb")
+Name = ""
+SongID = 0
+DanceID = 0
+Emojis = [0, 0, 0, 0]
+Words = [0, 0, 0, 0]
+Plays = 0
+Likes = 0
+Shares = 0
+Date = 0
