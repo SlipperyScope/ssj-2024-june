@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://m5sp34qfsqn8"]
+
+[node name="Tile" type="TextureButton"]
+custom_minimum_size = Vector2(64, 64)
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_default_cursor_shape = 2
+keep_pressed_outside = true
+ignore_texture_size = true
+stretch_mode = 0

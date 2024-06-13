@@ -1,9 +1,18 @@
-[gd_scene load_steps=8 format=3 uid="uid://n74o5heji8cs"]
+[gd_scene load_steps=11 format=3 uid="uid://n74o5heji8cs"]
 
 [ext_resource type="Script" path="res://UI/Fapplets/Testee/Testee.gd" id="1_52r4h"]
 [ext_resource type="Texture2D" uid="uid://c3xbs68d6h0ev" path="res://UI/Fapplets/Testee/gumbk.png" id="2_bovv6"]
+[ext_resource type="Texture2D" uid="uid://bmrqtgtviqkou" path="res://UI/Fapplets/Testee/icon.tres" id="2_wjy50"]
 [ext_resource type="AudioStream" uid="uid://bt68wx01olflm" path="res://UI/Fapplets/Testee/Over.wav" id="3_i5y37"]
+[ext_resource type="Script" path="res://UI/Fapplets/Manifest.gd" id="3_u646f"]
 [ext_resource type="AudioStream" uid="uid://bh51gulx4ifnd" path="res://UI/Fapplets/Testee/Down.mp3" id="4_65hd0"]
+
+[sub_resource type="Resource" id="Resource_7ewxt"]
+script = ExtResource("3_u646f")
+Name = "Testee"
+ID = 0
+Type = 0
+FappIcon = ExtResource("2_wjy50")
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_876gj"]
 atlas = ExtResource("2_bovv6")
@@ -21,6 +30,7 @@ region = Rect2(526, 0, 527, 605)
 offset_right = 64.0
 offset_bottom = 118.0
 script = ExtResource("1_52r4h")
+Manifest = SubResource("Resource_7ewxt")
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
 layout_mode = 2

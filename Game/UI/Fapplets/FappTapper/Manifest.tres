@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Manifest" load_steps=4 format=3 uid="uid://dap1dlmo6p518"]
+
+[ext_resource type="Texture2D" uid="uid://bdogsrg7q2ri1" path="res://UI/Fapplets/FappTapper/Icon.png" id="1_vw3hm"]
+[ext_resource type="PackedScene" uid="uid://bvma5ia0aolra" path="res://UI/Fapplets/FappTapper/FappTapper.tscn" id="2_y3t5d"]
+[ext_resource type="Script" path="res://UI/Fapplets/Manifest.gd" id="3_gkh57"]
+
+[resource]
+script = ExtResource("3_gkh57")
+Name = "FappTapper"
+ID = 100
+Type = 1
+FappIcon = ExtResource("1_vw3hm")
+Scene = ExtResource("2_y3t5d")

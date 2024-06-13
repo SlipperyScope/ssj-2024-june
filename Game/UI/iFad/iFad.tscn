@@ -1,7 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://b5dbljdhl2t71"]
+[gd_scene load_steps=10 format=3 uid="uid://b5dbljdhl2t71"]
 
 [ext_resource type="Script" path="res://UI/iFad/iFad.gd" id="1_hid1e"]
+[ext_resource type="Resource" uid="uid://dap1dlmo6p518" path="res://UI/Fapplets/FappTapper/Manifest.tres" id="2_72yl6"]
 [ext_resource type="Texture2D" uid="uid://cge81muhvmc5a" path="res://UI/iFad/R.png" id="2_nhy3e"]
+[ext_resource type="Resource" uid="uid://lokp5018xqam" path="res://UI/Fapplets/Null/Manifest.tres" id="3_3a2kg"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h3v65"]
 bg_color = Color(0.188235, 0.188235, 0.188235, 1)
@@ -23,6 +25,7 @@ size = Vector2(32, 32)
 
 [node name="iFad" type="Node2D"]
 script = ExtResource("1_hid1e")
+_PreInstalled = Array[Resource("res://UI/Fapplets/Manifest.gd")]([ExtResource("2_72yl6"), ExtResource("3_3a2kg")])
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -75,6 +78,7 @@ expand_mode = 2
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
+mouse_default_cursor_shape = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_vv3j7")
 
 [node name="Buttons" type="HBoxContainer" parent="CanvasLayer/MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
