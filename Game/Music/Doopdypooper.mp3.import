@@ -13,7 +13,7 @@ dest_files=["res://.godot/imported/Doopdypooper.mp3-3a2041906785f4b59fc52c795827
 [params]
 
 loop=false
-loop_offset=0
-bpm=0
-beat_count=0
+loop_offset=0.0
+bpm=120.0
+beat_count=16
 bar_beats=4
