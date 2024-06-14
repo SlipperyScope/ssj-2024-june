@@ -1,7 +1,0 @@
-[gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://bmrqtgtviqkou"]
-
-[ext_resource type="Texture2D" uid="uid://c3xbs68d6h0ev" path="res://UI/Fapplets/Testee/gumbk.png" id="1_kpoko"]
-
-[resource]
-atlas = ExtResource("1_kpoko")
-region = Rect2(0, 0, 527, 605)

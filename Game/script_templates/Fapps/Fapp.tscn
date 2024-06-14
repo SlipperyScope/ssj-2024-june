@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dm8dwiaue2eew"]
+
+[ext_resource type="Script" path="res://UI/Fapps/Fapp.gd" id="1_otcbh"]
+
+[node name="Fapp" type="PanelContainer"]
+script = ExtResource("1_otcbh")

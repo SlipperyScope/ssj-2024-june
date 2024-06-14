@@ -1,0 +1,61 @@
+[gd_scene load_steps=9 format=3 uid="uid://n74o5heji8cs"]
+
+[ext_resource type="Script" path="res://UI/Fapps/Testee/Testee.gd" id="1_52r4h"]
+[ext_resource type="Texture2D" uid="uid://c3xbs68d6h0ev" path="res://UI/Fapps/Testee/gumbk.png" id="2_bovv6"]
+[ext_resource type="AudioStream" uid="uid://bt68wx01olflm" path="res://UI/Fapps/Testee/Over.wav" id="3_i5y37"]
+[ext_resource type="AudioStream" uid="uid://bh51gulx4ifnd" path="res://UI/Fapps/Testee/Down.mp3" id="4_65hd0"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yas0t"]
+bg_color = Color(0.12549, 0.12549, 0.12549, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_876gj"]
+atlas = ExtResource("2_bovv6")
+region = Rect2(0, 0, 527, 605)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4hik5"]
+atlas = ExtResource("2_bovv6")
+region = Rect2(1053, 0, 525, 605)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qum6s"]
+atlas = ExtResource("2_bovv6")
+region = Rect2(526, 0, 527, 605)
+
+[node name="Testee" type="PanelContainer"]
+offset_right = 64.0
+offset_bottom = 118.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_yas0t")
+script = ExtResource("1_52r4h")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 6
+text = "TEST"
+horizontal_alignment = 1
+
+[node name="CenterContainer" type="CenterContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Gumbk" type="TextureButton" parent="VBoxContainer/CenterContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+texture_normal = SubResource("AtlasTexture_876gj")
+texture_pressed = SubResource("AtlasTexture_4hik5")
+texture_hover = SubResource("AtlasTexture_qum6s")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Label2" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 6
+text = "ME"
+horizontal_alignment = 1
+
+[node name="Over" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_i5y37")
+
+[node name="Down" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_65hd0")

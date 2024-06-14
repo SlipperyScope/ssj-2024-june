@@ -1,0 +1,76 @@
+[gd_resource type="SpriteFrames" script_class="EmojiSets" load_steps=18 format=3 uid="uid://cv35wo80msb55"]
+
+[ext_resource type="Texture2D" uid="uid://bsbcoodpir4cv" path="res://UI/Fapps/DikDok/Emojis/1F60B.svg" id="1_63k5o"]
+[ext_resource type="Texture2D" uid="uid://4wq4irk6dcrl" path="res://UI/Fapps/DikDok/Emojis/1F60D.svg" id="2_omw3r"]
+[ext_resource type="Texture2D" uid="uid://cdorxxghie0o7" path="res://UI/Fapps/DikDok/Emojis/1F61A.svg" id="3_3temy"]
+[ext_resource type="Texture2D" uid="uid://biv4vxu8c86h7" path="res://UI/Fapps/DikDok/Emojis/1F92E.svg" id="4_s5g1e"]
+[ext_resource type="Texture2D" uid="uid://cninxqfcpnbqk" path="res://UI/Fapps/DikDok/Emojis/1F600.svg" id="5_dlwvt"]
+[ext_resource type="Texture2D" uid="uid://cdrsxgcahp3aw" path="res://UI/Fapps/DikDok/Emojis/1F602.svg" id="6_ur3bk"]
+[ext_resource type="Texture2D" uid="uid://bywtq0hnm7sqo" path="res://UI/Fapps/DikDok/Emojis/1F618.svg" id="7_8l5a5"]
+[ext_resource type="Texture2D" uid="uid://ciiaot5eyo44k" path="res://UI/Fapps/DikDok/Emojis/1F634.svg" id="8_012s8"]
+[ext_resource type="Texture2D" uid="uid://gefdevtkrdlf" path="res://UI/Fapps/DikDok/Emojis/1F643.svg" id="9_7epes"]
+[ext_resource type="Texture2D" uid="uid://dldkk51oaa1pu" path="res://UI/Fapps/DikDok/Emojis/1F914.svg" id="10_ycein"]
+[ext_resource type="Texture2D" uid="uid://bgluvlnqyeud0" path="res://UI/Fapps/DikDok/Emojis/1F924.svg" id="11_k1tuk"]
+[ext_resource type="Texture2D" uid="uid://dbh4jd81a41pj" path="res://UI/Fapps/DikDok/Emojis/1F929.svg" id="12_n2lq0"]
+[ext_resource type="Texture2D" uid="uid://dj86xto0fjf13" path="res://UI/Fapps/DikDok/Emojis/1F970.svg" id="13_uhugd"]
+[ext_resource type="Texture2D" uid="uid://dp2w6f1nv7l3h" path="res://UI/Fapps/DikDok/Emojis/1F975.svg" id="14_844ir"]
+[ext_resource type="Texture2D" uid="uid://clshp5hxjxwoj" path="res://UI/Fapps/DikDok/Emojis/1FAE0.svg" id="15_vb6hj"]
+[ext_resource type="Texture2D" uid="uid://c7q1uuxbso0rs" path="res://UI/Fapps/DikDok/Emojis/1FAE5.svg" id="16_oqqm3"]
+[ext_resource type="Script" path="res://UI/Fapps/DikDok/Emojis/EmojiSets.gd" id="17_de3gv"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_63k5o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_omw3r")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_3temy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_s5g1e")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_dlwvt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_ur3bk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_8l5a5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_012s8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_7epes")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_ycein")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_k1tuk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_n2lq0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_uhugd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_844ir")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_vb6hj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_oqqm3")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]
+script = ExtResource("17_de3gv")

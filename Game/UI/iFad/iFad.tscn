@@ -3,11 +3,11 @@
 [ext_resource type="Script" path="res://UI/iFad/iFad.gd" id="1_hid1e"]
 [ext_resource type="Script" path="res://UI/iFad/OSM.gd" id="2_n07e3"]
 [ext_resource type="Texture2D" uid="uid://cge81muhvmc5a" path="res://UI/iFad/R.png" id="2_nhy3e"]
-[ext_resource type="Resource" uid="uid://dap1dlmo6p518" path="res://UI/Fapplets/FappTapper/FappTapper.man.tres" id="3_qo2ra"]
-[ext_resource type="Resource" uid="uid://lokp5018xqam" path="res://UI/Fapplets/Null/Null.man.tres" id="4_hdh12"]
-[ext_resource type="Resource" uid="uid://b5lf78xf27nrm" path="res://UI/Fapplets/Testee/Testee.man.tres" id="5_ls6f8"]
-[ext_resource type="Resource" uid="uid://1bcqdtp47sjk" path="res://UI/Fapplets/DikDok/DikDok.man.tres" id="6_ixeig"]
-[ext_resource type="Texture2D" uid="uid://bdogsrg7q2ri1" path="res://UI/Fapplets/FappTapper/FappTapper.ico.png" id="7_o6sxn"]
+[ext_resource type="Resource" uid="uid://dap1dlmo6p518" path="res://UI/Fapps/FappTapper/FappTapper.man.tres" id="3_qo2ra"]
+[ext_resource type="Resource" uid="uid://lokp5018xqam" path="res://UI/Fapps/Null/Null.man.tres" id="4_hdh12"]
+[ext_resource type="Resource" uid="uid://b5lf78xf27nrm" path="res://UI/Fapps/Testee/Testee.man.tres" id="5_ls6f8"]
+[ext_resource type="Resource" uid="uid://1bcqdtp47sjk" path="res://UI/Fapps/DikDok/DikDok.man.tres" id="6_ixeig"]
+[ext_resource type="Texture2D" uid="uid://bdogsrg7q2ri1" path="res://UI/Fapps/FappTapper/FappTapper.ico.png" id="7_o6sxn"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h3v65"]
 bg_color = Color(0.188235, 0.188235, 0.188235, 1)
@@ -23,7 +23,7 @@ border_blend = true
 [node name="iFad" type="Node2D"]
 script = ExtResource("1_hid1e")
 _OSMScript = ExtResource("2_n07e3")
-_Bloatware = Array[Resource("res://UI/Fapplets/Manifest.gd")]([ExtResource("4_hdh12"), ExtResource("3_qo2ra"), ExtResource("5_ls6f8"), ExtResource("6_ixeig")])
+_Bloatware = Array[Resource("res://UI/Fapps/Manifest.gd")]([ExtResource("4_hdh12"), ExtResource("3_qo2ra"), ExtResource("5_ls6f8"), ExtResource("6_ixeig")])
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

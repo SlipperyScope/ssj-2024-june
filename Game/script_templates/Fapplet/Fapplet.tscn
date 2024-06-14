@@ -1,8 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://dm8dwiaue2eew"]
-
-[ext_resource type="Script" path="res://UI/Fapplets/Fapplet.gd" id="1_5aotd"]
-
-[node name="Fapplet" type="Control"]
-layout_mode = 3
-anchors_preset = 0
-script = ExtResource("1_5aotd")

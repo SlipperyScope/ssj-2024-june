@@ -42,7 +42,7 @@ enum Interrupt {
 
 class FappInfo:
 	var Manifest:Manifest
-	var Instance:Fapplet
+	var Instance:Fapp
 	var Running:bool
 	var Active:bool
 	var Data:Dictionary
@@ -59,7 +59,7 @@ func Install(fapp:Manifest):
 		_Launcher = id
 	elif fapp.Type == FappType.Fapplet:
 		OnFappListUpdated.call_deferred()
-	var instance = fapp.Scene.instantiate() as Fapplet
+	var instance = fapp.Scene.instantiate() as Fapp
 	instance.OSM = self
 	info.Instance = instance
 	instance.visible = false

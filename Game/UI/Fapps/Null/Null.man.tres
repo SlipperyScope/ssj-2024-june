@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Manifest" load_steps=4 format=3 uid="uid://lokp5018xqam"]
+
+[ext_resource type="PackedScene" uid="uid://cptaycofwa1ln" path="res://UI/Fapps/Null/Null.tscn" id="1_pnt3s"]
+[ext_resource type="Texture2D" uid="uid://c4n8gfi8pcese" path="res://UI/Fapps/Null/Null.ico.png" id="1_qmfmm"]
+[ext_resource type="Script" path="res://UI/Fapps/Manifest.gd" id="2_e3jik"]
+
+[resource]
+script = ExtResource("2_e3jik")
+Name = "Null"
+ID = 0
+Type = 0
+FappIcon = ExtResource("1_qmfmm")
+Scene = ExtResource("1_pnt3s")
