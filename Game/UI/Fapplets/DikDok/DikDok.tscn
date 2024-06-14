@@ -26,45 +26,42 @@ region = Rect2(64, 0, 64, 64)
 atlas = ExtResource("2_ko2d5")
 region = Rect2(256, 0, 64, 64)
 
-[node name="DikDok" type="MarginContainer"]
+[node name="DikDok" type="PanelContainer"]
 offset_right = 440.0
 offset_bottom = 550.0
 script = ExtResource("1_qj84m")
 
-[node name="PanelContainer" type="PanelContainer" parent="."]
-layout_mode = 2
-
-[node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 2
 theme_override_constants/margin_left = 8
 theme_override_constants/margin_top = 8
 theme_override_constants/margin_right = 8
 theme_override_constants/margin_bottom = 8
 
-[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2
 theme_override_constants/separation = 8
 
-[node name="PanelContainer" type="PanelContainer" parent="PanelContainer/MarginContainer/VBoxContainer"]
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_e5480")
 
-[node name="MarginContainer" type="MarginContainer" parent="PanelContainer/MarginContainer/VBoxContainer/PanelContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/PanelContainer"]
 layout_mode = 2
 theme_override_constants/margin_left = 16
 theme_override_constants/margin_top = 16
 theme_override_constants/margin_right = 16
 theme_override_constants/margin_bottom = 16
 
-[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/PanelContainer/MarginContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/PanelContainer/MarginContainer"]
 layout_mode = 2
 theme_override_constants/separation = 16
 
-[node name="VFlowContainer" type="VFlowContainer" parent="PanelContainer/MarginContainer/VBoxContainer/PanelContainer/MarginContainer/HBoxContainer"]
+[node name="VFlowContainer" type="VFlowContainer" parent="MarginContainer/VBoxContainer/PanelContainer/MarginContainer/HBoxContainer"]
 layout_mode = 2
 
-[node name="EmojiButton" type="TextureButton" parent="PanelContainer/MarginContainer/VBoxContainer/PanelContainer/MarginContainer/HBoxContainer/VFlowContainer"]
+[node name="EmojiButton" type="TextureButton" parent="MarginContainer/VBoxContainer/PanelContainer/MarginContainer/HBoxContainer/VFlowContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 toggle_mode = true
@@ -74,7 +71,7 @@ texture_pressed = SubResource("AtlasTexture_8jxox")
 texture_hover = SubResource("AtlasTexture_vv6nu")
 texture_disabled = SubResource("AtlasTexture_vp2cv")
 
-[node name="EmojiSelector" type="GridContainer" parent="PanelContainer/MarginContainer/VBoxContainer/PanelContainer/MarginContainer/HBoxContainer"]
+[node name="EmojiSelector" type="GridContainer" parent="MarginContainer/VBoxContainer/PanelContainer/MarginContainer/HBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
@@ -82,62 +79,62 @@ theme_override_constants/h_separation = 16
 theme_override_constants/v_separation = 16
 columns = 4
 
-[node name="Button" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/PanelContainer/MarginContainer/HBoxContainer/EmojiSelector"]
+[node name="Button" type="Button" parent="MarginContainer/VBoxContainer/PanelContainer/MarginContainer/HBoxContainer/EmojiSelector"]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 text = "0"
 
-[node name="Button2" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/PanelContainer/MarginContainer/HBoxContainer/EmojiSelector"]
+[node name="Button2" type="Button" parent="MarginContainer/VBoxContainer/PanelContainer/MarginContainer/HBoxContainer/EmojiSelector"]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 text = "1"
 
-[node name="Button3" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/PanelContainer/MarginContainer/HBoxContainer/EmojiSelector"]
+[node name="Button3" type="Button" parent="MarginContainer/VBoxContainer/PanelContainer/MarginContainer/HBoxContainer/EmojiSelector"]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 text = "2"
 
-[node name="Button4" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/PanelContainer/MarginContainer/HBoxContainer/EmojiSelector"]
+[node name="Button4" type="Button" parent="MarginContainer/VBoxContainer/PanelContainer/MarginContainer/HBoxContainer/EmojiSelector"]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 text = "3"
 
-[node name="Button5" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/PanelContainer/MarginContainer/HBoxContainer/EmojiSelector"]
+[node name="Button5" type="Button" parent="MarginContainer/VBoxContainer/PanelContainer/MarginContainer/HBoxContainer/EmojiSelector"]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 text = "4"
 
-[node name="Button6" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/PanelContainer/MarginContainer/HBoxContainer/EmojiSelector"]
+[node name="Button6" type="Button" parent="MarginContainer/VBoxContainer/PanelContainer/MarginContainer/HBoxContainer/EmojiSelector"]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 text = "5"
 
-[node name="Button7" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/PanelContainer/MarginContainer/HBoxContainer/EmojiSelector"]
+[node name="Button7" type="Button" parent="MarginContainer/VBoxContainer/PanelContainer/MarginContainer/HBoxContainer/EmojiSelector"]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 text = "6"
 
-[node name="Button8" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/PanelContainer/MarginContainer/HBoxContainer/EmojiSelector"]
+[node name="Button8" type="Button" parent="MarginContainer/VBoxContainer/PanelContainer/MarginContainer/HBoxContainer/EmojiSelector"]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 text = "7"
 
-[node name="MarginContainer" type="MarginContainer" parent="PanelContainer/MarginContainer/VBoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="FrameButtons" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/MarginContainer"]
+[node name="FrameButtons" type="HBoxContainer" parent="MarginContainer/VBoxContainer/MarginContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_constants/separation = 9
 
-[node name="Button01" parent="PanelContainer/MarginContainer/VBoxContainer/MarginContainer/FrameButtons" instance=ExtResource("2_bnkps")]
+[node name="Button01" parent="MarginContainer/VBoxContainer/MarginContainer/FrameButtons" instance=ExtResource("2_bnkps")]
 layout_mode = 2
 
-[node name="Button02" parent="PanelContainer/MarginContainer/VBoxContainer/MarginContainer/FrameButtons" instance=ExtResource("2_bnkps")]
+[node name="Button02" parent="MarginContainer/VBoxContainer/MarginContainer/FrameButtons" instance=ExtResource("2_bnkps")]
 layout_mode = 2
 
-[node name="Button03" parent="PanelContainer/MarginContainer/VBoxContainer/MarginContainer/FrameButtons" instance=ExtResource("2_bnkps")]
+[node name="Button03" parent="MarginContainer/VBoxContainer/MarginContainer/FrameButtons" instance=ExtResource("2_bnkps")]
 layout_mode = 2
 
-[node name="Button04" parent="PanelContainer/MarginContainer/VBoxContainer/MarginContainer/FrameButtons" instance=ExtResource("2_bnkps")]
+[node name="Button04" parent="MarginContainer/VBoxContainer/MarginContainer/FrameButtons" instance=ExtResource("2_bnkps")]
 layout_mode = 2

@@ -1,7 +1,5 @@
 extends Fapplet
 
-func _init():
-	IconTexture = preload("res://UI/Fapplets/DikDok/dikdok_logo.png")
 
 func _ready():
 	%FrameButtons/Button01.pressed.connect(FrameButtonPressed.bind(1))

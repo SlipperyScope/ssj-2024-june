@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bdogsrg7q2ri1"
-path="res://.godot/imported/Icon.png-91be512fcb8ce363b8bc0cbca116d864.ctex"
+uid="uid://djdn4xr5t2vwv"
+path="res://.godot/imported/OSM.ico.png-5f66836f5058aed6af91d4fc521053e3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://UI/Fapplets/FappTapper/Icon.png"
-dest_files=["res://.godot/imported/Icon.png-91be512fcb8ce363b8bc0cbca116d864.ctex"]
+source_file="res://UI/iFad/OSM.ico.png"
+dest_files=["res://.godot/imported/OSM.ico.png-5f66836f5058aed6af91d4fc521053e3.ctex"]
 
 [params]
 

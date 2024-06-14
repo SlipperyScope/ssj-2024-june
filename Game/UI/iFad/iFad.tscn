@@ -1,9 +1,13 @@
-[gd_scene load_steps=10 format=3 uid="uid://b5dbljdhl2t71"]
+[gd_scene load_steps=11 format=3 uid="uid://b5dbljdhl2t71"]
 
 [ext_resource type="Script" path="res://UI/iFad/iFad.gd" id="1_hid1e"]
-[ext_resource type="Resource" uid="uid://dap1dlmo6p518" path="res://UI/Fapplets/FappTapper/Manifest.tres" id="2_72yl6"]
+[ext_resource type="Script" path="res://UI/iFad/OSM.gd" id="2_n07e3"]
 [ext_resource type="Texture2D" uid="uid://cge81muhvmc5a" path="res://UI/iFad/R.png" id="2_nhy3e"]
-[ext_resource type="Resource" uid="uid://lokp5018xqam" path="res://UI/Fapplets/Null/Manifest.tres" id="3_3a2kg"]
+[ext_resource type="Resource" uid="uid://dap1dlmo6p518" path="res://UI/Fapplets/FappTapper/FappTapper.man.tres" id="3_qo2ra"]
+[ext_resource type="Resource" uid="uid://lokp5018xqam" path="res://UI/Fapplets/Null/Null.man.tres" id="4_hdh12"]
+[ext_resource type="Resource" uid="uid://b5lf78xf27nrm" path="res://UI/Fapplets/Testee/Testee.man.tres" id="5_ls6f8"]
+[ext_resource type="Resource" uid="uid://1bcqdtp47sjk" path="res://UI/Fapplets/DikDok/DikDok.man.tres" id="6_ixeig"]
+[ext_resource type="Texture2D" uid="uid://bdogsrg7q2ri1" path="res://UI/Fapplets/FappTapper/FappTapper.ico.png" id="7_o6sxn"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h3v65"]
 bg_color = Color(0.188235, 0.188235, 0.188235, 1)
@@ -16,16 +20,10 @@ corner_radius_bottom_left = 32
 bg_color = Color(0.0323822, 0.0323822, 0.0323821, 1)
 border_blend = true
 
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_4l2w2"]
-size = Vector2(32, 32)
-
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_mwlws"]
-
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_fae6p"]
-
 [node name="iFad" type="Node2D"]
 script = ExtResource("1_hid1e")
-_PreInstalled = Array[Resource("res://UI/Fapplets/Manifest.gd")]([ExtResource("2_72yl6"), ExtResource("3_3a2kg")])
+_OSMScript = ExtResource("2_n07e3")
+_Bloatware = Array[Resource("res://UI/Fapplets/Manifest.gd")]([ExtResource("4_hdh12"), ExtResource("3_qo2ra"), ExtResource("5_ls6f8"), ExtResource("6_ixeig")])
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -93,12 +91,16 @@ editor_only = false
 [node name="Home" type="TextureButton" parent="CanvasLayer/MarginContainer/PanelContainer/MarginContainer/VBoxContainer/Buttons"]
 unique_name_in_owner = true
 layout_mode = 2
-texture_normal = SubResource("PlaceholderTexture2D_4l2w2")
-texture_pressed = SubResource("PlaceholderTexture2D_mwlws")
-texture_hover = SubResource("PlaceholderTexture2D_fae6p")
+size_flags_horizontal = 6
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource("7_o6sxn")
+stretch_mode = 0
 
 [node name="pad2" type="ReferenceRect" parent="CanvasLayer/MarginContainer/PanelContainer/MarginContainer/VBoxContainer/Buttons"]
 layout_mode = 2
 size_flags_horizontal = 3
 border_color = Color(1, 0, 0, 0)
 editor_only = false
+
+[node name="Speaker" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true

@@ -1,6 +1,5 @@
-@icon("res://UI/Fapplets/FappTapper/Icon.png")
+@icon("res://UI/Fapplets/FappTapper/FappTapper.ico.png")
 class_name Launcher extends Fapplet
 
-## Updates list of known fapplets
-func UpdateFappList(list: Array[OSM.FappInfo]):
+func UpdateFappList():
 	pass
