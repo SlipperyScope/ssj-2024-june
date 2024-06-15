@@ -1,26 +1,44 @@
 @icon("res://UI/Fapps/DikDok/dikdok_logo.png")
 extends Fapp
 
-class Model:
-	var Emojis:Dictionary = {}
-	
-var _CurrentFrame:int = 0
+var _EmojiSets:EmojiSets = ResourceLoader.load("res://UI/Fapps/DikDok/Emojis/EmojiSets.tres")
+@onready var Drawer:DikDok_Drawer = %Drawer
+@onready var EmojiButton:TextureButton = %EmojiButton
+var Buttons:Dictionary
+var Emojis:Dictionary
+var EmojiSet = "default"
+var _CurrentFrame:int = 2
 
 func _ready():
-	%FrameButtons/Button01.pressed.connect(FrameButtonPressed.bind(1))
-	%FrameButtons/Button02.pressed.connect(FrameButtonPressed.bind(2))
-	%FrameButtons/Button03.pressed.connect(FrameButtonPressed.bind(3))
-	%FrameButtons/Button04.pressed.connect(FrameButtonPressed.bind(4))
-	
-	%EmojiButton.toggled.connect(EmojiButtonToggled)
-	%EmojiDrawer.TileSelected.connect(TileSelected)
-	%EmojiDrawer.visible = false
-	
-func TileSelected(index:int):
-	print(index)
+	Buttons = { 1:%FrameButtons/Button01, 2:%FrameButtons/Button02, 3:%FrameButtons/Button03, 4:%FrameButtons/Button04 }
+	for key in Buttons.keys():
+		Buttons[key].pressed.connect(SetFrame.bind(key))
+	%EmojiButton.pressed.connect(EmojiButtonPressed)
+	Drawer.ItemSelected.connect(TileSelected)
+	SetDrawerContent.call_deferred()
 
-func FrameButtonPressed(frame:int):
-	_CurrentFrame = frame
+func SetDrawerContent():
+	Drawer.SetContent(_EmojiSets, EmojiSet, 4)
+	NewDikDok()
+
+func TileSelected(index:int):
+	EmojiButton.texture_normal = _EmojiSets.get_frame_texture(EmojiSet, index)
+	Emojis[_CurrentFrame] = index
 	
-func EmojiButtonToggled(state:bool):
-	%EmojiDrawer.visible = state
+func EmojiButtonPressed():
+	Drawer.visible = !Drawer.visible
+
+func SetFrame(num:int):
+	if (num != _CurrentFrame):
+		Buttons[_CurrentFrame].Selected = false;
+		_CurrentFrame = num
+		TileSelected(Emojis[num])
+		Buttons[_CurrentFrame].Selected = true;
+		Drawer.SelectItem(Emojis[num])
+
+func NewDikDok():
+	Emojis = {1:9,2:9,3:9,4:9}
+	SetFrame(1)
+
+func LoadDikDok(file:DikDok_dd):
+	pass

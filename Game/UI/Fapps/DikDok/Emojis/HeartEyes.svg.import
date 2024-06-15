@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dp2w6f1nv7l3h"
-path="res://.godot/imported/1F975.svg-93a6fa36f539975208e8ca7b38ea31af.ctex"
+uid="uid://4wq4irk6dcrl"
+path="res://.godot/imported/HeartEyes.svg-92449cef7247988e52f134d5246706a8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://UI/Fapps/DikDok/Emojis/1F975.svg"
-dest_files=["res://.godot/imported/1F975.svg-93a6fa36f539975208e8ca7b38ea31af.ctex"]
+source_file="res://UI/Fapps/DikDok/Emojis/HeartEyes.svg"
+dest_files=["res://.godot/imported/HeartEyes.svg-92449cef7247988e52f134d5246706a8.ctex"]
 
 [params]
 

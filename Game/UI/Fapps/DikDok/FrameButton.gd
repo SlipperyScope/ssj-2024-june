@@ -8,6 +8,13 @@ var DownStyle:StyleBoxFlat
 
 var MouseOver:bool
 var MouseDown:bool
+var Selected:bool:
+	set(value):
+		_Selected = value
+		OnOut() if !MouseOver else OnOver()
+	get:
+		return _Selected
+var _Selected:bool = false
 
 func _ready():
 	var style = StyleBoxFlat.new()
@@ -25,12 +32,14 @@ func _ready():
 	style.bg_color = Color.ROYAL_BLUE
 	DownStyle = style
 	
+	OnOut()
+	
 	$TextureButton.mouse_entered.connect(OnOver)
 	$TextureButton.mouse_exited.connect(OnOut)
 	$TextureButton.button_down.connect(OnDown)
 	$TextureButton.button_up.connect(OnUp)
 	$TextureButton.pressed.connect(func():pressed.emit())
-	
+
 func OnOver():
 	MouseOver = true
 	if (!MouseDown):
@@ -39,7 +48,7 @@ func OnOver():
 func OnOut():
 	MouseOver = false
 	if (!MouseDown):
-		add_theme_stylebox_override("panel", UpStyle)
+		add_theme_stylebox_override("panel", UpStyle if !Selected else DownStyle)
 	
 func OnDown():
 	MouseDown = true

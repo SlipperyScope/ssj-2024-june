@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ciiaot5eyo44k"
-path="res://.godot/imported/1F634.svg-645a7bbbbcd252b9746dc392d95b769a.ctex"
+uid="uid://clshp5hxjxwoj"
+path="res://.godot/imported/Melt.svg-aab18dbcd51cc8e997161c0f3a1a2516.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://UI/Fapps/DikDok/Emojis/1F634.svg"
-dest_files=["res://.godot/imported/1F634.svg-645a7bbbbcd252b9746dc392d95b769a.ctex"]
+source_file="res://UI/Fapps/DikDok/Emojis/Melt.svg"
+dest_files=["res://.godot/imported/Melt.svg-aab18dbcd51cc8e997161c0f3a1a2516.ctex"]
 
 [params]
 

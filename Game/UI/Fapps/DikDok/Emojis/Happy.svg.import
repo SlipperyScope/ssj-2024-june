@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dbh4jd81a41pj"
-path="res://.godot/imported/1F929.svg-b48a7b29a4ba37e8a1e434147869beb5.ctex"
+uid="uid://cninxqfcpnbqk"
+path="res://.godot/imported/Happy.svg-69f7d26bc2e5040367abced2e2d26244.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://UI/Fapps/DikDok/Emojis/1F929.svg"
-dest_files=["res://.godot/imported/1F929.svg-b48a7b29a4ba37e8a1e434147869beb5.ctex"]
+source_file="res://UI/Fapps/DikDok/Emojis/Happy.svg"
+dest_files=["res://.godot/imported/Happy.svg-69f7d26bc2e5040367abced2e2d26244.ctex"]
 
 [params]
 

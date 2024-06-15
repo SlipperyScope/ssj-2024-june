@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cdrsxgcahp3aw"
-path="res://.godot/imported/1F602.svg-83cb03609669b07ab081f29ee47be2a0.ctex"
+uid="uid://dj86xto0fjf13"
+path="res://.godot/imported/Hearts.svg-bf3ad8f1e043f61d6971a913fe278737.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://UI/Fapps/DikDok/Emojis/1F602.svg"
-dest_files=["res://.godot/imported/1F602.svg-83cb03609669b07ab081f29ee47be2a0.ctex"]
+source_file="res://UI/Fapps/DikDok/Emojis/Hearts.svg"
+dest_files=["res://.godot/imported/Hearts.svg-bf3ad8f1e043f61d6971a913fe278737.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bgluvlnqyeud0"
-path="res://.godot/imported/1F924.svg-1de16e297296a96bfbe25ac6743aa53a.ctex"
+uid="uid://dhlb7s803fnaf"
+path="res://.godot/imported/Kiss.svg-0b00cd436434b1a7e2e9a87de018eb87.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://UI/Fapps/DikDok/Emojis/1F924.svg"
-dest_files=["res://.godot/imported/1F924.svg-1de16e297296a96bfbe25ac6743aa53a.ctex"]
+source_file="res://UI/Fapps/DikDok/Emojis/Kiss.svg"
+dest_files=["res://.godot/imported/Kiss.svg-0b00cd436434b1a7e2e9a87de018eb87.ctex"]
 
 [params]
 

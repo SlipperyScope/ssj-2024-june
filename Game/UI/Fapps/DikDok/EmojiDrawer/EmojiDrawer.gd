@@ -4,7 +4,7 @@ signal TileSelected(index:int)
 
 var _SetName = "default"
 
-@export var _Sets:EmojiSets
+var _Sets:EmojiSets
 var _Tile = preload("res://UI/Fapps/DikDok/EmojiDrawer/EmojiTile.tscn")
 
 func _ready():
@@ -17,4 +17,3 @@ func _AddTile(index:int):
 	tile.SetTexture(texture)
 	tile.Pressed.connect(func():TileSelected.emit(index))
 	add_child(tile)
-	

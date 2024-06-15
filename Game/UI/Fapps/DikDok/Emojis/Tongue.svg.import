@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://gefdevtkrdlf"
-path="res://.godot/imported/1F643.svg-a4cd34656f04e5db9edcfd10c0b683fc.ctex"
+uid="uid://bsbcoodpir4cv"
+path="res://.godot/imported/Tongue.svg-43c1cd6f0ded8ac4c1ca57157611331a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://UI/Fapps/DikDok/Emojis/1F643.svg"
-dest_files=["res://.godot/imported/1F643.svg-a4cd34656f04e5db9edcfd10c0b683fc.ctex"]
+source_file="res://UI/Fapps/DikDok/Emojis/Tongue.svg"
+dest_files=["res://.godot/imported/Tongue.svg-43c1cd6f0ded8ac4c1ca57157611331a.ctex"]
 
 [params]
 

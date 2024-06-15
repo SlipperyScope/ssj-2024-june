@@ -26,11 +26,12 @@ _OSMScript = ExtResource("2_n07e3")
 _Bloatware = Array[Resource("res://UI/Fapps/Manifest.gd")]([ExtResource("4_hdh12"), ExtResource("3_qo2ra"), ExtResource("5_ls6f8"), ExtResource("6_ixeig")])
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+offset = Vector2(1, 1)
+transform = Transform2D(1, 0, 0, 1, 1, 1)
 
 [node name="MarginContainer" type="MarginContainer" parent="CanvasLayer"]
-offset_right = 480.0
-offset_bottom = 640.0
-metadata/_edit_use_anchors_ = true
+offset_right = 801.0
+offset_bottom = 1080.0
 
 [node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/MarginContainer"]
 layout_mode = 2

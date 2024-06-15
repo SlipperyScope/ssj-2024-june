@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bsbcoodpir4cv"
-path="res://.godot/imported/1F60B.svg-6038e35e380f6819ff9531b3d1bb3ef9.ctex"
+uid="uid://dldkk51oaa1pu"
+path="res://.godot/imported/Thinking.svg-1413930db19c70ef98720a7874e37337.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://UI/Fapps/DikDok/Emojis/1F60B.svg"
-dest_files=["res://.godot/imported/1F60B.svg-6038e35e380f6819ff9531b3d1bb3ef9.ctex"]
+source_file="res://UI/Fapps/DikDok/Emojis/Thinking.svg"
+dest_files=["res://.godot/imported/Thinking.svg-1413930db19c70ef98720a7874e37337.ctex"]
 
 [params]
 

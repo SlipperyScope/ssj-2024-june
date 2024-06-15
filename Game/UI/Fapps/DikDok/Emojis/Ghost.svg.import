@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cninxqfcpnbqk"
-path="res://.godot/imported/1F600.svg-c382213e15f706b8b31f07463b5ae48f.ctex"
+uid="uid://c7q1uuxbso0rs"
+path="res://.godot/imported/Ghost.svg-6a07bfe71755c7b8eaf3cfe6227e2abd.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://UI/Fapps/DikDok/Emojis/1F600.svg"
-dest_files=["res://.godot/imported/1F600.svg-c382213e15f706b8b31f07463b5ae48f.ctex"]
+source_file="res://UI/Fapps/DikDok/Emojis/Ghost.svg"
+dest_files=["res://.godot/imported/Ghost.svg-6a07bfe71755c7b8eaf3cfe6227e2abd.ctex"]
 
 [params]
 

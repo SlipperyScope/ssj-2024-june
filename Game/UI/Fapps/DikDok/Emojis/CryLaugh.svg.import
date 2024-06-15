@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://clshp5hxjxwoj"
-path="res://.godot/imported/1FAE0.svg-5cd5591dd065ad474144798426d619f8.ctex"
+uid="uid://cdrsxgcahp3aw"
+path="res://.godot/imported/CryLaugh.svg-36bb1778a79cb86b541cdb7b39aeacc7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://UI/Fapps/DikDok/Emojis/1FAE0.svg"
-dest_files=["res://.godot/imported/1FAE0.svg-5cd5591dd065ad474144798426d619f8.ctex"]
+source_file="res://UI/Fapps/DikDok/Emojis/CryLaugh.svg"
+dest_files=["res://.godot/imported/CryLaugh.svg-36bb1778a79cb86b541cdb7b39aeacc7.ctex"]
 
 [params]
 

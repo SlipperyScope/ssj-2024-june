@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="DikDok_dd" load_steps=2 format=3 uid="uid://dkq3wn3wyc4k0"]
+
+[ext_resource type="Script" path="res://UI/Fapps/DikDok/DikDok.dd.gd" id="1_s8xqh"]
+
+[resource]
+script = ExtResource("1_s8xqh")
+Name = ""
+SongID = 0
+DanceID = 0
+Emojis = [0, 0, 0, 0]
+Words = [0, 0, 0, 0]
+Plays = 0
+Likes = 0
+Shares = 0
+Date = 0

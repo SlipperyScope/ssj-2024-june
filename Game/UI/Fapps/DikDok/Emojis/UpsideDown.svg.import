@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cdorxxghie0o7"
-path="res://.godot/imported/1F61A.svg-b55cc421762b3853ea6962499eba1ca7.ctex"
+uid="uid://gefdevtkrdlf"
+path="res://.godot/imported/UpsideDown.svg-1df6c1479c410556a91843ff24612eaa.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://UI/Fapps/DikDok/Emojis/1F61A.svg"
-dest_files=["res://.godot/imported/1F61A.svg-b55cc421762b3853ea6962499eba1ca7.ctex"]
+source_file="res://UI/Fapps/DikDok/Emojis/UpsideDown.svg"
+dest_files=["res://.godot/imported/UpsideDown.svg-1df6c1479c410556a91843ff24612eaa.ctex"]
 
 [params]
 

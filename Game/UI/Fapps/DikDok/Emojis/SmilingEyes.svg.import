@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dldkk51oaa1pu"
-path="res://.godot/imported/1F914.svg-50a5c9acaaf5963143c98a22e3cc251a.ctex"
+uid="uid://ogbntnn3aty8"
+path="res://.godot/imported/SmilingEyes.svg-4ed54489b2f516a29f295b5df68f854b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://UI/Fapps/DikDok/Emojis/1F914.svg"
-dest_files=["res://.godot/imported/1F914.svg-50a5c9acaaf5963143c98a22e3cc251a.ctex"]
+source_file="res://UI/Fapps/DikDok/Emojis/SmilingEyes.svg"
+dest_files=["res://.godot/imported/SmilingEyes.svg-4ed54489b2f516a29f295b5df68f854b.ctex"]
 
 [params]
 
@@ -32,6 +32,6 @@ process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=1
-svg/scale=1.0
+svg/scale=2.0
 editor/scale_with_editor_scale=false
 editor/convert_colors_with_editor_theme=false

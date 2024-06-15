@@ -1,32 +1,26 @@
-[gd_scene load_steps=11 format=3 uid="uid://bwtx4th0g52c6"]
+[gd_scene load_steps=10 format=3 uid="uid://bwtx4th0g52c6"]
 
 [ext_resource type="Script" path="res://UI/Fapps/DikDok/DikDok.gd" id="1_dyqcs"]
-[ext_resource type="Texture2D" uid="uid://c4r6mfybacvqd" path="res://UI/Fapps/DikDok/emoji_button.png" id="2_lg2is"]
+[ext_resource type="Texture2D" uid="uid://ogbntnn3aty8" path="res://UI/Fapps/DikDok/Emojis/SmilingEyes.svg" id="2_1uals"]
 [ext_resource type="PackedScene" uid="uid://dblej5uujs5ew" path="res://UI/Fapps/DikDok/FrameButton.tscn" id="3_5243d"]
-[ext_resource type="PackedScene" uid="uid://o34lef3pn8v0" path="res://UI/Fapps/DikDok/EmojiDrawer/EmojiDrawer.tscn" id="3_wqc26"]
-[ext_resource type="SpriteFrames" uid="uid://cv35wo80msb55" path="res://UI/Fapps/DikDok/Emojis/EmojiSets.tres" id="4_42xc3"]
+[ext_resource type="Texture2D" uid="uid://cdorxxghie0o7" path="res://UI/Fapps/DikDok/Emojis/KissEyesClosed.svg" id="3_yvrgp"]
+[ext_resource type="Texture2D" uid="uid://dhlb7s803fnaf" path="res://UI/Fapps/DikDok/Emojis/Kiss.svg" id="4_a30li"]
+[ext_resource type="PackedScene" uid="uid://dsx1mbjskpy7u" path="res://UI/Fapps/DikDok/Drawer.tscn" id="4_qvnp8"]
+[ext_resource type="Texture2D" uid="uid://c7q1uuxbso0rs" path="res://UI/Fapps/DikDok/Emojis/Ghost.svg" id="5_0kaa8"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e5480"]
+bg_color = Color(0.941176, 0.941176, 0.941176, 1)
 corner_radius_top_left = 4
 corner_radius_top_right = 4
 corner_radius_bottom_right = 4
 corner_radius_bottom_left = 4
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_anf6y"]
-atlas = ExtResource("2_lg2is")
-region = Rect2(0, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_8jxox"]
-atlas = ExtResource("2_lg2is")
-region = Rect2(128, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_vv6nu"]
-atlas = ExtResource("2_lg2is")
-region = Rect2(64, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_vp2cv"]
-atlas = ExtResource("2_lg2is")
-region = Rect2(256, 0, 64, 64)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wfn4e"]
+bg_color = Color(0.941176, 0.941176, 0.666667, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
 
 [node name="DikDok" type="PanelContainer"]
 offset_right = 440.0
@@ -35,66 +29,84 @@ script = ExtResource("1_dyqcs")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 2
-theme_override_constants/margin_left = 8
-theme_override_constants/margin_top = 8
-theme_override_constants/margin_right = 8
-theme_override_constants/margin_bottom = 8
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
-layout_mode = 2
-theme_override_constants/separation = 8
-
-[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/VBoxContainer"]
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_e5480")
 
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/PanelContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer"]
 layout_mode = 2
+
+[node name="MarginContainer2" type="MarginContainer" parent="MarginContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
 theme_override_constants/margin_left = 16
 theme_override_constants/margin_top = 16
 theme_override_constants/margin_right = 16
 theme_override_constants/margin_bottom = 16
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/PanelContainer/MarginContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/PanelContainer/VBoxContainer/MarginContainer2"]
 layout_mode = 2
 theme_override_constants/separation = 16
 
-[node name="VFlowContainer" type="VFlowContainer" parent="MarginContainer/VBoxContainer/PanelContainer/MarginContainer/HBoxContainer"]
-layout_mode = 2
-
-[node name="EmojiButton" type="TextureButton" parent="MarginContainer/VBoxContainer/PanelContainer/MarginContainer/HBoxContainer/VFlowContainer"]
-unique_name_in_owner = true
-layout_mode = 2
-toggle_mode = true
-keep_pressed_outside = true
-texture_normal = SubResource("AtlasTexture_anf6y")
-texture_pressed = SubResource("AtlasTexture_8jxox")
-texture_hover = SubResource("AtlasTexture_vv6nu")
-texture_disabled = SubResource("AtlasTexture_vp2cv")
-
-[node name="EmojiDrawer" parent="MarginContainer/VBoxContainer/PanelContainer/MarginContainer/HBoxContainer" instance=ExtResource("3_wqc26")]
-unique_name_in_owner = true
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer/VBoxContainer/MarginContainer2/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-_Sets = ExtResource("4_42xc3")
+size_flags_stretch_ratio = 0.2
 
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer"]
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="MarginContainer/PanelContainer/VBoxContainer/MarginContainer2/HBoxContainer/VBoxContainer"]
 layout_mode = 2
+size_flags_vertical = 3
+alignment_vertical = 0
 
-[node name="FrameButtons" type="HBoxContainer" parent="MarginContainer/VBoxContainer/MarginContainer"]
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/PanelContainer/VBoxContainer/MarginContainer2/HBoxContainer/VBoxContainer/AspectRatioContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_wfn4e")
+
+[node name="EmojiButton" type="TextureButton" parent="MarginContainer/PanelContainer/VBoxContainer/MarginContainer2/HBoxContainer/VBoxContainer/AspectRatioContainer/PanelContainer"]
 unique_name_in_owner = true
 layout_mode = 2
-theme_override_constants/separation = 9
+keep_pressed_outside = true
+texture_normal = ExtResource("2_1uals")
+texture_pressed = ExtResource("3_yvrgp")
+texture_hover = ExtResource("4_a30li")
+texture_disabled = ExtResource("5_0kaa8")
+ignore_texture_size = true
+stretch_mode = 0
 
-[node name="Button01" parent="MarginContainer/VBoxContainer/MarginContainer/FrameButtons" instance=ExtResource("3_5243d")]
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/PanelContainer/VBoxContainer/MarginContainer2/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.8
+
+[node name="Drawer" parent="MarginContainer/PanelContainer/VBoxContainer/MarginContainer2/HBoxContainer/MarginContainer" instance=ExtResource("4_qvnp8")]
+unique_name_in_owner = true
+visible = false
 layout_mode = 2
 
-[node name="Button02" parent="MarginContainer/VBoxContainer/MarginContainer/FrameButtons" instance=ExtResource("3_5243d")]
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/PanelContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 24)
+layout_mode = 2
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 32
+
+[node name="FrameButtons" type="HBoxContainer" parent="MarginContainer/PanelContainer/VBoxContainer/MarginContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+theme_override_constants/separation = 32
+
+[node name="Button01" parent="MarginContainer/PanelContainer/VBoxContainer/MarginContainer/FrameButtons" instance=ExtResource("3_5243d")]
 layout_mode = 2
 
-[node name="Button03" parent="MarginContainer/VBoxContainer/MarginContainer/FrameButtons" instance=ExtResource("3_5243d")]
+[node name="Button02" parent="MarginContainer/PanelContainer/VBoxContainer/MarginContainer/FrameButtons" instance=ExtResource("3_5243d")]
 layout_mode = 2
 
-[node name="Button04" parent="MarginContainer/VBoxContainer/MarginContainer/FrameButtons" instance=ExtResource("3_5243d")]
+[node name="Button03" parent="MarginContainer/PanelContainer/VBoxContainer/MarginContainer/FrameButtons" instance=ExtResource("3_5243d")]
+layout_mode = 2
+
+[node name="Button04" parent="MarginContainer/PanelContainer/VBoxContainer/MarginContainer/FrameButtons" instance=ExtResource("3_5243d")]
 layout_mode = 2
