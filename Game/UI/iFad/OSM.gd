@@ -1,6 +1,8 @@
 @icon("res://UI/iFad/OSM.ico.png")
 class_name OSM extends Node
 
+var OS_Graphics:SpriteFrames = ResourceLoader.load("res://UI/iFad/Graphics/Graphics.tres")
+
 signal FappListUpdated()
 func OnFappListUpdated():
 	FappListUpdated.emit()
@@ -28,6 +30,9 @@ enum Msg {
 	Minimize,
 	Maximize
 }
+
+class MsgData:
+	pass
 
 enum FappType {
 	Fapplet,
@@ -60,7 +65,7 @@ func Install(fapp:Manifest):
 	elif fapp.Type == FappType.Fapplet:
 		OnFappListUpdated.call_deferred()
 	var instance = fapp.Scene.instantiate() as Fapp
-	instance.OSM = self
+	instance._OSM = self
 	info.Instance = instance
 	instance.visible = false
 	_Screen.add_child(instance)

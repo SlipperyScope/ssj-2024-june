@@ -1,0 +1,27 @@
+[gd_resource type="Theme" load_steps=8 format=3 uid="uid://dmj0xiue1ump0"]
+
+[ext_resource type="StyleBox" uid="uid://bri5i13g0654o" path="res://UI/iFad/Theme/StyleBox_BGDark.tres" id="1_5f6ln"]
+[ext_resource type="StyleBox" uid="uid://k6exxh1bg62o" path="res://UI/iFad/Theme/StyleBox_BGPale.tres" id="2_iexko"]
+[ext_resource type="StyleBox" uid="uid://drh14xuit2oi0" path="res://UI/iFad/Theme/StyleBox_BGLight.tres" id="2_veilv"]
+[ext_resource type="StyleBox" uid="uid://gw3wdclji6ma" path="res://UI/iFad/Theme/StyleBox_BGMedium.tres" id="3_g5lrs"]
+[ext_resource type="StyleBox" uid="uid://bu7ufsn6q4sxk" path="res://UI/iFad/Theme/StyleBox_ButtonOver.tres" id="4_5ejpe"]
+[ext_resource type="StyleBox" uid="uid://kqi640c42hkt" path="res://UI/iFad/Theme/StyleBox_ButtonDown.tres" id="4_tjqoy"]
+[ext_resource type="StyleBox" uid="uid://kbank4rglaem" path="res://UI/iFad/Theme/StyleBox_ButtonUp.tres" id="5_dtapd"]
+
+[resource]
+Dark/base_type = &"PanelContainer"
+Dark/styles/panel = ExtResource("1_5f6ln")
+Down/base_type = &"PanelContainer"
+Down/styles/panel = ExtResource("4_tjqoy")
+Light/base_type = &"PanelContainer"
+Light/styles/panel = ExtResource("2_veilv")
+Medium/base_type = &"PanelContainer"
+Medium/styles/panel = ExtResource("3_g5lrs")
+Over/base_type = &"PanelContainer"
+Over/styles/panel = ExtResource("4_5ejpe")
+Pale/base_type = &"PanelContainer"
+Pale/styles/panel = ExtResource("2_iexko")
+Panel/styles/panel = ExtResource("5_dtapd")
+PanelContainer/styles/panel = ExtResource("2_iexko")
+Up/base_type = &"PanelContainer"
+Up/styles/panel = ExtResource("5_dtapd")

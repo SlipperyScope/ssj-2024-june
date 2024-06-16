@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://b5dbljdhl2t71"]
+[gd_scene load_steps=12 format=3 uid="uid://b5dbljdhl2t71"]
 
 [ext_resource type="Script" path="res://UI/iFad/iFad.gd" id="1_hid1e"]
 [ext_resource type="Script" path="res://UI/iFad/OSM.gd" id="2_n07e3"]
@@ -7,6 +7,7 @@
 [ext_resource type="Resource" uid="uid://lokp5018xqam" path="res://UI/Fapps/Null/Null.man.tres" id="4_hdh12"]
 [ext_resource type="Resource" uid="uid://b5lf78xf27nrm" path="res://UI/Fapps/Testee/Testee.man.tres" id="5_ls6f8"]
 [ext_resource type="Resource" uid="uid://1bcqdtp47sjk" path="res://UI/Fapps/DikDok/DikDok.man.tres" id="6_ixeig"]
+[ext_resource type="Theme" uid="uid://dmj0xiue1ump0" path="res://UI/iFad/Theme/Default.tres" id="7_4uejr"]
 [ext_resource type="Texture2D" uid="uid://bdogsrg7q2ri1" path="res://UI/Fapps/FappTapper/FappTapper.ico.png" id="7_o6sxn"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h3v65"]
@@ -30,8 +31,9 @@ offset = Vector2(1, 1)
 transform = Transform2D(1, 0, 0, 1, 1, 1)
 
 [node name="MarginContainer" type="MarginContainer" parent="CanvasLayer"]
-offset_right = 801.0
+offset_right = 768.0
 offset_bottom = 1080.0
+theme = ExtResource("7_4uejr")
 
 [node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/MarginContainer"]
 layout_mode = 2

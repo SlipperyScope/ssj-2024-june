@@ -31,8 +31,8 @@ corner_radius_bottom_right = 4
 corner_radius_bottom_left = 4
 
 [node name="DrawerItem" type="MarginContainer"]
-offset_right = 16.0
-offset_bottom = 16.0
+offset_right = 86.49
+offset_bottom = 110.735
 size_flags_horizontal = 3
 script = ExtResource("1_u3kb1")
 

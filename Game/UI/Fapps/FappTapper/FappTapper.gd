@@ -5,16 +5,13 @@ var _Tile = preload("res://UI/Fapps/FappTapper/Tile.tscn")
 var _Tiles:Dictionary = {}
 var _Fapplets:Dictionary
 
-func Notify(message: OSM.Msg):
-	pass
-
 func _ready():
-	var fapplets = OSM.GetFapplets()
-	OSM.FappListUpdated.connect(UpdateFappList)
+	var fapplets = _OSM.GetFapplets()
+	_OSM.FappListUpdated.connect(UpdateFappList)
 
 func UpdateFappList():
 	var old = _Fapplets
-	var new = OSM.GetFapplets()
+	var new = _OSM.GetFapplets()
 	_Fapplets = new
 	for key in old.keys():
 		if !new.has(key):
@@ -33,4 +30,4 @@ func _AddTile(id:int):
 		%Tiles.add_child(newTile)
 
 func OnTilePress(id:int):
-	OSM._Display(id)
+	_OSM._Display(id)

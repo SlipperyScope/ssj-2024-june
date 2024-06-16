@@ -24,6 +24,7 @@ window/stretch/mode="viewport"
 [file_customization]
 
 folder_colors={
+"res://UI/Elements/": "yellow",
 "res://UI/Fapps/": "green",
 "res://UI/iFad/": "teal"
 }

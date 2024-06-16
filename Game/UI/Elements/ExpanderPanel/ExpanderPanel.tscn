@@ -1,0 +1,54 @@
+[gd_scene load_steps=3 format=3 uid="uid://csorhxine38d8"]
+
+[ext_resource type="Script" path="res://UI/Elements/ExpanderPanel/ExpanderPanel.gd" id="1_7tyl3"]
+[ext_resource type="PackedScene" uid="uid://ctbprfe1t36df" path="res://UI/Elements/PanelButton/PanelButton.tscn" id="3_tcmeo"]
+
+[node name="ExpanderPanel" type="MarginContainer"]
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 808.0
+grow_horizontal = 2
+script = ExtResource("1_7tyl3")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 2
+theme_type_variation = &"Light"
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="Vertical" type="HBoxContainer" parent="PanelContainer/MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Clicker" parent="PanelContainer/MarginContainer/Vertical" instance=ExtResource("3_tcmeo")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(4, 4)
+layout_mode = 2
+size_flags_vertical = 1
+toggle_mode = true
+
+[node name="ContentPanel" type="PanelContainer" parent="PanelContainer/MarginContainer/Vertical"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"Dark"
+
+[node name="Content" type="MarginContainer" parent="PanelContainer/MarginContainer/Vertical/ContentPanel"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="Horizontal" type="VBoxContainer" parent="PanelContainer/MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = 8
