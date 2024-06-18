@@ -17,7 +17,6 @@ func Recipe(pattern: String):
             return
         return [res.get_string(1), int(res.get_string(2)), int(res.get_string(3))]
     var ingredients = Array(tokens.slice(1)).map(lamb)
-    print(ingredients)
     if self.Nodes.has(pattern):
         print("There's already a %s recipe" % name)
         return
@@ -32,7 +31,7 @@ func Recipe(pattern: String):
     # Point ingredients at the recipe
     for i in ingredients:
         node.AddDep(
-            self.FindOrMake(i[0], EconNode.NodeType.Resource), 
+            self.FindOrMake(i[0], EconNode.NodeType.Resource),
             i[1] if i[2] - i[1] == 0 else randi() % (i[2] - i[1]) + i[1]
         )
 
