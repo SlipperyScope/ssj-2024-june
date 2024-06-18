@@ -55,7 +55,6 @@ func RawCost():
         var el = queue.pop_front()
         var w = el[0]
         var n = el[1]
-        print("%s of %s" % [w, n.ID])
         if n.Type == NodeType.Recipe:
             for i in n.From.keys():
                 queue.push_back([w*n.From[i], i])

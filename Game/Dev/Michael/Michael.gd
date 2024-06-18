@@ -1,21 +1,21 @@
 extends Node2D
 
+var AllDistricts = null
+
+func _init():
+	AllDistricts = {
+		"Business": District.new("Busy-ness"),
+		"RichPeople": District.new("Pearl Clutchers"),
+		"Arts": District.new("Artsy Farts"),
+		"Industrial": District.new("Industrialites"),
+		"Burbs": District.new("Burbs"),
+		"Farm": District.new("Cropolis"),
+	}
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	var graph = Graph.new()
-	graph.Element('Water')
-	graph.Element('Rock')
-	graph.Element('Plant')
-	graph.Element('Wood')
-	graph.Element('Animal')
-	graph.Element('Plastic')
-	graph.Element('Circuit')
-	graph.Recipe("Chair: Wood[2-10] Plastic[1-5]")
-	graph.Recipe("SportsDrink: Water[5-10] Rock[1-2]")
-	graph.Recipe("Table: Chair[1-2]")
-	graph.Recipe("Bed: Chair[2-2] Rock[2-2]")
-	graph.RawCost('Bed')
+	for dist in AllDistricts.values():
+		dist.Econ.RawCost('Bed')
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
