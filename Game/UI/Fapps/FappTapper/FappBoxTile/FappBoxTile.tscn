@@ -1,0 +1,50 @@
+[gd_scene load_steps=10 format=3 uid="uid://bdmikqc5gtrh"]
+
+[ext_resource type="PackedScene" uid="uid://bt5h3rrlkv63t" path="res://UI/Elements/NineButton/NineButton.tscn" id="1_gf5qp"]
+[ext_resource type="Script" path="res://UI/Fapps/FappTapper/FappBoxTile/FappBoxTile.gd" id="1_pbg1p"]
+[ext_resource type="Texture2D" uid="uid://txntk02c2f2l" path="res://UI/Fapps/FappTapper/GFX.png" id="2_t0mf7"]
+[ext_resource type="Script" path="res://UI/Elements/ButtonTextureSet.gd" id="3_2tybo"]
+[ext_resource type="Texture2D" uid="uid://cnrdy825v12nm" path="res://UI/Fapps/FappTapper/FappBoxTile/GreenHighlight.tres" id="4_kqy1e"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ig6q3"]
+
+[sub_resource type="Resource" id="Resource_w1jd4"]
+script = ExtResource("3_2tybo")
+Over = ExtResource("4_kqy1e")
+Down = ExtResource("4_kqy1e")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3k2n5"]
+atlas = ExtResource("2_t0mf7")
+region = Rect2(352, 160, 32, 32)
+
+[sub_resource type="Resource" id="Resource_i8o56"]
+script = ExtResource("3_2tybo")
+Up = SubResource("AtlasTexture_3k2n5")
+Over = SubResource("AtlasTexture_3k2n5")
+Down = SubResource("AtlasTexture_3k2n5")
+
+[node name="FappTile" type="PanelContainer"]
+offset_right = 10.0
+offset_bottom = 15.0
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxEmpty_ig6q3")
+script = ExtResource("1_pbg1p")
+_ButtonPath = NodePath("VBoxContainer/NineButton")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="NineButton" parent="VBoxContainer" instance=ExtResource("1_gf5qp")]
+unique_name_in_owner = true
+layout_mode = 2
+ContentMargin = 8
+ForegroundUnselected = SubResource("Resource_w1jd4")
+BackgroundUnselected = SubResource("Resource_i8o56")
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Tile Name"
+horizontal_alignment = 1
+autowrap_mode = 2
+clip_text = true

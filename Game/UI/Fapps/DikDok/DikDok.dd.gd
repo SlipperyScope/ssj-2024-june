@@ -1,11 +1,13 @@
 class_name DikDok_dd extends Resource
 
-@export var Name:String = ""
-@export var SongID:int = 0
+@export var Name:String
+@export var SongID:int
 @export var Dances:Array[int]
-@export var Emojis:Array[int] = [0,0,0,0]
-@export var Words:Array[int] = [0,0,0,0]
-@export var Plays:int = 0
-@export var Likes:int = 0
-@export var Shares:int = 0
-@export var Date:int = 0
+@export var Emojis:Array[int]
+@export var Words:Array[int]
+@export var Plays:int
+@export var Likes:int
+@export var Shares:int
+@export var Date:int
+@export var FrameCount:int
+@export var BPM:float

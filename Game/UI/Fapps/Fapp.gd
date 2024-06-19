@@ -1,8 +1,16 @@
-@icon("res://UI/iFad/R.png")
 class_name Fapp extends PanelContainer
 
-var _OSM:OSM
+signal PushInterrupt(sender:Fapp, i:Interrupt)
 
-## Handle OSM messages, or don't
-func Notify(message: OSM.Msg, data:OSM.MsgData):
+enum Type {
+	Fapplet,
+	Launcher,
+	Widget
+}
+
+var _Data:FappData
+
+func GetID():return _Data.ID
+
+func Notify(message:Notification):
 	pass

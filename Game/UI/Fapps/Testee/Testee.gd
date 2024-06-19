@@ -1,6 +1,5 @@
 extends Fapp
 
-	
 func _ready():
 	%Gumbk.mouse_entered.connect(_PlayOver)
 	%Gumbk.mouse_exited.connect(_StopSounds)
@@ -17,3 +16,8 @@ func _PlayOver():
 func _PlayDown():
 	_StopSounds()
 	$Down.play()
+
+func Notify(what:Notification):
+	match what:
+		Notification.NID.Init:
+			PushInterrupt.emit(self, Interrupt.new(Interrupt.IID.FappOut, [Screen]))

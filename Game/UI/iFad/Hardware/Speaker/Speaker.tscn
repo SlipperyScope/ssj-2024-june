@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://c0ovp5vuiojy"]
+
+[ext_resource type="Script" path="res://UI/iFad/Hardware/Speaker/Speaker.gd" id="1_47m2f"]
+
+[node name="Speaker" type="Node"]
+script = ExtResource("1_47m2f")

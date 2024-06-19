@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" path="res://UI/Fapps/Testee/Testee.gd" id="1_52r4h"]
 [ext_resource type="Texture2D" uid="uid://c3xbs68d6h0ev" path="res://UI/Fapps/Testee/gumbk.png" id="2_bovv6"]
-[ext_resource type="AudioStream" uid="uid://bt68wx01olflm" path="res://UI/Fapps/Testee/Over.wav" id="3_i5y37"]
-[ext_resource type="AudioStream" uid="uid://bh51gulx4ifnd" path="res://UI/Fapps/Testee/Down.mp3" id="4_65hd0"]
+[ext_resource type="AudioStream" uid="uid://bt68wx01olflm" path="res://UI/iFad/Audio/Misc/Inhale.wav" id="3_i5y37"]
+[ext_resource type="AudioStream" uid="uid://bh51gulx4ifnd" path="res://UI/iFad/Audio/Sus/Not_Horn.mp3" id="4_65hd0"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yas0t"]
 bg_color = Color(0.12549, 0.12549, 0.12549, 1)

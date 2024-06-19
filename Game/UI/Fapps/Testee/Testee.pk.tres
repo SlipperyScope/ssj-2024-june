@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="Package" load_steps=6 format=3 uid="uid://dwkx2wbjw1oqx"]
+
+[ext_resource type="Script" path="res://UI/Fapps/Package.gd" id="1_6kw5w"]
+[ext_resource type="Script" path="res://UI/Fapps/FappTapper/GFX.gd" id="1_pdmjx"]
+[ext_resource type="Texture2D" uid="uid://bmrqtgtviqkou" path="res://UI/Fapps/Testee/icon.tres" id="2_eb0ew"]
+[ext_resource type="PackedScene" uid="uid://n74o5heji8cs" path="res://UI/Fapps/Testee/Testee.tscn" id="3_4y1v5"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rhgc6"]
+script = ExtResource("1_pdmjx")
+
+[resource]
+script = ExtResource("1_6kw5w")
+Name = "Testee"
+Icon = ExtResource("2_eb0ew")
+Scene = ExtResource("3_4y1v5")
+Type = 0
+Graphics = SubResource("SpriteFrames_rhgc6")
+Widgets = Array[ExtResource("1_6kw5w")]([])

@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="AudioData" load_steps=3 format=3 uid="uid://do8wwmsmuwugk"]
+
+[ext_resource type="AudioStream" uid="uid://y4qk4yhlghy4" path="res://UI/iFad/Audio/UI/Bump01.wav" id="1_fvx1b"]
+[ext_resource type="Script" path="res://UI/iFad/Audio/AudioData.gd" id="2_4kyj2"]
+
+[resource]
+script = ExtResource("2_4kyj2")
+Stream = ExtResource("1_fvx1b")
+Name = ""
+PitchVariation = false

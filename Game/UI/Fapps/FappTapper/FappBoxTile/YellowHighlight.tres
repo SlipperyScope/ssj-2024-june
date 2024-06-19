@@ -1,0 +1,7 @@
+[gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://cnnpxkil7pc7"]
+
+[ext_resource type="Texture2D" uid="uid://txntk02c2f2l" path="res://UI/Fapps/FappTapper/GFX.png" id="1_neinj"]
+
+[resource]
+atlas = ExtResource("1_neinj")
+region = Rect2(448, 128, 32, 32)

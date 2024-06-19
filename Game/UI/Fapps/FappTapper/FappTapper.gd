@@ -1,33 +1,41 @@
-extends Fapp
+class_name FappTapper extends Fapp
 
-var _Tile = preload("res://UI/Fapps/FappTapper/Tile.tscn")
+func _GetFappList(resultCallback): PushInterrupt.emit(self, Interrupt.new(Interrupt.IID.GetFappList, [resultCallback]))
+func _GetFappInfo(resultCallback, id): PushInterrupt.emit(self, Interrupt.new(Interrupt.IID.GetFappInfo, [resultCallback, id]))
+func _LaunchFapp(resultCallback, id): PushInterrupt.emit(self, Interrupt.new(Interrupt.IID.LaunchFapp, [resultCallback, id]))
 
-var _Tiles:Dictionary = {}
-var _Fapplets:Dictionary
+@export var test:int
+@onready var _FappGrid:GridSelector = %FappGrid
+var _Fapps:Array
+var _Screen:Control
+
+func Notify(message:Notification):
+	if (message.ID == message.NID.Init): _Initialize()
+
+func _Initialize():
+	_GetFappList(_AddFapps)
+
+func _AddFapps(list:Array):
+	for i in list:
+		_GetFappInfo(func(name, icon):_Fapps.append(_FappInfo.new(i,name,icon)), i)
 
 func _ready():
-	var fapplets = _OSM.GetFapplets()
-	_OSM.FappListUpdated.connect(UpdateFappList)
+	var icons = _Fapps.map(func(f):return f.Icon)
+	for icon in icons: _FappGrid.AddButton().Graphic = icon
+	_FappGrid.Selection.connect(_SelectFapp)
 
-func UpdateFappList():
-	var old = _Fapplets
-	var new = _OSM.GetFapplets()
-	_Fapplets = new
-	for key in old.keys():
-		if !new.has(key):
-			_Tiles[key].queue_free()
-			_Tiles.erase(key)
-	for key in new.keys():
-		if !old.has(key):
-			_AddTile(key)
-	
-func _AddTile(id:int):
-		var manifest:Manifest = _Fapplets[id].Manifest
-		var newTile: TextureButton = _Tile.instantiate()
-		newTile.texture_normal = manifest.FappIcon
-		_Tiles[id] = newTile
-		newTile.pressed.connect(OnTilePress.bind(id))
-		%Tiles.add_child(newTile)
+func _SelectFapp(index):
+	_LaunchFapp(func(success): if !success: _LaunchFailed.call(), _Fapps[index].ID)
 
-func OnTilePress(id:int):
-	_OSM._Display(id)
+func _LaunchFailed():
+	print("launch failed")
+	pass
+
+class _FappInfo:
+	var ID
+	var Name
+	var Icon
+	func _init(id,name,icon):
+		ID = id
+		Name = name
+		Icon = icon

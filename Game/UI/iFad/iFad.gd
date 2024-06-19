@@ -1,19 +1,12 @@
-@icon("res://UI/iFad/R.png")
-extends Node
+extends Node2D
 
 @export var _OSMScript:GDScript
-@export var _Bloatware:Array[Manifest]
+@export var _Bloatware:Array[Package]
+@onready var _Devices = {Screen:%Screen,HomeButton:%HomeButton}
 
 var _OSM:OSM
 
 func _ready():
-	_OSM = _OSMScript.new()
-	_OSM.RegisterDevices(%Screen, %Speaker)
-	add_child(_OSM)
-	for fapplet in _Bloatware:
-		_OSM.Install(fapplet)
-	OnHomePress.call_deferred()
-	%Home.pressed.connect(OnHomePress)
-
-func OnHomePress():
-	_OSM.PushInterrupt(OSM.Interrupt.Home)
+		_OSM = _OSMScript.new(_Devices)
+		
+		for fapp in _Bloatware: _OSM.Install(fapp)

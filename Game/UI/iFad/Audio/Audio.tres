@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="AUX" load_steps=6 format=3 uid="uid://gd0t7lfa2wny"]
+
+[ext_resource type="Resource" uid="uid://do8wwmsmuwugk" path="res://UI/iFad/Audio/UI/UI_Bump01.tres" id="1_csbxm"]
+[ext_resource type="Script" path="res://UI/iFad/Audio/Audio.gd" id="1_rxwog"]
+[ext_resource type="Resource" uid="uid://c02bdu2jj5xsm" path="res://UI/iFad/Audio/UI/UI_Bump02.tres" id="2_kvvpx"]
+[ext_resource type="Resource" uid="uid://bi28dx7piwgx0" path="res://UI/iFad/Audio/UI/UI_Bump03.tres" id="3_ti5m2"]
+[ext_resource type="Resource" uid="uid://ccwp4s4estq54" path="res://UI/iFad/Audio/UI/UI_Bump04.tres" id="4_vlxx5"]
+
+[resource]
+script = ExtResource("1_rxwog")
+_UI = Array[Resource("res://UI/iFad/Audio/AudioData.gd")]([ExtResource("1_csbxm"), ExtResource("2_kvvpx"), ExtResource("3_ti5m2"), ExtResource("4_vlxx5")])
+_Music = Array[Resource("res://UI/iFad/Audio/Music/MusicData.gd")]([])
+_Speech = Array[Resource("res://UI/iFad/Audio/Speech/SpeechData.gd")]([])
+_Misc = Array[Resource("res://UI/iFad/Audio/AudioData.gd")]([])
+_Sus = Array[Resource("res://UI/iFad/Audio/AudioData.gd")]([])

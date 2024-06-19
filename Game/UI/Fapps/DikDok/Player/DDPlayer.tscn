@@ -1,0 +1,78 @@
+[gd_scene load_steps=5 format=3 uid="uid://p5ckx62pxpen"]
+
+[ext_resource type="Script" path="res://UI/Fapps/DikDok/Player/DDPlayer.gd" id="1_1d6w7"]
+[ext_resource type="Texture2D" uid="uid://ciyyx14ek7rbi" path="res://UI/iFad/Graphics/Icons.png" id="2_thttm"]
+[ext_resource type="PackedScene" uid="uid://dhcu7xyqlq6ru" path="res://UI/Elements/Timeline/Timeline.tscn" id="3_wrsi5"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yjpe0"]
+atlas = ExtResource("2_thttm")
+region = Rect2(0, 192, 64, 64)
+
+[node name="DDPlayer" type="MarginContainer"]
+offset_right = 672.0
+offset_bottom = 963.0
+script = ExtResource("1_1d6w7")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="Renderer" type="MarginContainer" parent="VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 16.0
+
+[node name="Dance" type="TextureRect" parent="VBoxContainer/Renderer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 10.0
+texture = SubResource("AtlasTexture_yjpe0")
+expand_mode = 4
+stretch_mode = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/Renderer"]
+layout_mode = 2
+
+[node name="ReferenceRect" type="ReferenceRect" parent="VBoxContainer/Renderer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+border_color = Color(1, 0, 0, 0)
+editor_only = false
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/Renderer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 3.0
+
+[node name="ReferenceRect3" type="ReferenceRect" parent="VBoxContainer/Renderer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+border_color = Color(1, 0, 0, 0)
+editor_only = false
+
+[node name="Emoji" type="TextureRect" parent="VBoxContainer/Renderer/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 3.0
+
+[node name="ReferenceRect4" type="ReferenceRect" parent="VBoxContainer/Renderer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 7.0
+border_color = Color(1, 0, 0, 0)
+editor_only = false
+
+[node name="ReferenceRect2" type="ReferenceRect" parent="VBoxContainer/Renderer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 7.0
+border_color = Color(1, 0, 0, 0)
+editor_only = false
+
+[node name="Timeline" parent="VBoxContainer" instance=ExtResource("3_wrsi5")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+_Padding = 8

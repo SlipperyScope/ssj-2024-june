@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://cptaycofwa1ln" path="res://UI/Fapps/Null/Null.tscn" id="1_pnt3s"]
 [ext_resource type="Texture2D" uid="uid://c4n8gfi8pcese" path="res://UI/Fapps/Null/Null.ico.png" id="1_qmfmm"]
-[ext_resource type="Script" path="res://UI/Fapps/Manifest.gd" id="2_e3jik"]
+[ext_resource type="Script" path="res://UI/iFad/Manifest.gd" id="2_e3jik"]
 
 [resource]
 script = ExtResource("2_e3jik")

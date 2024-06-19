@@ -1,0 +1,53 @@
+[gd_scene load_steps=7 format=3 uid="uid://bt5h3rrlkv63t"]
+
+[ext_resource type="Script" path="res://UI/Elements/NineButton/NineButton.gd" id="1_sax5o"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ehhfs"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ly77h"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_i6lqt"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_25p68"]
+region = Rect2(0, 0, 1, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cvnve"]
+region = Rect2(0, 0, 10, 10)
+
+[node name="NineButton" type="PanelContainer"]
+offset_right = 16.0
+offset_bottom = 16.0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_ehhfs")
+script = ExtResource("1_sax5o")
+_ButtonPath = NodePath("Clickable")
+
+[node name="Background" type="Panel" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_ly77h")
+
+[node name="Content" type="MarginContainer" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+mouse_filter = 2
+
+[node name="Foreground" type="Panel" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_i6lqt")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+texture = SubResource("AtlasTexture_25p68")
+expand_mode = 4
+stretch_mode = 4
+
+[node name="Clickable" type="TextureButton" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+toggle_mode = true
+texture_normal = SubResource("AtlasTexture_cvnve")
+stretch_mode = 0

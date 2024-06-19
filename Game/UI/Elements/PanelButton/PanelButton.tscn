@@ -7,9 +7,6 @@ custom_minimum_size = Vector2(32, 32)
 size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource("1_yok1m")
-UpVariant = "Up"
-DownVariant = "Down"
-OverVariant = "Over"
 
 [node name="Padding" type="MarginContainer" parent="."]
 unique_name_in_owner = true

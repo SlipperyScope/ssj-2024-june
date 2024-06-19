@@ -1,0 +1,76 @@
+[gd_scene load_steps=8 format=3 uid="uid://dhcu7xyqlq6ru"]
+
+[ext_resource type="Script" path="res://UI/Elements/Timeline/Timeline.gd" id="1_1abbg"]
+[ext_resource type="Texture2D" uid="uid://ciyyx14ek7rbi" path="res://UI/iFad/Graphics/Icons.png" id="2_v0q8j"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6677c"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kqcp8"]
+atlas = ExtResource("2_v0q8j")
+region = Rect2(64, 192, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uckk7"]
+atlas = ExtResource("2_v0q8j")
+region = Rect2(128, 192, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8k1m6"]
+atlas = ExtResource("2_v0q8j")
+region = Rect2(192, 192, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s5qku"]
+atlas = ExtResource("2_v0q8j")
+region = Rect2(256, 192, 64, 64)
+
+[node name="Timeline" type="PanelContainer"]
+offset_right = 691.0
+offset_bottom = 80.0
+script = ExtResource("1_1abbg")
+
+[node name="Padding" type="MarginContainer" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="Content" type="HBoxContainer" parent="Padding"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Padding/Content"]
+layout_mode = 2
+
+[node name="ColorRect" type="TextureRect" parent="Padding/Content/MarginContainer"]
+custom_minimum_size = Vector2(1, 1)
+layout_mode = 2
+texture = SubResource("AtlasTexture_6677c")
+expand_mode = 2
+
+[node name="Buttons" type="MarginContainer" parent="Padding/Content/MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="Play" type="TextureButton" parent="Padding/Content/MarginContainer/Buttons"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(1, 1)
+layout_mode = 2
+texture_normal = SubResource("AtlasTexture_kqcp8")
+texture_pressed = SubResource("AtlasTexture_uckk7")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Stop" type="TextureButton" parent="Padding/Content/MarginContainer/Buttons"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+texture_normal = SubResource("AtlasTexture_8k1m6")
+texture_pressed = SubResource("AtlasTexture_s5qku")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Frames" type="HBoxContainer" parent="Padding/Content"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 4

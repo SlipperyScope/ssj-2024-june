@@ -1,43 +1,62 @@
 class_name GridSelector extends MarginContainer
 
-var ItemScene: = preload("res://UI/Elements/GridSelector/Item.tscn")
+signal Selection(button, index)
 
-signal ElementSelected(element:Control)
+enum ToggleMode{ToggleOne, ToggleOneOrNone, ToggleAny, NoToggle}
 
-@export var MultiSelect:bool = false
-@export var Size:Vector2i = Vector2i(4,4)
-@export var AllowOverflow:bool = true
-@export var Scrollable:bool = true
-@export_category("Theme")
-@export var BG:String = "Light"
-@export var Over:String = "Over"
-@export var Up:String = "Up"
-@export var Down:String = "Down"
+@export var Mode:ToggleMode = ToggleMode.ToggleOne
+@export var Columns:int = 8
+@export var Rows:int = 0
+@export_enum("Vertical:1", "Horizontal:-1", "None:0") var Overflow:int = 1
+@export var Padding:int = 8
+@export var ButtonTemplate:PackedScene
 
 @onready var Background:PanelContainer = %Background
 @onready var Contents:GridContainer = %Contents
 
-var _Items:Array[GridSelector_Item] = []
+var Count:
+	get: return _Buttons.size()
 
+var _SelectedID = -1
+var Selected:
+	get: return _Buttons[_SelectedID] if _SelectedID >= 0 and _SelectedID < _Buttons.size() else null
 
-var _Group:ButtonGroup = ButtonGroup.new()
+var _Buttons:Array = []
+var _Group:ButtonGroup
 
+func Get(index:int): return _Buttons[index]
+func Select(index:int): _Buttons[index].Clickable.button_pressed = true
+
+func AddButton(preReady:Callable = func(button):pass, template:PackedScene = ButtonTemplate):
+	if Count >= Contents.columns * Rows:
+		match Overflow:
+			0: return null
+			1: Rows += 1
+			-1: Contents.columns += 1
+	var button = template.instantiate()
+	preReady.call(button)
+	Contents.add_child(button)
+	button.button_group = _Group
+	button.toggle_mode = false if Mode == ToggleMode.NoToggle else true
+	if Count == 0: button.set_pressed_no_signal(true)
+	_Buttons.append(button)
+	button.toggled.connect(_OnSelection.bind(Count-1))
+	button.pressed.connect(_OnPressed.bind(Count-1))
+	return button
+	
 func _ready():
-	Contents.columns = Size.x
-	_Group.pressed.connect(_OnSelection)
-	pass
+	Contents.columns = Columns
+	Contents.add_theme_constant_override("h_separation", Padding)
+	Contents.add_theme_constant_override("v_separation", Padding)
+	
+	if Mode == ToggleMode.ToggleOne || Mode == ToggleMode.ToggleOneOrNone:
+		_Group = ButtonGroup.new()
+	if Mode == ToggleMode.ToggleOneOrNone:
+		_Group.allow_unpress = true
 
-func AddItem(texture:Texture2D):
-	var item:GridSelector_Item = ItemScene.instantiate()
-	Contents.add_child(item)
-	item.Content.Display.texture = texture
-	item.Content.button_group = _Group
-	_Items.append(item)
-	
-func _OnSelection(button:BaseButton):
-	var buttons = _Items.map(func(item): return item.Content._Inner)
-	ElementSelected.emit(buttons.find(button))
-	
-func Select(index:int):
-	if index < _Items.size():
-		_Items[index].Content.button_pressed = true
+func _OnSelection(state:bool, index): 
+	if state:
+		_SelectedID = index
+		Selection.emit(index)
+
+func _OnPressed(index): if Mode == ToggleMode.NoToggle: _OnSelection(true, index)

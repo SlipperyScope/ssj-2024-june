@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="AudioData" load_steps=3 format=3 uid="uid://hpin17q2r4s6"]
+
+[ext_resource type="AudioStream" uid="uid://bh51gulx4ifnd" path="res://UI/iFad/Audio/Sus/Not_Horn.mp3" id="1_jsbrg"]
+[ext_resource type="Script" path="res://UI/iFad/Audio/AudioData.gd" id="2_y5gl1"]
+
+[resource]
+script = ExtResource("2_y5gl1")
+Stream = ExtResource("1_jsbrg")
+Name = "DOOT"
+PitchVariation = true
