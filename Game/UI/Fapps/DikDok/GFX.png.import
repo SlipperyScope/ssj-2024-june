@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c4r6mfybacvqd"
-path="res://.godot/imported/emoji_button.png-25a2dd8561bd66b257d89bd25dd0c522.ctex"
+uid="uid://bxgeuugoc8i7s"
+path="res://.godot/imported/GFX.png-972b4b7c24ac0a640202f57b2e154e88.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://UI/Fapps/DikDok/emoji_button.png"
-dest_files=["res://.godot/imported/emoji_button.png-25a2dd8561bd66b257d89bd25dd0c522.ctex"]
+source_file="res://UI/Fapps/DikDok/GFX.png"
+dest_files=["res://.godot/imported/GFX.png-972b4b7c24ac0a640202f57b2e154e88.ctex"]
 
 [params]
 

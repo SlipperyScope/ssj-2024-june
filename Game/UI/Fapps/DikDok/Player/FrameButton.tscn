@@ -1,0 +1,18 @@
+[gd_scene load_steps=6 format=3 uid="uid://weg6xrpvm7vf"]
+
+[ext_resource type="Script" path="res://UI/Elements/NineButton/NineButton.gd" id="1_pwhcb"]
+[ext_resource type="Script" path="res://UI/Elements/ButtonTextureSet.gd" id="2_x7h6q"]
+[ext_resource type="Resource" uid="uid://deooaowtwbax3" path="res://UI/Fapps/DikDok/Player/FrameSelected.tres" id="3_bjen2"]
+[ext_resource type="Resource" uid="uid://ixngaax0cay5" path="res://UI/Fapps/DikDok/Player/Frame.tres" id="4_vlbtq"]
+
+[sub_resource type="Resource" id="Resource_bmk8v"]
+script = ExtResource("2_x7h6q")
+
+[node name="FrameButton" type="PanelContainer"]
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_pwhcb")
+ForegroundUnselected = SubResource("Resource_bmk8v")
+ForegroundSelected = ExtResource("3_bjen2")
+BackgroundUnselected = ExtResource("4_vlbtq")
+BackgroundSelected = ExtResource("4_vlbtq")

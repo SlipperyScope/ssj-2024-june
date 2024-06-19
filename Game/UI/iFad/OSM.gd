@@ -43,9 +43,9 @@ func _HandleInterrupt(sender, i:Interrupt):
 			
 		i.IID.GetFappInfo: 
 			var fapp:Manifest = _InstalledFapps[i.Params[1]]
-			i.Params[0].call(fapp.Name, fapp.Data.Icon)
+			i.Params[0].call(fapp.Name, fapp.Data.Icon, fapp.DisplayInLauncher)
 			
-		i.IID.FappOut: 
+		i.IID.FappOut:
 			if _Devices[i.Params[1]] is Screen:
 				var frame = _Compositor.GetFrame(sender)
 				i.Params[0].call(frame)

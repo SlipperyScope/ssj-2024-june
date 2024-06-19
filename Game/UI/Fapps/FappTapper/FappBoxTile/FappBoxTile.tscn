@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bdmikqc5gtrh"]
+[gd_scene load_steps=12 format=3 uid="uid://bdmikqc5gtrh"]
 
 [ext_resource type="PackedScene" uid="uid://bt5h3rrlkv63t" path="res://UI/Elements/NineButton/NineButton.tscn" id="1_gf5qp"]
 [ext_resource type="Script" path="res://UI/Fapps/FappTapper/FappBoxTile/FappBoxTile.gd" id="1_pbg1p"]
@@ -23,6 +23,18 @@ Up = SubResource("AtlasTexture_3k2n5")
 Over = SubResource("AtlasTexture_3k2n5")
 Down = SubResource("AtlasTexture_3k2n5")
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_ffxgq"]
+atlas = ExtResource("2_t0mf7")
+region = Rect2(384, 160, 32, 32)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7ue5h"]
+texture = SubResource("AtlasTexture_ffxgq")
+texture_margin_left = 8.0
+texture_margin_top = 8.0
+texture_margin_right = 8.0
+texture_margin_bottom = 8.0
+region_rect = Rect2(0, 0, 32, 32)
+
 [node name="FappTile" type="PanelContainer"]
 offset_right = 10.0
 offset_bottom = 15.0
@@ -41,10 +53,13 @@ ContentMargin = 8
 ForegroundUnselected = SubResource("Resource_w1jd4")
 BackgroundUnselected = SubResource("Resource_i8o56")
 
-[node name="Label" type="Label" parent="VBoxContainer"]
+[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_7ue5h")
+
+[node name="Label" type="Label" parent="VBoxContainer/PanelContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 text = "Tile Name"
 horizontal_alignment = 1
 autowrap_mode = 2
-clip_text = true

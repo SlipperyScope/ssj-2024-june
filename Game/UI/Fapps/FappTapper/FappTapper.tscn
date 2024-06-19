@@ -74,6 +74,6 @@ layout_mode = 2
 unique_name_in_owner = true
 layout_mode = 2
 Mode = 3
-Columns = 6
+Columns = 4
 Rows = 1
 ButtonTemplate = ExtResource("4_st0i4")

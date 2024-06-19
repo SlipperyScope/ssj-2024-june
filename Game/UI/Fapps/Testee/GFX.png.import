@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://wjrd2wj848ek"
-path="res://.godot/imported/dikdok_logo.png-056e0dfe8bf1d8a25317e83e90e216bd.ctex"
+uid="uid://bd02j1mm5yddb"
+path="res://.godot/imported/GFX.png-74f74be09622552ef0cd118aaa21933b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://UI/Fapps/DikDok/dikdok_logo.png"
-dest_files=["res://.godot/imported/dikdok_logo.png-056e0dfe8bf1d8a25317e83e90e216bd.ctex"]
+source_file="res://UI/Fapps/Testee/GFX.png"
+dest_files=["res://.godot/imported/GFX.png-74f74be09622552ef0cd118aaa21933b.ctex"]
 
 [params]
 

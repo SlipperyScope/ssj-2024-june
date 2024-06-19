@@ -1,0 +1,29 @@
+[gd_scene load_steps=3 format=3 uid="uid://bdf75648bcift"]
+
+[ext_resource type="Script" path="res://UI/Fapps/DikDok/DDHost/DDHost.gd" id="1_yqxf7"]
+[ext_resource type="PackedScene" uid="uid://druyw7lxi2rgs" path="res://UI/Fapps/DikDok/DDHost/DDFrame.tscn" id="2_7r7u5"]
+
+[node name="DdHost" type="SubViewportContainer"]
+offset_right = 240.0
+offset_bottom = 320.0
+stretch = true
+script = ExtResource("1_yqxf7")
+
+[node name="SubViewport" type="SubViewport" parent="."]
+handle_input_locally = false
+canvas_item_default_texture_filter = 0
+gui_disable_input = true
+size = Vector2i(240, 320)
+render_target_update_mode = 4
+
+[node name="CanvasLayer" type="CanvasLayer" parent="SubViewport"]
+
+[node name="Frame" parent="SubViewport/CanvasLayer" instance=ExtResource("2_7r7u5")]
+unique_name_in_owner = true
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 0.0
+offset_bottom = 0.0
+grow_horizontal = 2
+grow_vertical = 2

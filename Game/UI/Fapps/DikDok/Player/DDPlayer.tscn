@@ -1,78 +1,76 @@
-[gd_scene load_steps=5 format=3 uid="uid://p5ckx62pxpen"]
+[gd_scene load_steps=14 format=3 uid="uid://p5ckx62pxpen"]
 
 [ext_resource type="Script" path="res://UI/Fapps/DikDok/Player/DDPlayer.gd" id="1_1d6w7"]
-[ext_resource type="Texture2D" uid="uid://ciyyx14ek7rbi" path="res://UI/iFad/Graphics/Icons.png" id="2_thttm"]
-[ext_resource type="PackedScene" uid="uid://dhcu7xyqlq6ru" path="res://UI/Elements/Timeline/Timeline.tscn" id="3_wrsi5"]
+[ext_resource type="Script" path="res://UI/Fapps/DikDok/DikDok.dd.gd" id="2_nlyi4"]
+[ext_resource type="PackedScene" uid="uid://bdf75648bcift" path="res://UI/Fapps/DikDok/DDHost/DDHost.tscn" id="2_sxdwi"]
+[ext_resource type="Texture2D" uid="uid://bxgeuugoc8i7s" path="res://UI/Fapps/DikDok/GFX.png" id="3_b4nfe"]
+[ext_resource type="PackedScene" uid="uid://bt5h3rrlkv63t" path="res://UI/Elements/NineButton/NineButton.tscn" id="3_ikupp"]
+[ext_resource type="SpriteFrames" uid="uid://bmok5puubool3" path="res://UI/Fapps/DikDok/GFXSets.tres" id="3_tfpxb"]
+[ext_resource type="Resource" uid="uid://bwv4xlns52iqb" path="res://UI/Fapps/DikDok/Player/Play.tres" id="5_qyinu"]
+[ext_resource type="Resource" uid="uid://b5pu6cntnlhlo" path="res://UI/Fapps/DikDok/Player/Stop.tres" id="6_7qryi"]
+[ext_resource type="PackedScene" uid="uid://cyk7fds4nvoi4" path="res://UI/Elements/GridSelector/GridSelector.tscn" id="7_c6jpc"]
+[ext_resource type="PackedScene" uid="uid://weg6xrpvm7vf" path="res://UI/Fapps/DikDok/Player/FrameButton.tscn" id="7_dnvhd"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_yjpe0"]
-atlas = ExtResource("2_thttm")
-region = Rect2(0, 192, 64, 64)
+[sub_resource type="Resource" id="Resource_us33d"]
+script = ExtResource("2_nlyi4")
+Name = "Testing the DD"
+SongID = 0
+Dances = Array[int]([0, 1])
+Emojis = Array[int]([0, 1])
+Words = Array[int]([0, 1])
+Plays = 0
+Likes = 0
+Shares = 0
+Date = 0
+FrameCount = 2
+BPM = 120.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3e56b"]
+atlas = ExtResource("3_b4nfe")
+region = Rect2(256, 64, 64, 48)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_x1jeq"]
+texture = SubResource("AtlasTexture_3e56b")
+texture_margin_left = 8.0
+texture_margin_top = 8.0
+texture_margin_right = 8.0
+texture_margin_bottom = 8.0
 
 [node name="DDPlayer" type="MarginContainer"]
-offset_right = 672.0
-offset_bottom = 963.0
+offset_right = 240.0
+offset_bottom = 320.0
 script = ExtResource("1_1d6w7")
+DD = SubResource("Resource_us33d")
+_GFX = ExtResource("3_tfpxb")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 2
+theme_override_constants/margin_bottom = 32
 
-[node name="Renderer" type="MarginContainer" parent="VBoxContainer"]
+[node name="DdHost" parent="MarginContainer" instance=ExtResource("2_sxdwi")]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
-size_flags_stretch_ratio = 16.0
 
-[node name="Dance" type="TextureRect" parent="VBoxContainer/Renderer"]
+[node name="Timeline" type="PanelContainer" parent="."]
 unique_name_in_owner = true
 layout_mode = 2
-size_flags_vertical = 3
-size_flags_stretch_ratio = 10.0
-texture = SubResource("AtlasTexture_yjpe0")
-expand_mode = 4
-stretch_mode = 5
+size_flags_vertical = 8
+theme_override_styles/panel = SubResource("StyleBoxTexture_x1jeq")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/Renderer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Timeline"]
 layout_mode = 2
 
-[node name="ReferenceRect" type="ReferenceRect" parent="VBoxContainer/Renderer/VBoxContainer"]
+[node name="PlayButton" parent="Timeline/HBoxContainer" instance=ExtResource("3_ikupp")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
-size_flags_vertical = 3
-border_color = Color(1, 0, 0, 0)
-editor_only = false
+CornerRadius = 0
+ForegroundUnselected = ExtResource("5_qyinu")
+ForegroundSelected = ExtResource("6_7qryi")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/Renderer/VBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 3
-size_flags_stretch_ratio = 3.0
-
-[node name="ReferenceRect3" type="ReferenceRect" parent="VBoxContainer/Renderer/VBoxContainer/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-border_color = Color(1, 0, 0, 0)
-editor_only = false
-
-[node name="Emoji" type="TextureRect" parent="VBoxContainer/Renderer/VBoxContainer/HBoxContainer"]
+[node name="FrameButtons" parent="Timeline/HBoxContainer" instance=ExtResource("7_c6jpc")]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
-size_flags_stretch_ratio = 3.0
-
-[node name="ReferenceRect4" type="ReferenceRect" parent="VBoxContainer/Renderer/VBoxContainer/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_stretch_ratio = 7.0
-border_color = Color(1, 0, 0, 0)
-editor_only = false
-
-[node name="ReferenceRect2" type="ReferenceRect" parent="VBoxContainer/Renderer/VBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 3
-size_flags_stretch_ratio = 7.0
-border_color = Color(1, 0, 0, 0)
-editor_only = false
-
-[node name="Timeline" parent="VBoxContainer" instance=ExtResource("3_wrsi5")]
-unique_name_in_owner = true
-layout_mode = 2
-size_flags_vertical = 3
-_Padding = 8
+ButtonTemplate = ExtResource("7_dnvhd")

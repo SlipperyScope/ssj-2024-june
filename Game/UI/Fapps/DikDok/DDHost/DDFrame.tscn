@@ -1,0 +1,101 @@
+[gd_scene load_steps=11 format=3 uid="uid://druyw7lxi2rgs"]
+
+[ext_resource type="Script" path="res://UI/Fapps/DikDok/DDHost/DDFrame.gd" id="1_jiqyu"]
+[ext_resource type="Texture2D" uid="uid://bxgeuugoc8i7s" path="res://UI/Fapps/DikDok/GFX.png" id="2_qtvt6"]
+[ext_resource type="Texture2D" uid="uid://ciyyx14ek7rbi" path="res://UI/iFad/Graphics/Icons.png" id="3_waqdk"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8bukq"]
+atlas = ExtResource("2_qtvt6")
+region = Rect2(96, 0, 16, 16)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4375n"]
+texture = SubResource("AtlasTexture_8bukq")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oklnj"]
+atlas = ExtResource("3_waqdk")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nc25y"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dmcqg"]
+region = Rect2(0, 0, 240, 320)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rllwn"]
+atlas = ExtResource("2_qtvt6")
+region = Rect2(0, 64, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d81um"]
+atlas = ExtResource("2_qtvt6")
+region = Rect2(0, 384, 64, 64)
+
+[node name="DdFrame" type="PanelContainer"]
+offset_right = 176.0
+offset_bottom = 321.0
+size_flags_horizontal = 3
+size_flags_vertical = 10
+theme_override_styles/panel = SubResource("StyleBoxTexture_4375n")
+script = ExtResource("1_jiqyu")
+
+[node name="Background" type="TextureRect" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+texture = SubResource("AtlasTexture_oklnj")
+expand_mode = 4
+stretch_mode = 6
+
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="."]
+layout_mode = 2
+alignment_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="AspectRatioContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_nc25y")
+
+[node name="Aspect" type="TextureRect" parent="AspectRatioContainer/PanelContainer"]
+visible = false
+layout_mode = 2
+texture = SubResource("AtlasTexture_dmcqg")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="Dance" type="TextureRect" parent="AspectRatioContainer/PanelContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+texture = SubResource("AtlasTexture_rllwn")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="AspectRatioContainer2" type="AspectRatioContainer" parent="."]
+layout_mode = 2
+alignment_horizontal = 0
+alignment_vertical = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="AspectRatioContainer2"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="AspectRatioContainer2/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Emoji" type="TextureRect" parent="AspectRatioContainer2/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = SubResource("AtlasTexture_d81um")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="ReferenceRect" type="ReferenceRect" parent="AspectRatioContainer2/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+border_color = Color(1, 0, 0, 0)
+editor_only = false
+
+[node name="ReferenceRect2" type="ReferenceRect" parent="AspectRatioContainer2/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 2.0
+border_color = Color(1, 0, 0, 0)
+editor_only = false

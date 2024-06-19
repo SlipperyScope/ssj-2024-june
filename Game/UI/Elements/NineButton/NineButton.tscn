@@ -1,10 +1,21 @@
-[gd_scene load_steps=7 format=3 uid="uid://bt5h3rrlkv63t"]
+[gd_scene load_steps=9 format=3 uid="uid://bt5h3rrlkv63t"]
 
 [ext_resource type="Script" path="res://UI/Elements/NineButton/NineButton.gd" id="1_sax5o"]
+[ext_resource type="Texture2D" uid="uid://ciyyx14ek7rbi" path="res://UI/iFad/Graphics/Icons.png" id="2_1bsue"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ehhfs"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ly77h"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_n0aqm"]
+atlas = ExtResource("2_1bsue")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ojsk1"]
+texture = SubResource("AtlasTexture_n0aqm")
+texture_margin_left = 16.0
+texture_margin_top = 16.0
+texture_margin_right = 16.0
+texture_margin_bottom = 16.0
+region_rect = Rect2(0, 0, 64, 64)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_i6lqt"]
 
@@ -25,7 +36,7 @@ _ButtonPath = NodePath("Clickable")
 unique_name_in_owner = true
 layout_mode = 2
 mouse_filter = 2
-theme_override_styles/panel = SubResource("StyleBoxEmpty_ly77h")
+theme_override_styles/panel = SubResource("StyleBoxTexture_ojsk1")
 
 [node name="Content" type="MarginContainer" parent="."]
 unique_name_in_owner = true

@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ButtonTextureSet" load_steps=4 format=3 uid="uid://deooaowtwbax3"]
+
+[ext_resource type="Texture2D" uid="uid://bxgeuugoc8i7s" path="res://UI/Fapps/DikDok/GFX.png" id="1_b3p7s"]
+[ext_resource type="Script" path="res://UI/Elements/ButtonTextureSet.gd" id="1_xayth"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8fv3w"]
+atlas = ExtResource("1_b3p7s")
+region = Rect2(416, 128, 32, 32)
+
+[resource]
+script = ExtResource("1_xayth")
+Up = SubResource("AtlasTexture_8fv3w")
+Over = SubResource("AtlasTexture_8fv3w")
+Down = SubResource("AtlasTexture_8fv3w")

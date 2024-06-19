@@ -17,11 +17,14 @@ func _Initialize():
 
 func _AddFapps(list:Array):
 	for i in list:
-		_GetFappInfo(func(name, icon):_Fapps.append(_FappInfo.new(i,name,icon)), i)
+		_GetFappInfo(func(name, icon, display):
+			if display: _Fapps.append(_FappInfo.new(i,name,icon)), i)
 
 func _ready():
-	var icons = _Fapps.map(func(f):return f.Icon)
-	for icon in icons: _FappGrid.AddButton().Graphic = icon
+	for fapp in _Fapps: 
+		var tile = _FappGrid.AddButton()
+		tile.Graphic = fapp.Icon
+		tile.Name = fapp.Name
 	_FappGrid.Selection.connect(_SelectFapp)
 
 func _SelectFapp(index):

@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Package" load_steps=2 format=3 uid="uid://dopufjyfdqwp4"]
+
+[ext_resource type="Script" path="res://UI/Fapps/Package.gd" id="1_d4vww"]
+
+[resource]
+script = ExtResource("1_d4vww")
+Name = "DikDok"
+Type = 0
+Widgets = Array[ExtResource("1_d4vww")]([])
