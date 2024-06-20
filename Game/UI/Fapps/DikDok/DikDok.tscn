@@ -1,13 +1,8 @@
-[gd_scene load_steps=14 format=3 uid="uid://bwtx4th0g52c6"]
+[gd_scene load_steps=6 format=3 uid="uid://bwtx4th0g52c6"]
 
 [ext_resource type="Script" path="res://UI/Fapps/DikDok/DikDok.gd" id="1_dyqcs"]
-[ext_resource type="PackedScene" uid="uid://bt5h3rrlkv63t" path="res://UI/Elements/NineButton/NineButton.tscn" id="3_bncyi"]
-[ext_resource type="Texture2D" uid="uid://c4r8u1871mlpr" path="res://UI/iFad/Graphics/Emojis.png" id="4_va8ft"]
+[ext_resource type="PackedScene" uid="uid://b3svw3sgdnhi1" path="res://UI/Fapps/DikDok/Editor/Editor.tscn" id="3_ba25g"]
 [ext_resource type="Texture2D" uid="uid://dulqoeie401gj" path="res://UI/iFad/Graphics/UI.png" id="6_hbrm8"]
-[ext_resource type="PackedScene" uid="uid://p5ckx62pxpen" path="res://UI/Fapps/DikDok/Player/DDPlayer.tscn" id="6_k6w7l"]
-[ext_resource type="Texture2D" uid="uid://21f70e218xb1" path="res://UI/iFad/Graphics/Dances.png" id="6_m2xmb"]
-[ext_resource type="Texture2D" uid="uid://ciyyx14ek7rbi" path="res://UI/iFad/Graphics/Icons.png" id="7_ub6yk"]
-[ext_resource type="PackedScene" uid="uid://cyk7fds4nvoi4" path="res://UI/Elements/GridSelector/GridSelector.tscn" id="7_uvdyj"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_cry0g"]
 atlas = ExtResource("6_hbrm8")
@@ -17,138 +12,12 @@ region = Rect2(448, 192, 64, 64)
 texture = SubResource("AtlasTexture_cry0g")
 region_rect = Rect2(24, 24, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_tv8eu"]
-atlas = ExtResource("4_va8ft")
-region = Rect2(128, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_l2fwq"]
-atlas = ExtResource("6_m2xmb")
-region = Rect2(32, 16, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_rkr6w"]
-atlas = ExtResource("7_ub6yk")
-region = Rect2(0, 0, 64, 64)
-
 [node name="DikDok" type="PanelContainer"]
 offset_right = 666.0
 offset_bottom = 945.0
 theme_override_styles/panel = SubResource("StyleBoxTexture_ucj80")
 script = ExtResource("1_dyqcs")
 
-[node name="DDPlayer" parent="." instance=ExtResource("6_k6w7l")]
+[node name="Editor" parent="." instance=ExtResource("3_ba25g")]
 unique_name_in_owner = true
 layout_mode = 2
-
-[node name="Padding" type="MarginContainer" parent="."]
-layout_mode = 2
-mouse_filter = 2
-
-[node name="VBoxContainer" type="VBoxContainer" parent="Padding"]
-layout_mode = 2
-mouse_filter = 2
-
-[node name="Overlay" type="MarginContainer" parent="Padding/VBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 3
-size_flags_stretch_ratio = 10.0
-theme_override_constants/margin_left = 8
-theme_override_constants/margin_top = 8
-theme_override_constants/margin_right = 8
-theme_override_constants/margin_bottom = 8
-
-[node name="HBoxContainer" type="HBoxContainer" parent="Padding/VBoxContainer/Overlay"]
-layout_mode = 2
-mouse_filter = 2
-theme_override_constants/separation = 8
-
-[node name="Buttons" type="VBoxContainer" parent="Padding/VBoxContainer/Overlay/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_constants/separation = 8
-
-[node name="EmojiClicker" type="MarginContainer" parent="Padding/VBoxContainer/Overlay/HBoxContainer/Buttons"]
-layout_mode = 2
-mouse_filter = 2
-
-[node name="Emoji" parent="Padding/VBoxContainer/Overlay/HBoxContainer/Buttons/EmojiClicker" instance=ExtResource("3_bncyi")]
-unique_name_in_owner = true
-layout_mode = 2
-
-[node name="EmojiTexture" type="TextureRect" parent="Padding/VBoxContainer/Overlay/HBoxContainer/Buttons/EmojiClicker"]
-unique_name_in_owner = true
-layout_mode = 2
-mouse_filter = 2
-texture = SubResource("AtlasTexture_tv8eu")
-expand_mode = 4
-stretch_mode = 4
-
-[node name="DanceClicker" type="MarginContainer" parent="Padding/VBoxContainer/Overlay/HBoxContainer/Buttons"]
-layout_mode = 2
-mouse_filter = 2
-
-[node name="Dance" parent="Padding/VBoxContainer/Overlay/HBoxContainer/Buttons/DanceClicker" instance=ExtResource("3_bncyi")]
-unique_name_in_owner = true
-layout_mode = 2
-
-[node name="DanceTexture" type="TextureRect" parent="Padding/VBoxContainer/Overlay/HBoxContainer/Buttons/DanceClicker"]
-unique_name_in_owner = true
-layout_mode = 2
-mouse_filter = 2
-texture = SubResource("AtlasTexture_l2fwq")
-expand_mode = 4
-stretch_mode = 4
-
-[node name="TextClicker" type="MarginContainer" parent="Padding/VBoxContainer/Overlay/HBoxContainer/Buttons"]
-layout_mode = 2
-
-[node name="Text" parent="Padding/VBoxContainer/Overlay/HBoxContainer/Buttons/TextClicker" instance=ExtResource("3_bncyi")]
-unique_name_in_owner = true
-layout_mode = 2
-mouse_default_cursor_shape = 2
-
-[node name="TextTexture" type="TextureRect" parent="Padding/VBoxContainer/Overlay/HBoxContainer/Buttons/TextClicker"]
-unique_name_in_owner = true
-layout_mode = 2
-mouse_filter = 2
-texture = SubResource("AtlasTexture_rkr6w")
-expand_mode = 4
-stretch_mode = 4
-
-[node name="ScrollContainer" type="ScrollContainer" parent="Padding/VBoxContainer/Overlay/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_stretch_ratio = 6.99
-mouse_filter = 2
-
-[node name="VBoxContainer" type="VBoxContainer" parent="Padding/VBoxContainer/Overlay/HBoxContainer/ScrollContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-mouse_filter = 2
-
-[node name="EmojiGrid" parent="Padding/VBoxContainer/Overlay/HBoxContainer/ScrollContainer/VBoxContainer" instance=ExtResource("7_uvdyj")]
-unique_name_in_owner = true
-layout_mode = 2
-Columns = 6
-
-[node name="NineButton" parent="Padding/VBoxContainer/Overlay/HBoxContainer/ScrollContainer/VBoxContainer/EmojiGrid/Background/Contents" index="0" instance=ExtResource("3_bncyi")]
-layout_mode = 2
-
-[node name="NineButton2" parent="Padding/VBoxContainer/Overlay/HBoxContainer/ScrollContainer/VBoxContainer/EmojiGrid/Background/Contents" index="1" instance=ExtResource("3_bncyi")]
-layout_mode = 2
-
-[node name="DanceGrid" parent="Padding/VBoxContainer/Overlay/HBoxContainer/ScrollContainer/VBoxContainer" instance=ExtResource("7_uvdyj")]
-unique_name_in_owner = true
-visible = false
-layout_mode = 2
-Columns = 6
-
-[node name="TimelineBuffer" type="ReferenceRect" parent="Padding/VBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 3
-mouse_filter = 2
-border_color = Color(1, 0, 0, 0)
-editor_only = false
-
-[editable path="Padding/VBoxContainer/Overlay/HBoxContainer/ScrollContainer/VBoxContainer/EmojiGrid"]
-[editable path="Padding/VBoxContainer/Overlay/HBoxContainer/ScrollContainer/VBoxContainer/EmojiGrid/Background/Contents/NineButton"]
-[editable path="Padding/VBoxContainer/Overlay/HBoxContainer/ScrollContainer/VBoxContainer/EmojiGrid/Background/Contents/NineButton2"]

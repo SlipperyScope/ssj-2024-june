@@ -74,6 +74,12 @@ alignment_vertical = 0
 layout_mode = 2
 theme_override_constants/separation = 0
 
+[node name="ReferenceRect3" type="ReferenceRect" parent="AspectRatioContainer2/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+border_color = Color(1, 0, 0, 0)
+editor_only = false
+
 [node name="HBoxContainer" type="HBoxContainer" parent="AspectRatioContainer2/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
@@ -96,6 +102,5 @@ editor_only = false
 [node name="ReferenceRect2" type="ReferenceRect" parent="AspectRatioContainer2/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
-size_flags_stretch_ratio = 2.0
 border_color = Color(1, 0, 0, 0)
 editor_only = false

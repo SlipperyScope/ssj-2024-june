@@ -10,7 +10,10 @@ enum ButtonState{Up,Over,Down}
 @export var Toggle:bool = true
 @export var Graphic:Texture:
 	get: return Sizer.texture
-	set(value): Sizer.texture = value
+	set(value): 
+		_Graphic = value
+		if is_node_ready(): Sizer.texture = value 
+var _Graphic
 
 @export_group("Style")
 @export var _ExpandMode:TextureRect.ExpandMode = TextureRect.EXPAND_FIT_HEIGHT_PROPORTIONAL
@@ -35,13 +38,13 @@ var _MouseDown:bool
 var _Toggled:bool
 
 func _ready():
+	Graphic = _Graphic
 	expand_mode = _ExpandMode
 	stretch_mode = _StretchMode
-	_ButtonPath = NodePath("./Clickable")
+	#_ButtonPath = NodePath("./Clickable")
 	super()
 	_ConfigStyle()
 	_ConfigButton()
-	
 
 func _ConfigStyle():
 	_Styles = { 

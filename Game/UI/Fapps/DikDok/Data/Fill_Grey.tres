@@ -1,0 +1,7 @@
+[gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://djpdgia36ugn1"]
+
+[ext_resource type="Texture2D" uid="uid://bxgeuugoc8i7s" path="res://UI/Fapps/DikDok/Data/GFX.png" id="1_wgwmx"]
+
+[resource]
+atlas = ExtResource("1_wgwmx")
+region = Rect2(192, 64, 64, 64)

@@ -1,0 +1,141 @@
+[gd_scene load_steps=21 format=3 uid="uid://b3svw3sgdnhi1"]
+
+[ext_resource type="Texture2D" uid="uid://bxgeuugoc8i7s" path="res://UI/Fapps/DikDok/Data/GFX.png" id="1_lslx7"]
+[ext_resource type="Script" path="res://UI/Fapps/DikDok/Editor/Editor.gd" id="1_wunk7"]
+[ext_resource type="SpriteFrames" uid="uid://bmok5puubool3" path="res://UI/Fapps/DikDok/Data/GFXSets.tres" id="2_4e62u"]
+[ext_resource type="PackedScene" uid="uid://cyk7fds4nvoi4" path="res://UI/Elements/GridSelector/GridSelector.tscn" id="2_dnig2"]
+[ext_resource type="PackedScene" uid="uid://p5ckx62pxpen" path="res://UI/Fapps/DikDok/Player/DDPlayer.tscn" id="3_y15lb"]
+[ext_resource type="PackedScene" uid="uid://2y2an6vpkbiv" path="res://UI/Fapps/DikDok/Editor/EmojiButton.tscn" id="4_jnss2"]
+[ext_resource type="PackedScene" uid="uid://bt5h3rrlkv63t" path="res://UI/Elements/NineButton/NineButton.tscn" id="5_epwuw"]
+[ext_resource type="Script" path="res://UI/Elements/ButtonTextureSet.gd" id="6_8pgrj"]
+[ext_resource type="Texture2D" uid="uid://cvkw5vejw4wmm" path="res://UI/Fapps/DikDok/Data/Outline_Green.tres" id="6_ucrek"]
+[ext_resource type="Texture2D" uid="uid://c4drcqr0nuh5" path="res://UI/Fapps/DikDok/Data/Fill_Light.tres" id="7_8kaqb"]
+[ext_resource type="Texture2D" uid="uid://djpdgia36ugn1" path="res://UI/Fapps/DikDok/Data/Fill_Grey.tres" id="9_3oqag"]
+[ext_resource type="Resource" uid="uid://u5xvvb4lkh20" path="res://UI/Fapps/DikDok/Data/EmptyButtonSet.tres" id="9_qymr6"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_l8uu3"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_67my6"]
+atlas = ExtResource("1_lslx7")
+region = Rect2(128, 384, 64, 64)
+
+[sub_resource type="Resource" id="Resource_f76yv"]
+script = ExtResource("6_8pgrj")
+Down = ExtResource("6_ucrek")
+
+[sub_resource type="Resource" id="Resource_6ccl7"]
+script = ExtResource("6_8pgrj")
+Up = ExtResource("6_ucrek")
+
+[sub_resource type="Resource" id="Resource_6u41h"]
+script = ExtResource("6_8pgrj")
+Up = ExtResource("9_3oqag")
+Over = ExtResource("7_8kaqb")
+Down = ExtResource("7_8kaqb")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dvtpy"]
+atlas = ExtResource("1_lslx7")
+region = Rect2(0, 80, 16, 16)
+
+[sub_resource type="Resource" id="Resource_ikk2p"]
+script = ExtResource("6_8pgrj")
+Up = ExtResource("6_ucrek")
+
+[sub_resource type="Resource" id="Resource_7wps1"]
+script = ExtResource("6_8pgrj")
+Up = ExtResource("9_3oqag")
+Over = ExtResource("7_8kaqb")
+Down = ExtResource("7_8kaqb")
+
+[node name="Editor" type="MarginContainer"]
+offset_right = 625.0
+offset_bottom = 1081.0
+script = ExtResource("1_wunk7")
+_GFX = ExtResource("2_4e62u")
+
+[node name="DDPlayer" parent="." instance=ExtResource("3_y15lb")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+DD = null
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_l8uu3")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer/VBoxContainer/PanelContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/HBoxContainer/VBoxContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="EmojisToggle" parent="MarginContainer/HBoxContainer/VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer" instance=ExtResource("5_epwuw")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+Graphic = SubResource("AtlasTexture_67my6")
+ContentMargin = 0
+ForegroundUnselected = SubResource("Resource_f76yv")
+ForegroundSelected = SubResource("Resource_6ccl7")
+BackgroundUnselected = SubResource("Resource_6u41h")
+BackgroundSelected = SubResource("Resource_6u41h")
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer/VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 8.0
+
+[node name="Emojis" parent="MarginContainer/HBoxContainer/VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer/MarginContainer" instance=ExtResource("2_dnig2")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+ButtonTemplate = ExtResource("4_jnss2")
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/HBoxContainer/VBoxContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="DancesToggle" parent="MarginContainer/HBoxContainer/VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer2" instance=ExtResource("5_epwuw")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+Graphic = SubResource("AtlasTexture_dvtpy")
+ContentMargin = 0
+ForegroundUnselected = ExtResource("9_qymr6")
+ForegroundSelected = SubResource("Resource_ikk2p")
+BackgroundUnselected = SubResource("Resource_7wps1")
+BackgroundSelected = SubResource("Resource_7wps1")
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer/VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 8.0
+
+[node name="Dances" parent="MarginContainer/HBoxContainer/VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer2/MarginContainer" instance=ExtResource("2_dnig2")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+Rows = 1
+ButtonTemplate = ExtResource("4_jnss2")
+metadata/_edit_group_ = true

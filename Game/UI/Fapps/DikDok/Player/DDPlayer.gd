@@ -16,12 +16,14 @@ var _Time:float
 var _PlayStart:float = INF
 var _NextFrame:float
 
-# Frames are zero-indexed
 func Load(file:DikDok_dd, frame = 0, autoplay = false):
 	_File = file
 	_Frames.Columns = file.FrameCount
 	for f in file.FrameCount: _Frames.AddButton()
 	SetFrame(frame)
+
+func ReloadFrame():
+	_SetFrame(_Frame, true)
 
 func SetFrame(frame):
 	_Frames.Select(frame)
@@ -41,13 +43,14 @@ func _process(delta):
 		SetFrame((_Frame + 1) % _File.FrameCount)
 		_PlayStart += _File.BPM / 60
 
-func _SetFrame(num):
+func _SetFrame(num, noSignal:bool = false):
 	_Frame = num
 	var dance = _GFX.Get("Dances", _File.Dances[num])
 	var emoji = _GFX.Get("Emojis", _File.Emojis[num])
-	var text = ["Hello", "World"][num]
-	_Host.SetFrameData(dance, emoji, text, Texture2D.new())
-	pass
+	var text = "test id: %s"%_File.Words[num]
+	var background = _File.Background
+	_Host.SetFrameData(dance, emoji, text, background)
+	if !noSignal: FrameChanged.emit(num)
 
 func _SetPlay(state):
 	SetFrame(0)

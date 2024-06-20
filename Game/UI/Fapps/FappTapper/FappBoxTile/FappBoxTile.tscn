@@ -49,6 +49,7 @@ layout_mode = 2
 [node name="NineButton" parent="VBoxContainer" instance=ExtResource("1_gf5qp")]
 unique_name_in_owner = true
 layout_mode = 2
+_ExpandMode = 4
 ContentMargin = 8
 ForegroundUnselected = SubResource("Resource_w1jd4")
 BackgroundUnselected = SubResource("Resource_i8o56")

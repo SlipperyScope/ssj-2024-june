@@ -15,6 +15,7 @@
 script = ExtResource("2_nlyi4")
 Name = "Testing the DD"
 SongID = 0
+BPM = 120.0
 Dances = Array[int]([16, 17])
 Emojis = Array[int]([8, 7])
 Words = Array[int]([0, 1])
@@ -23,7 +24,6 @@ Likes = 0
 Shares = 0
 Date = 0
 FrameCount = 2
-BPM = 120.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3e56b"]
 atlas = ExtResource("3_b4nfe")

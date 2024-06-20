@@ -1,0 +1,51 @@
+[gd_scene load_steps=12 format=3 uid="uid://2y2an6vpkbiv"]
+
+[ext_resource type="Script" path="res://UI/Elements/ButtonContainer/ButtonContainer.gd" id="1_atc3u"]
+[ext_resource type="PackedScene" uid="uid://bt5h3rrlkv63t" path="res://UI/Elements/NineButton/NineButton.tscn" id="2_qgb5l"]
+[ext_resource type="Script" path="res://UI/Elements/ButtonTextureSet.gd" id="3_glq72"]
+[ext_resource type="Texture2D" uid="uid://bxgeuugoc8i7s" path="res://UI/Fapps/DikDok/Data/GFX.png" id="4_kjns6"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_aj4pf"]
+
+[sub_resource type="Resource" id="Resource_ft4gt"]
+script = ExtResource("3_glq72")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u62qi"]
+atlas = ExtResource("4_kjns6")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="Resource" id="Resource_d73f6"]
+script = ExtResource("3_glq72")
+Up = SubResource("AtlasTexture_u62qi")
+Over = SubResource("AtlasTexture_u62qi")
+Down = SubResource("AtlasTexture_u62qi")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_amroj"]
+atlas = ExtResource("4_kjns6")
+region = Rect2(128, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8yxex"]
+atlas = ExtResource("4_kjns6")
+region = Rect2(192, 64, 64, 64)
+
+[sub_resource type="Resource" id="Resource_fdof8"]
+script = ExtResource("3_glq72")
+Up = SubResource("AtlasTexture_8yxex")
+Over = SubResource("AtlasTexture_amroj")
+Down = SubResource("AtlasTexture_amroj")
+
+[node name="EmojiButton" type="PanelContainer"]
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxEmpty_aj4pf")
+script = ExtResource("1_atc3u")
+_ButtonPath = NodePath("NineButton")
+
+[node name="NineButton" parent="." instance=ExtResource("2_qgb5l")]
+modulate = Color(1, 1, 1, 0.901961)
+layout_mode = 2
+CornerRadius = 16
+ForegroundUnselected = SubResource("Resource_ft4gt")
+ForegroundSelected = SubResource("Resource_d73f6")
+BackgroundUnselected = SubResource("Resource_fdof8")
+BackgroundSelected = SubResource("Resource_fdof8")

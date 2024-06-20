@@ -1,0 +1,6 @@
+[gd_resource type="Resource" script_class="ButtonTextureSet" load_steps=2 format=3 uid="uid://u5xvvb4lkh20"]
+
+[ext_resource type="Script" path="res://UI/Elements/ButtonTextureSet.gd" id="1_dnq7w"]
+
+[resource]
+script = ExtResource("1_dnq7w")

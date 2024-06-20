@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://bmitu51d1joa5"]
+[gd_scene load_steps=12 format=3 uid="uid://bmitu51d1joa5"]
 
 [ext_resource type="Script" path="res://UI/iFad/iFad.gd" id="1_sqm8j"]
 [ext_resource type="PackedScene" uid="uid://cnwa27crxfqys" path="res://UI/iFad/Hardware/Screen/Screen.tscn" id="2_j38lc"]
@@ -6,6 +6,7 @@
 [ext_resource type="Resource" uid="uid://dwkx2wbjw1oqx" path="res://UI/Fapps/Testee/Testee.pk.tres" id="3_6kp58"]
 [ext_resource type="Texture2D" uid="uid://ciyyx14ek7rbi" path="res://UI/iFad/Graphics/Icons.png" id="3_k14yh"]
 [ext_resource type="Resource" uid="uid://dp2bxcetmraat" path="res://UI/Fapps/FappTapper/FappTapper.pk.tres" id="3_o8suc"]
+[ext_resource type="Resource" uid="uid://bjyyhi6mgwiek" path="res://UI/Fapps/DikDok/DikDok.pk.tres" id="5_nuj5g"]
 [ext_resource type="Script" path="res://UI/iFad/Hardware/Buttons/HomeButton.gd" id="7_w6cwp"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fjgjn"]
@@ -27,7 +28,7 @@ region = Rect2(128, 0, 64, 64)
 [node name="IFad" type="Node2D"]
 script = ExtResource("1_sqm8j")
 _OSMScript = ExtResource("2_usstn")
-_Bloatware = Array[Resource("res://UI/Fapps/Package.gd")]([ExtResource("3_6kp58"), ExtResource("3_o8suc")])
+_Bloatware = Array[Resource("res://UI/Fapps/Package.gd")]([ExtResource("3_6kp58"), ExtResource("3_o8suc"), ExtResource("5_nuj5g")])
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
