@@ -1,18 +1,32 @@
-[gd_scene load_steps=6 format=3 uid="uid://weg6xrpvm7vf"]
+[gd_scene load_steps=9 format=3 uid="uid://m5k1ayqapvjk"]
 
-[ext_resource type="Script" path="res://UI/Elements/NineButton/NineButton.gd" id="1_pwhcb"]
+[ext_resource type="Script" path="res://UI/Elements/ButtonContainer/ButtonContainer.gd" id="1_td84q"]
+[ext_resource type="PackedScene" uid="uid://bt5h3rrlkv63t" path="res://UI/Elements/NineButton/NineButton.tscn" id="2_auemu"]
 [ext_resource type="Script" path="res://UI/Elements/ButtonTextureSet.gd" id="2_x7h6q"]
 [ext_resource type="Resource" uid="uid://deooaowtwbax3" path="res://UI/Fapps/DikDok/Player/FrameSelected.tres" id="3_bjen2"]
+[ext_resource type="Texture2D" uid="uid://bxgeuugoc8i7s" path="res://UI/Fapps/DikDok/Data/GFX.png" id="3_gbmq8"]
 [ext_resource type="Resource" uid="uid://ixngaax0cay5" path="res://UI/Fapps/DikDok/Player/Frame.tres" id="4_vlbtq"]
 
-[sub_resource type="Resource" id="Resource_bmk8v"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_4x24x"]
+atlas = ExtResource("3_gbmq8")
+region = Rect2(416, 128, 32, 32)
+
+[sub_resource type="Resource" id="Resource_1nd6u"]
 script = ExtResource("2_x7h6q")
+Over = SubResource("AtlasTexture_4x24x")
+Down = SubResource("AtlasTexture_4x24x")
 
 [node name="FrameButton" type="PanelContainer"]
 size_flags_horizontal = 3
 size_flags_vertical = 3
-script = ExtResource("1_pwhcb")
-ForegroundUnselected = SubResource("Resource_bmk8v")
+script = ExtResource("1_td84q")
+_ButtonPath = NodePath("NineButton")
+
+[node name="NineButton" parent="." instance=ExtResource("2_auemu")]
+layout_mode = 2
+_ExpandMode = 1
+_StretchMode = 3
+ForegroundUnselected = SubResource("Resource_1nd6u")
 ForegroundSelected = ExtResource("3_bjen2")
 BackgroundUnselected = ExtResource("4_vlbtq")
 BackgroundSelected = ExtResource("4_vlbtq")

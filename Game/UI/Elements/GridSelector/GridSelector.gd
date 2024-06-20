@@ -1,6 +1,6 @@
 class_name GridSelector extends MarginContainer
 
-signal Selection(button, index)
+signal Selection(index)
 
 enum ToggleMode{ToggleOne, ToggleOneOrNone, ToggleAny, NoToggle}
 
@@ -25,7 +25,7 @@ var _Buttons:Array = []
 var _Group:ButtonGroup
 
 func Get(index:int): return _Buttons[index]
-func Select(index:int): _Buttons[index].Clickable.button_pressed = true
+func Select(index:int): _Buttons[index].button_pressed = true
 
 func AddButton(preReady:Callable = func(button):pass, template:PackedScene = ButtonTemplate):
 	if Count >= Contents.columns * Rows:
@@ -38,7 +38,6 @@ func AddButton(preReady:Callable = func(button):pass, template:PackedScene = But
 	Contents.add_child(button)
 	button.button_group = _Group
 	button.toggle_mode = false if Mode == ToggleMode.NoToggle else true
-	if Count == 0: button.set_pressed_no_signal(true)
 	_Buttons.append(button)
 	button.toggled.connect(_OnSelection.bind(Count-1))
 	button.pressed.connect(_OnPressed.bind(Count-1))

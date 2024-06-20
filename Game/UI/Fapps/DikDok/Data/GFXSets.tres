@@ -1,7 +1,7 @@
 [gd_resource type="SpriteFrames" script_class="GFX" load_steps=43 format=3 uid="uid://bmok5puubool3"]
 
 [ext_resource type="Script" path="res://UI/Fapps/FappTapper/GFX.gd" id="1_4epq1"]
-[ext_resource type="Texture2D" uid="uid://bxgeuugoc8i7s" path="res://UI/Fapps/DikDok/GFX.png" id="1_spbcr"]
+[ext_resource type="Texture2D" uid="uid://bxgeuugoc8i7s" path="res://UI/Fapps/DikDok/Data/GFX.png" id="1_spbcr"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jmtgy"]
 atlas = ExtResource("1_spbcr")

@@ -49,12 +49,12 @@ layout_mode = 2
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxEmpty_i6lqt")
 
-[node name="TextureRect" type="TextureRect" parent="."]
+[node name="Sizer" type="TextureRect" parent="."]
 unique_name_in_owner = true
 layout_mode = 2
 texture = SubResource("AtlasTexture_25p68")
-expand_mode = 4
-stretch_mode = 4
+expand_mode = 5
+stretch_mode = 5
 
 [node name="Clickable" type="TextureButton" parent="."]
 unique_name_in_owner = true

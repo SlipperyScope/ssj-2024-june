@@ -5,13 +5,16 @@ enum ButtonState{Up,Over,Down}
 
 @onready var Content = %Content
 @onready var Clickable = %Clickable
+@onready var Sizer:TextureRect = %Sizer
 
 @export var Toggle:bool = true
 @export var Graphic:Texture:
-	get: return %TextureRect.texture
-	set(value): %TextureRect.texture = value
+	get: return Sizer.texture
+	set(value): Sizer.texture = value
 
 @export_group("Style")
+@export var _ExpandMode:TextureRect.ExpandMode = TextureRect.EXPAND_FIT_HEIGHT_PROPORTIONAL
+@export var _StretchMode:TextureRect.StretchMode =TextureRect.STRETCH_KEEP_ASPECT_CENTERED
 @export var CornerRadius = 8
 @export var ContentMargin = 16
 @export var ForegroundUnselected: ButtonTextureSet
@@ -19,12 +22,22 @@ enum ButtonState{Up,Over,Down}
 @export var BackgroundUnselected: ButtonTextureSet
 @export var BackgroundSelected: ButtonTextureSet
 
+var expand_mode:TextureRect.ExpandMode:
+	get: return Sizer.expand_mode
+	set(value): Sizer.expand_mode = value
+var stretch_mode:TextureRect.StretchMode:
+	get: return Sizer.stretch_mode
+	set(value): Sizer.stretch_mode = value
+
 var _Styles
 var _MouseOver:bool
 var _MouseDown:bool
 var _Toggled:bool
 
 func _ready():
+	expand_mode = _ExpandMode
+	stretch_mode = _StretchMode
+	_ButtonPath = NodePath("./Clickable")
 	super()
 	_ConfigStyle()
 	_ConfigButton()

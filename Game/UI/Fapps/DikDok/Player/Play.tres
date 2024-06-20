@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="ButtonTextureSet" load_steps=5 format=3 uid="uid://bwv4xlns52iqb"]
 
-[ext_resource type="Texture2D" uid="uid://bxgeuugoc8i7s" path="res://UI/Fapps/DikDok/GFX.png" id="1_bfkxh"]
+[ext_resource type="Texture2D" uid="uid://bxgeuugoc8i7s" path="res://UI/Fapps/DikDok/Data/GFX.png" id="1_bfkxh"]
 [ext_resource type="Script" path="res://UI/Elements/ButtonTextureSet.gd" id="1_esd0f"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_cqk34"]

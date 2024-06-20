@@ -1,7 +1,7 @@
 [gd_scene load_steps=11 format=3 uid="uid://druyw7lxi2rgs"]
 
 [ext_resource type="Script" path="res://UI/Fapps/DikDok/DDHost/DDFrame.gd" id="1_jiqyu"]
-[ext_resource type="Texture2D" uid="uid://bxgeuugoc8i7s" path="res://UI/Fapps/DikDok/GFX.png" id="2_qtvt6"]
+[ext_resource type="Texture2D" uid="uid://bxgeuugoc8i7s" path="res://UI/Fapps/DikDok/Data/GFX.png" id="2_qtvt6"]
 [ext_resource type="Texture2D" uid="uid://ciyyx14ek7rbi" path="res://UI/iFad/Graphics/Icons.png" id="3_waqdk"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8bukq"]

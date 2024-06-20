@@ -1,6 +1,45 @@
-[gd_scene load_steps=3 format=3 uid="uid://dsx1mbjskpy7u"]
+[gd_scene load_steps=3 format=3 uid="uid://dv1dx7bjuuiaj"]
 
-[ext_resource type="Script" path="res://UI/Fapps/DikDok/Drawer.gd" id="1_mb1tq"]
+[sub_resource type="GDScript" id="GDScript_p44fw"]
+script/source = "class_name DikDok_Drawer extends MarginContainer
+
+signal ItemSelected(index:int)
+
+var ItemScene = preload(\"res://UI/Fapps/DikDok/DrawerItem.tscn\")
+
+@onready var Content = %Content
+
+var Items:Array[DikDok_DrawerItem] = []
+var Selection:int = -1
+
+var _Source:SpriteFrames
+var _SetName:String
+var _Count:int
+
+func SetContent(source:SpriteFrames, setName:String, columns:int):
+	Content.columns = columns
+	_Source = source
+	_SetName = setName
+	_Count = source.get_frame_count(setName)
+	Items.resize(_Count)
+	for i in _Count:
+		var item = ItemScene.instantiate()
+		Content.add_child(item)
+		Items[i] = item
+		item.Pressed.connect(SelectItem.bind(i))
+	FillItems.call_deferred()
+
+func FillItems():
+	for index in _Count:
+		Items[index].SetTexture(_Source.get_frame_texture(_SetName,index))
+
+func SelectItem(index:int):
+	if Selection != -1:
+		Items[Selection].Selected = false
+	Selection = index
+	Items[index].Selected = true
+	ItemSelected.emit(index)
+"
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jcvcr"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -13,7 +52,7 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-script = ExtResource("1_mb1tq")
+script = SubResource("GDScript_p44fw")
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
 layout_mode = 2
