@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="SFX" load_steps=7 format=3 uid="uid://djubua8puflxb"]
+
+[ext_resource type="Script" path="res://UI/Fapps/SFX.gd" id="1_aoob7"]
+[ext_resource type="AudioStream" uid="uid://du7xjm3cvyvj2" path="res://UI/Fapps/FappTapper/Data/ButtonOver.wav" id="1_h47k1"]
+[ext_resource type="Script" path="res://UI/Fapps/WAD.gd" id="2_u2lcv"]
+[ext_resource type="AudioStream" uid="uid://fxrm3jggu23t" path="res://UI/Fapps/FappTapper/Data/ButtonDown.wav" id="3_wl2mh"]
+
+[sub_resource type="Resource" id="Resource_yyng4"]
+script = ExtResource("2_u2lcv")
+Stream = ExtResource("1_h47k1")
+Name = "Over"
+Metadata = {}
+
+[sub_resource type="Resource" id="Resource_ytv0b"]
+script = ExtResource("2_u2lcv")
+Stream = ExtResource("3_wl2mh")
+Name = "Down"
+Metadata = {}
+
+[resource]
+script = ExtResource("1_aoob7")
+General = Array[ExtResource("2_u2lcv")]([SubResource("Resource_yyng4"), SubResource("Resource_ytv0b")])

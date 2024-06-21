@@ -7,4 +7,6 @@ class_name Package extends Resource
 @export var Scene:PackedScene
 @export var Type:Fapp.Type
 @export var Graphics:GFX
+@export var Audio:SFX
 @export var Widgets:Array[Package]
+@export var RunInBackground:bool

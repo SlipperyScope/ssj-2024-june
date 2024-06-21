@@ -6,3 +6,4 @@ var DisplayInLauncher:bool = true
 var Scene:PackedScene
 var Type:Fapp.Type
 var Data:FappData
+var RunInBackground:bool = false

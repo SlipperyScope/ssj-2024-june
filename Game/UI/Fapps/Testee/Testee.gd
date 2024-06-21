@@ -1,23 +1,8 @@
 extends Fapp
 
 func _ready():
-	%Gumbk.mouse_entered.connect(_PlayOver)
-	%Gumbk.mouse_exited.connect(_StopSounds)
-	%Gumbk.button_down.connect(_PlayDown)
+	%Gumbk.mouse_entered.connect(func():PushInterrupt.emit(self, Interrupt.new(Interrupt.IID.FappOut,[Speaker, _Data.Sfx.GetWadByName("Inhale").Stream])))
+	%Gumbk.button_down.connect(func():PushInterrupt.emit(self, Interrupt.new(Interrupt.IID.FappOut,[Speaker, _Data.Sfx.GetWadByName("Doot").Stream])))
 
-func _StopSounds():
-	$Over.stop()
-	$Down.stop()
-	
-func _PlayOver():
-	_StopSounds()
-	$Over.play()
-	
-func _PlayDown():
-	_StopSounds()
-	$Down.play()
-
-func Notify(what:Notification):
-	match what:
-		Notification.NID.Init:
-			PushInterrupt.emit(self, Interrupt.new(Interrupt.IID.FappOut, [Screen]))
+func Notify(message:Notification):
+	super(message)

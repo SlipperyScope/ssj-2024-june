@@ -1,6 +1,19 @@
-[gd_scene load_steps=2 format=3 uid="uid://cptaycofwa1ln"]
+[gd_scene load_steps=4 format=3 uid="uid://cptaycofwa1ln"]
 
 [ext_resource type="Script" path="res://UI/Fapps/Null/Null.gd" id="1_x4vry"]
+[ext_resource type="Texture2D" uid="uid://ct0u7belxjmsr" path="res://UI/iFad/Graphics/GFX.png" id="2_65dom"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gbsve"]
+atlas = ExtResource("2_65dom")
+region = Rect2(88, 8, 32, 48)
 
 [node name="Null" type="PanelContainer"]
+size_flags_horizontal = 3
+size_flags_vertical = 3
 script = ExtResource("1_x4vry")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 2
+texture = SubResource("AtlasTexture_gbsve")
+expand_mode = 4
+stretch_mode = 5

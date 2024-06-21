@@ -2,9 +2,9 @@ class_name Screen extends Device
 
 @onready var _Renderer = %Display
 
-var _Source
+#var _Source
 
-func GetRenderSource(): return _Source
+#func GetRenderSource(): return _Source
 
 func AddRenderSource(control):
 	#if _Source: _Renderer.remove_child(_Source)

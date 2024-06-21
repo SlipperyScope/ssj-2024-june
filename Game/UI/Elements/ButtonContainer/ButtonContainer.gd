@@ -36,7 +36,7 @@ var toggle_mode:
 func _pressed(): InnerButton._pressed()
 func _toggled(toggled_on:bool): InnerButton._toggled(toggled_on)
 func is_hovered(): InnerButton.is_hovered()
-func set_pressed_no_signal(pressed:bool): InnerButton.set_pressed_no_signal(pressed)
+func set_pressed_no_signal(state:bool): InnerButton.set_pressed_no_signal(state)
 
 func Monitor(button):
 	var inner = InnerButton

@@ -1,0 +1,77 @@
+[gd_resource type="Resource" script_class="SFX" load_steps=21 format=3 uid="uid://2u1mdp0uaige"]
+
+[ext_resource type="AudioStream" uid="uid://dl06hnhkmjx73" path="res://UI/Fapps/DikDok/Data/ButtonDown.wav" id="1_0rmpq"]
+[ext_resource type="Script" path="res://UI/Fapps/SFX.gd" id="1_ydc3a"]
+[ext_resource type="Script" path="res://UI/Fapps/WAD.gd" id="2_5o2uc"]
+[ext_resource type="AudioStream" uid="uid://bu3s5hhupekah" path="res://UI/Fapps/DikDok/Data/ButtonOver.wav" id="3_sjcek"]
+[ext_resource type="AudioStream" uid="uid://qwi4s0gptf0w" path="res://UI/Fapps/DikDok/Data/Music/Bumpin.mp3" id="4_nutqq"]
+[ext_resource type="AudioStream" uid="uid://crvtwneevmesw" path="res://UI/Fapps/DikDok/Data/Music/Inquiry.mp3" id="5_td7gk"]
+[ext_resource type="AudioStream" uid="uid://357pxbn0jdw2" path="res://UI/Fapps/DikDok/Data/Music/Inspiration.mp3" id="6_ltr7y"]
+[ext_resource type="AudioStream" uid="uid://cutkg142d3oi0" path="res://UI/Fapps/DikDok/Data/Speech/Smart_Low.wav" id="7_sbh4h"]
+[ext_resource type="AudioStream" uid="uid://dtp72w1tcol0e" path="res://UI/Fapps/DikDok/Data/Speech/Price_Low.wav" id="8_g084t"]
+[ext_resource type="AudioStream" uid="uid://d0v32b6fydba2" path="res://UI/Fapps/DikDok/Data/Speech/More_Low.wav" id="9_di4fv"]
+[ext_resource type="AudioStream" uid="uid://b6t2w5jtf1ryj" path="res://UI/Fapps/DikDok/Data/Speech/Limit_Low.wav" id="10_ntojv"]
+
+[sub_resource type="Resource" id="Resource_6p8tk"]
+script = ExtResource("2_5o2uc")
+Stream = ExtResource("1_0rmpq")
+Name = "Down"
+Metadata = {}
+
+[sub_resource type="Resource" id="Resource_p43nx"]
+script = ExtResource("2_5o2uc")
+Stream = ExtResource("3_sjcek")
+Name = "Over"
+Metadata = {}
+
+[sub_resource type="Resource" id="Resource_phnld"]
+script = ExtResource("2_5o2uc")
+Stream = ExtResource("4_nutqq")
+Name = "Bumpin"
+Metadata = {
+"SongID": 0
+}
+
+[sub_resource type="Resource" id="Resource_e4xgx"]
+script = ExtResource("2_5o2uc")
+Stream = ExtResource("5_td7gk")
+Name = "Inquiry"
+Metadata = {
+"SongID": 1
+}
+
+[sub_resource type="Resource" id="Resource_e1dfq"]
+script = ExtResource("2_5o2uc")
+Stream = ExtResource("6_ltr7y")
+Name = "Inspire"
+Metadata = {
+"SongID": 2
+}
+
+[sub_resource type="Resource" id="Resource_yv03i"]
+script = ExtResource("2_5o2uc")
+Stream = ExtResource("7_sbh4h")
+Name = "Smart"
+Metadata = {}
+
+[sub_resource type="Resource" id="Resource_8gwtm"]
+script = ExtResource("2_5o2uc")
+Stream = ExtResource("8_g084t")
+Name = "Price"
+Metadata = {}
+
+[sub_resource type="Resource" id="Resource_yk8hh"]
+script = ExtResource("2_5o2uc")
+Stream = ExtResource("9_di4fv")
+Name = "More"
+Metadata = {}
+
+[sub_resource type="Resource" id="Resource_af4eq"]
+script = ExtResource("2_5o2uc")
+Stream = ExtResource("10_ntojv")
+Name = "Limit"
+Metadata = {}
+
+[resource]
+script = ExtResource("1_ydc3a")
+General = Array[ExtResource("2_5o2uc")]([SubResource("Resource_6p8tk"), SubResource("Resource_p43nx"), SubResource("Resource_phnld"), SubResource("Resource_e4xgx"), SubResource("Resource_e1dfq"), SubResource("Resource_yv03i"), SubResource("Resource_8gwtm"), SubResource("Resource_yk8hh"), SubResource("Resource_af4eq")])

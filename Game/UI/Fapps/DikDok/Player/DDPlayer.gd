@@ -9,12 +9,15 @@ signal FrameChanged(index:int)
 
 @export var DD:DikDok_dd
 @export var _GFX:GFX
+@export var _SFX:SFX
+@export var _AUX:AudioStreamPlayer
 
 var _File:DikDok_dd
 var _Frame:int
 var _Time:float
 var _PlayStart:float = INF
 var _NextFrame:float
+var _Songs = {}
 
 func Load(file:DikDok_dd, frame = 0, autoplay = false):
 	_File = file
@@ -22,8 +25,21 @@ func Load(file:DikDok_dd, frame = 0, autoplay = false):
 	for f in file.FrameCount: _Frames.AddButton()
 	SetFrame(frame)
 
+func SetupAudio(sfx, auxChannel):
+	_SFX = sfx
+	_AUX = auxChannel
+	for s in sfx.General:
+		if s.Metadata.has("SongID"):
+			_Songs[s.Metadata["SongID"]] = s.Name
+
 func ReloadFrame():
 	_SetFrame(_Frame, true)
+
+func ReloadSong():
+	var playing = _AUX.playing
+	var position = _AUX.get_playback_position()
+	_AUX.stream = _SFX.GetWadByName(_Songs[_File.SongID]).Stream
+	if playing: _AUX.play(position)
 
 func SetFrame(frame):
 	_Frames.Select(frame)
@@ -41,6 +57,8 @@ func _process(delta):
 	_Time += delta
 	if (_Time >= _PlayStart):
 		SetFrame((_Frame + 1) % _File.FrameCount)
+		if _Frame == 0:
+			_AUX.play()
 		_PlayStart += _File.BPM / 60
 
 func _SetFrame(num, noSignal:bool = false):
@@ -55,3 +73,5 @@ func _SetFrame(num, noSignal:bool = false):
 func _SetPlay(state):
 	SetFrame(0)
 	_PlayStart = _Time + _File.BPM / 60 if state else INF
+	if state:
+		_AUX.play()

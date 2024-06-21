@@ -2,19 +2,20 @@ class_name Speaker extends Device
 
 signal PlayStateChanged(playing:bool)
 
-@export var MaxPolyphony:int = 8
+@export var MaxPolyphony:int = 16
 
 var Playing:bool = false
 
 var _Phones:Array[AudioStreamPlayer] = []
 
-func Play(stream:AudioStream, spool:bool = false):
-	var phone = _GetNextAvailablePhone()
-	if phone:
+func Play(stream:AudioStream, exclusive:bool = false):
+	var phone = _GetNextAvailablePhone() if !exclusive else AudioStreamPlayer.new()
+	if phone && stream:
 		phone.stream = stream
 		phone.play()
-	elif spool:
-		pass # naw
+	if exclusive:
+		add_child(phone)
+		return phone
 
 func _ready():
 	for p in MaxPolyphony:

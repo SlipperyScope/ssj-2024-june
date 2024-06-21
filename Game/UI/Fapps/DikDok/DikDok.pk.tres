@@ -1,6 +1,7 @@
-[gd_resource type="Resource" script_class="Package" load_steps=6 format=3 uid="uid://bjyyhi6mgwiek"]
+[gd_resource type="Resource" script_class="Package" load_steps=7 format=3 uid="uid://bjyyhi6mgwiek"]
 
 [ext_resource type="SpriteFrames" uid="uid://bmok5puubool3" path="res://UI/Fapps/DikDok/Data/GFXSets.tres" id="1_da8hp"]
+[ext_resource type="Resource" uid="uid://2u1mdp0uaige" path="res://UI/Fapps/DikDok/Data/SFX.tres" id="1_qke44"]
 [ext_resource type="Script" path="res://UI/Fapps/Package.gd" id="1_xg6pm"]
 [ext_resource type="Texture2D" uid="uid://bxgeuugoc8i7s" path="res://UI/Fapps/DikDok/Data/GFX.png" id="2_epowj"]
 [ext_resource type="PackedScene" uid="uid://bwtx4th0g52c6" path="res://UI/Fapps/DikDok/DikDok.tscn" id="3_2qupx"]
@@ -16,4 +17,6 @@ Icon = SubResource("AtlasTexture_103y8")
 Scene = ExtResource("3_2qupx")
 Type = 0
 Graphics = ExtResource("1_da8hp")
+Audio = ExtResource("1_qke44")
 Widgets = Array[ExtResource("1_xg6pm")]([])
+RunInBackground = false

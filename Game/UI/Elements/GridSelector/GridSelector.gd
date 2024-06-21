@@ -27,7 +27,7 @@ var _Group:ButtonGroup
 func Get(index:int): return _Buttons[index]
 func Select(index:int): _Buttons[index].button_pressed = true
 
-func AddButton(preReady:Callable = func(button):pass, template:PackedScene = ButtonTemplate):
+func AddButton(preReady:Callable = func(_btn):pass, template:PackedScene = ButtonTemplate):
 	if Count >= Contents.columns * Rows:
 		match Overflow:
 			0: return null

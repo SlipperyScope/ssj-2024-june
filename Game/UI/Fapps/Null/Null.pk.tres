@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="Package" load_steps=5 format=3 uid="uid://d2x4k6xecta3r"]
+
+[ext_resource type="Texture2D" uid="uid://c4n8gfi8pcese" path="res://UI/Fapps/Null/Null.ico.png" id="1_dus01"]
+[ext_resource type="Script" path="res://UI/Fapps/Package.gd" id="1_kkase"]
+[ext_resource type="Resource" uid="uid://bmu0lgma72yh0" path="res://UI/Fapps/Null/SFX.tres" id="1_uju43"]
+[ext_resource type="PackedScene" uid="uid://cptaycofwa1ln" path="res://UI/Fapps/Null/Null.tscn" id="2_qbr83"]
+
+[resource]
+script = ExtResource("1_kkase")
+Name = "☐☐☐?☐"
+Icon = ExtResource("1_dus01")
+Scene = ExtResource("2_qbr83")
+Type = 0
+Audio = ExtResource("1_uju43")
+Widgets = Array[ExtResource("1_kkase")]([])
+RunInBackground = false

@@ -1,6 +1,8 @@
 @icon("res://UI/Elements/NineButton/NineButton.png")
 class_name NineButton extends ButtonContainer
 
+signal state_changed(state)
+
 enum ButtonState{Up,Over,Down}
 
 @onready var Content = %Content
@@ -36,6 +38,7 @@ var _Styles
 var _MouseOver:bool
 var _MouseDown:bool
 var _Toggled:bool
+var State
 
 func _ready():
 	Graphic = _Graphic
@@ -108,6 +111,9 @@ func _OnMouseExit():
 	_UpdateStyle()
 
 func _UpdateStyle():
-	var state = ButtonState.Down if _MouseDown else (ButtonState.Over if _MouseOver else ButtonState.Up)
+	var last = State
+	State = ButtonState.Down if _MouseDown else (ButtonState.Over if _MouseOver else ButtonState.Up)
+	if last != State:
+		state_changed.emit(State)
 	for panel in _Styles:
-		panel.get_theme_stylebox("panel").texture = _Styles[panel][_Toggled][state]
+		panel.get_theme_stylebox("panel").texture = _Styles[panel][_Toggled][State]

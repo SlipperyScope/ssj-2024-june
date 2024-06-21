@@ -1,18 +1,20 @@
 [gd_resource type="Resource" script_class="Package" load_steps=6 format=3 uid="uid://dwkx2wbjw1oqx"]
 
 [ext_resource type="Script" path="res://UI/Fapps/Package.gd" id="1_6kw5w"]
-[ext_resource type="Script" path="res://UI/Fapps/FappTapper/GFX.gd" id="1_pdmjx"]
-[ext_resource type="Texture2D" uid="uid://bmrqtgtviqkou" path="res://UI/Fapps/Testee/icon.tres" id="2_eb0ew"]
+[ext_resource type="Resource" uid="uid://bww3vjp046gkf" path="res://UI/Fapps/Testee/SFX.tres" id="1_jtkno"]
+[ext_resource type="Texture2D" uid="uid://bd02j1mm5yddb" path="res://UI/Fapps/Testee/GFX.png" id="1_ry0r2"]
 [ext_resource type="PackedScene" uid="uid://n74o5heji8cs" path="res://UI/Fapps/Testee/Testee.tscn" id="3_4y1v5"]
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_rhgc6"]
-script = ExtResource("1_pdmjx")
+[sub_resource type="AtlasTexture" id="AtlasTexture_d821p"]
+atlas = ExtResource("1_ry0r2")
+region = Rect2(8, 136, 48, 48)
 
 [resource]
 script = ExtResource("1_6kw5w")
 Name = "Testee"
-Icon = ExtResource("2_eb0ew")
+Icon = SubResource("AtlasTexture_d821p")
 Scene = ExtResource("3_4y1v5")
 Type = 0
-Graphics = SubResource("SpriteFrames_rhgc6")
+Audio = ExtResource("1_jtkno")
 Widgets = Array[ExtResource("1_6kw5w")]([])
+RunInBackground = false

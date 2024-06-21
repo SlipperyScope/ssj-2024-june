@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://b3svw3sgdnhi1"]
+[gd_scene load_steps=22 format=3 uid="uid://b3svw3sgdnhi1"]
 
 [ext_resource type="Texture2D" uid="uid://bxgeuugoc8i7s" path="res://UI/Fapps/DikDok/Data/GFX.png" id="1_lslx7"]
 [ext_resource type="Script" path="res://UI/Fapps/DikDok/Editor/Editor.gd" id="1_wunk7"]
@@ -14,6 +14,10 @@
 [ext_resource type="Resource" uid="uid://u5xvvb4lkh20" path="res://UI/Fapps/DikDok/Data/EmptyButtonSet.tres" id="9_qymr6"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_l8uu3"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hfcku"]
+atlas = ExtResource("1_lslx7")
+region = Rect2(0, 320, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_67my6"]
 atlas = ExtResource("1_lslx7")
@@ -83,6 +87,21 @@ theme_override_styles/panel = SubResource("StyleBoxEmpty_l8uu3")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer/VBoxContainer/PanelContainer"]
 layout_mode = 2
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="MarginContainer/HBoxContainer/VBoxContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="NineButton" parent="MarginContainer/HBoxContainer/VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer3" instance=ExtResource("5_epwuw")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+Graphic = SubResource("AtlasTexture_hfcku")
+
+[node name="MusicSelector" type="OptionButton" parent="MarginContainer/HBoxContainer/VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer3"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 8.0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/HBoxContainer/VBoxContainer/PanelContainer/VBoxContainer"]
 layout_mode = 2

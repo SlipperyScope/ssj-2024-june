@@ -6,7 +6,8 @@ var Params
 enum NID{
 	Init,
 	Sleep,
-	Wake
+	Wake,
+	Close
 }
 
 func _init(id:NID, params:Array = []):

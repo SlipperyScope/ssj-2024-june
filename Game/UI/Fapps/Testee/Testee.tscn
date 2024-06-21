@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" path="res://UI/Fapps/Testee/Testee.gd" id="1_52r4h"]
 [ext_resource type="Texture2D" uid="uid://bd02j1mm5yddb" path="res://UI/Fapps/Testee/GFX.png" id="2_cmnuy"]
-[ext_resource type="AudioStream" uid="uid://bt68wx01olflm" path="res://UI/iFad/Audio/Misc/Inhale.wav" id="3_i5y37"]
-[ext_resource type="AudioStream" uid="uid://bh51gulx4ifnd" path="res://UI/iFad/Audio/Sus/Not_Horn.mp3" id="4_65hd0"]
+[ext_resource type="AudioStream" uid="uid://bt68wx01olflm" path="res://UI/Fapps/Testee/Data/Inhale.wav" id="3_j7111"]
+[ext_resource type="AudioStream" uid="uid://bh51gulx4ifnd" path="res://UI/Fapps/Testee/Data/Not_Horn.mp3" id="4_p4n2n"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wabia"]
 atlas = ExtResource("2_cmnuy")
@@ -75,7 +75,7 @@ expand_mode = 5
 stretch_mode = 5
 
 [node name="Over" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("3_i5y37")
+stream = ExtResource("3_j7111")
 
 [node name="Down" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("4_65hd0")
+stream = ExtResource("4_p4n2n")
