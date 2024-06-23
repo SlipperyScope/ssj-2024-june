@@ -61,6 +61,8 @@ func _init(name:String, growth:Callable):
     for n in self.Econ.Nodes.values().filter(func(n:EconNode): return n.IsRoot()):
         self.Supplies[n.ID] = randi() % 70 + 30
 
+    self.Demands["Bed"] = randi() % 20 + 5
+
     # Set costs
     self.Econ.WalkCosts()
 
@@ -87,6 +89,26 @@ func BuildMaxAtSurplus(n:String, cost:Dictionary, surplus:int):
         self.Supplies[i] -= qty * cost[i]
     self.Supplies[n] += qty
 
+# When advanced supplies are in demand, that demand should
+# put pressure on its own ingredients to an extent (encouraging
+# an economy to build instead of buy, assuming its growth strat
+# even allows for that)
+func ForwardDemand():
+    for n in self.Econ.MinToMaxResourceIter():
+        var touched = []
+        var delta = self.Demands[n.ID] - self.Supplies[n.ID]
+        if delta > 0:
+            for rec in n.From.keys():
+                var ingredients = rec.From
+                for i in ingredients.keys():
+                    if i not in touched:
+                        touched.push_back(i)
+                        var weight = ingredients[i]
+                        var localDemand = weight * delta
+                        if self.Demands[i.ID] < localDemand:
+                            # Apply math vigorously
+                            self.Demands[i.ID] += ceil((localDemand - self.Demands[i.ID]) / 10)
+
 # Call to progress the econ simulation
 func Next():
     # 1: Run through all motivations
@@ -109,4 +131,9 @@ func Next():
 
     # 2: Perform local growth strategy
     self.Growth.call(self)
-    # 3: Every once in awhile, engage in trade (should this be part of trade? Probably not)
+
+    # 3: Propagate demand
+    self.ForwardDemand()
+    print("Demands ", self.Demands)
+
+    # 4: Every once in awhile, engage in trade (should this be part of trade? Probably not)
