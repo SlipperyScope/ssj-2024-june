@@ -14,6 +14,9 @@ var ApproxCost:Dictionary = {}
 var _maxDistanceToRoot:int = -1
 var _minDistanceToRoot:int = -1
 
+func IsRoot():
+    return self.From.size() == 0
+
 func _init(id:String, type: NodeType):
     self.ID = id
     self.Type = type
@@ -65,6 +68,14 @@ func MinDistanceToRoot():
             minDist = i.MinDistanceToRoot()
     self._minDistanceToRoot = 0 if minDist == 0 else minDist + 1
     return self._minDistanceToRoot
+
+# Cost of all immediate dependencies
+func DirectCost():
+    var tally = {}
+    var recipe = self.From.keys()[randi() % self.From.size()]
+    for i in recipe.From.keys():
+        tally[i.ID] = recipe.From[i]
+    return tally
 
 # Cost of all dependencies boiled down to resources with no deps
 func RawCost():

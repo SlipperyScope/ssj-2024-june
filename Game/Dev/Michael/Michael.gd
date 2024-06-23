@@ -4,7 +4,18 @@ var AllDistricts = null
 
 # Econ prefers to combine materials as much as possible
 func GrowthMax(dist:District):
-	print("Max", dist.Name)
+	print("Max ", dist.Name)
+	print("Supplies ", dist.Supplies)
+	var iter = dist.Econ.MinToMaxResourceIter()
+	iter.reverse()
+	for n in iter:
+		# Try to make all the things (if supply > demand)
+		if !n.IsRoot():
+			var cost = n.DirectCost()
+			print("Trying to make a %s" % n.ID)
+			for i in cost.keys():
+				print(" - %s %s (Have %s, Demand %s)" % [cost[i], i, dist.Supplies[i], dist.Demands[i]])
+			dist.BuildMax(n.ID, cost)
 
 # Econ prefers to combine materials to just intermediate materials
 func GrowthMid(dist:District):
@@ -40,11 +51,7 @@ func _ready():
 	var a = self.AllDistricts["Arts"]
 	a.Motivations.push_back(District.Motivate(District.MotivationType.Demand, "Bed", 1, 2, func(i): return i))
 
-	print("============== Motivations Test =============")
 	for i in range(5):
-		# print("S", a.Supplies)
-		# print("D", a.Demands)
-		# print(len(a.Motivations), a.Motivations)
 		self.allNext()
 
 
