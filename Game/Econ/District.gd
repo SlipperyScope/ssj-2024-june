@@ -73,9 +73,12 @@ func TechArt():
     pass
 
 func BuildMax(n:String, cost:Dictionary):
+    self.BuildMaxAtSurplus(n, cost, 0)
+
+func BuildMaxAtSurplus(n:String, cost:Dictionary, surplus:int):
     var qty = -1
     for i in cost.keys():
-        var maxOfIngredient = floor((self.Supplies[i] - self.Demands[i]) / cost[i])
+        var maxOfIngredient = max(0, floor((self.Supplies[i] - self.Demands[i] - surplus) / cost[i]))
         print("=== before %s, this (%s) %s" % [qty, i, maxOfIngredient])
         qty = maxOfIngredient if qty == -1 else min(qty, maxOfIngredient)
 
