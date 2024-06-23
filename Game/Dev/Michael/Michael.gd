@@ -8,6 +8,7 @@ func GrowthMax(dist:District):
 	print("Supplies ", dist.Supplies)
 	var iter = dist.Econ.MinToMaxResourceIter().filter(func(n: EconNode): return !n.IsRoot())
 	iter.reverse()
+	print(iter.map(func(n:EconNode): return "%s:%s" % [n.ID, n.MaxDistanceToRoot()]))
 	for n in iter:
 		# Try to make all the things (if supply > demand)
 		var cost = n.DirectCost()

@@ -48,7 +48,7 @@ func FindOrMake(id: String, type: EconNode.NodeType):
 
 func MinToMaxResourceIter():
     var nodes = self.Nodes.values().filter(func(n:EconNode): return n.Type == EconNode.NodeType.Resource)
-    nodes.sort_custom(func(a,b): return a.MaxDistanceToRoot() > b.MaxDistanceToRoot())
+    nodes.sort_custom(func(a,b): return b.MaxDistanceToRoot() > a.MaxDistanceToRoot())
     return nodes
 
 func WalkCosts():
