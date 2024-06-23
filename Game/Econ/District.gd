@@ -16,6 +16,7 @@ static func Motivate(type:MotivationType, resource: String, magnitude:int, durat
 
 var Name: String = ''
 var Econ: Graph = null
+var Growth: Callable = func(): pass
 
 # Mappings of all resource types to an int
 var Demands:Dictionary = {}
@@ -33,8 +34,10 @@ var Motivations = [
     District.Motivate(MotivationType.Supply, "Animal", 5, 3, func(i): return i-1)
 ]
 
-func _init(name:String):
+func _init(name:String, growth:Callable):
     self.Name = name
+    self.Growth = growth
+
     self.Econ = Graph.new()
     self.Econ.Element('Water')
     self.Econ.Element('Rock')
@@ -62,8 +65,9 @@ func TechArt():
     # Upgraded recipes for art stuff
     pass
 
+# Call to progress the econ simulation
 func Next():
-    # Call to progress the econ simulation
+    # 1: Run through all motivations
     var toRemove = []
     for m in self.Motivations:
         # Update supply/demand
@@ -80,3 +84,7 @@ func Next():
 
     for r in toRemove:
         self.Motivations.remove_at(self.Motivations.find(r))
+
+    # 2: Perform local growth strategy
+    self.Growth.call(self)
+    # 3: Every once in awhile, engage in trade (should this be part of trade? Probably not)
