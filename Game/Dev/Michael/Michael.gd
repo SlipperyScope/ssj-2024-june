@@ -4,26 +4,35 @@ var AllDistricts = null
 
 # Econ prefers to combine materials as much as possible
 func GrowthMax(dist:District):
-	print("Max ", dist.Name)
+	print("\n\nMax ", dist.Name)
 	print("Supplies ", dist.Supplies)
-	var iter = dist.Econ.MinToMaxResourceIter()
+	var iter = dist.Econ.MinToMaxResourceIter().filter(func(n: EconNode): return !n.IsRoot())
 	iter.reverse()
 	for n in iter:
 		# Try to make all the things (if supply > demand)
-		if !n.IsRoot():
-			var cost = n.DirectCost()
-			print("Trying to make a %s" % n.ID)
-			for i in cost.keys():
-				print(" - %s %s (Have %s, Demand %s)" % [cost[i], i, dist.Supplies[i], dist.Demands[i]])
-			dist.BuildMax(n.ID, cost)
+		var cost = n.DirectCost()
+		print("Trying to make a %s" % n.ID)
+		for i in cost.keys():
+			print(" - %s %s (Have %s, Demand %s)" % [cost[i], i, dist.Supplies[i], dist.Demands[i]])
+		dist.BuildMax(n.ID, cost)
 
 # Econ prefers to combine materials to just intermediate materials
 func GrowthMid(dist:District):
-	print("Mid", dist.Name)
+	print("\n\nMid ", dist.Name)
+	print("Supplies ", dist.Supplies)
+	var iter = dist.Econ.MinToMaxResourceIter().filter(func(n:EconNode): return n.MaxDistanceToRoot() == 1)
+	iter.reverse()
+	for n in iter:
+		# Try to make all the things (if supply > demand)
+		var cost = n.DirectCost()
+		print("Trying to make a %s" % n.ID)
+		for i in cost.keys():
+			print(" - %s %s (Have %s, Demand %s)" % [cost[i], i, dist.Supplies[i], dist.Demands[i]])
+		dist.BuildMax(n.ID, cost)
 
 # Econ will reluctantly combine materials if they have enough surplus
 func GrowthMeh(dist:District):
-	print("Meh", dist.Name)
+	print("\n\nMeh", dist.Name)
 
 # Econ will never grow things
 func GrowthNone(_dist:District):
