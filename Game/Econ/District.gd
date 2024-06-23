@@ -57,6 +57,10 @@ func _init(name:String, growth:Callable):
             self.Demands[n] = 0
             self.Supplies[n] = 0
 
+    # Every district starts with basic resources, why not?
+    for n in self.Econ.Nodes.values().filter(func(n:EconNode): return n.IsRoot()):
+        self.Supplies[n.ID] = randi() % 70 + 30
+
     # Set costs
     self.Econ.WalkCosts()
 
@@ -67,6 +71,18 @@ func TechIndustry():
 func TechArt():
     # Upgraded recipes for art stuff
     pass
+
+func BuildMax(n:String, cost:Dictionary):
+    var qty = -1
+    for i in cost.keys():
+        var maxOfIngredient = floor((self.Supplies[i] - self.Demands[i]) / cost[i])
+        print("=== before %s, this (%s) %s" % [qty, i, maxOfIngredient])
+        qty = maxOfIngredient if qty == -1 else min(qty, maxOfIngredient)
+
+    print("Building %s of %s" % [qty, n])
+    for i in cost.keys():
+        self.Supplies[i] -= qty * cost[i]
+    self.Supplies[n] += qty
 
 # Call to progress the econ simulation
 func Next():
