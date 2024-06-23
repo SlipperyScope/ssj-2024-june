@@ -50,23 +50,35 @@ func RemoveEdge(to: EconNode):
     to.From.erase(self)
 
 func MaxDistanceToRoot():
+    # memoize
     if self._maxDistanceToRoot != -1:
         return self._maxDistanceToRoot
+
+    # calculate
     var maxDist = 0
-    for i in self.From.keys():
-        if i.MaxDistanceToRoot() > maxDist:
-            maxDist = i.MaxDistanceToRoot()
-    self._maxDistanceToRoot = 0 if maxDist == 0 else maxDist + 1
+    if self.IsRoot():
+        self._maxDistanceToRoot = 0
+    else:
+        for i in self.From.keys():
+            maxDist = max(maxDist, i.MaxDistanceToRoot())
+        self._maxDistanceToRoot = maxDist if self.Type == NodeType.Recipe else maxDist + 1
+
     return self._maxDistanceToRoot
 
 func MinDistanceToRoot():
+    # memoize
     if self._minDistanceToRoot != -1:
         return self._minDistanceToRoot
+
+    # calculate
     var minDist = 10000
-    for i in self.From.keys():
-        if i.MinDistanceToRoot() < minDist:
-            minDist = i.MinDistanceToRoot()
-    self._minDistanceToRoot = 0 if minDist == 0 else minDist + 1
+    if self.IsRoot():
+        self._minDistanceToRoot = 0
+    else:
+        for i in self.From.keys():
+            minDist = min(minDist, i.MinDistanceToRoot())
+        self._minDistanceToRoot = minDist if self.Type == NodeType.Recipe else minDist + 1
+
     return self._minDistanceToRoot
 
 # Cost of all immediate dependencies
