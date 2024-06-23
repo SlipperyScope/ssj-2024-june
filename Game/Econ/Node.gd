@@ -9,6 +9,10 @@ var From:Dictionary = {}
 var To:Dictionary = {}
 var Type:NodeType = NodeType.Resource
 var ID:String = ''
+var ApproxCost:Dictionary = {}
+
+var _maxDistanceToRoot:int = -1
+var _minDistanceToRoot:int = -1
 
 func _init(id:String, type: NodeType):
     self.ID = id
@@ -42,10 +46,25 @@ func RemoveEdge(to: EconNode):
     To.erase(to)
     to.From.erase(self)
 
-# For each resource node, choose 1 recipe node (which results in a sub-tree from the dag)
-# func ReciTree():
-#    var root = self
+func MaxDistanceToRoot():
+    if self._maxDistanceToRoot != -1:
+        return self._maxDistanceToRoot
+    var maxDist = 0
+    for i in self.From.keys():
+        if i.MaxDistanceToRoot() > maxDist:
+            maxDist = i.MaxDistanceToRoot()
+    self._maxDistanceToRoot = 0 if maxDist == 0 else maxDist + 1
+    return self._maxDistanceToRoot
 
+func MinDistanceToRoot():
+    if self._minDistanceToRoot != -1:
+        return self._minDistanceToRoot
+    var minDist = 10000
+    for i in self.From.keys():
+        if i.MinDistanceToRoot() < minDist:
+            minDist = i.MinDistanceToRoot()
+    self._minDistanceToRoot = 0 if minDist == 0 else minDist + 1
+    return self._minDistanceToRoot
 
 # Cost of all dependencies boiled down to resources with no deps
 func RawCost():
@@ -67,4 +86,5 @@ func RawCost():
                     tally[n.ID] = 0
                 tally[n.ID] += w
     print(tally)
+    self.ApproxCost = tally
     return tally

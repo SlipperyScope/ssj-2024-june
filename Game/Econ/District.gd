@@ -57,6 +57,9 @@ func _init(name:String, growth:Callable):
             self.Demands[n] = 0
             self.Supplies[n] = 0
 
+    # Set costs
+    self.Econ.WalkCosts()
+
 func TechIndustry():
     # Upgraded recipes for tech stuff
     pass
