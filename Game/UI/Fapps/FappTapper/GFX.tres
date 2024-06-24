@@ -459,3 +459,4 @@ animations = [{
 "speed": 5.0
 }]
 script = ExtResource("2_4ymx8")
+Metadata = {}

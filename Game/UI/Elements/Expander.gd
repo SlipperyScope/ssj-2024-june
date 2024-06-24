@@ -16,10 +16,14 @@ func SetPanelState(open:bool):
 
 func _ready():
 	_Button = get_node(_ButtonPath)
-	_Button.pressed.connect(func():_Toggled(!_IsOpen))
+	if _Button.toggle_mode:
+		_Button.toggled.connect(_Toggled)
+	else:
+		_Button.pressed.connect(func():_Toggled(!_IsOpen))
 	SetPanelState(_StartOpen)
 
 func _Toggled(open):
+	print("toggled ", open)
 	if open != _IsOpen:
 		_IsOpen = open
 		_SetVisible(open)

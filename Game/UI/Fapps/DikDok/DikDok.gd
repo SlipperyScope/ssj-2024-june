@@ -1,6 +1,8 @@
 @icon("res://UI/Fapps/DikDok/icon.png")
 extends Fapp
 
+var rng = RandomNumberGenerator.new()
+
 enum AppState { Home, Profile, Feed, Creator }
 
 @onready var _Gfx = _Data.Gfx
@@ -16,6 +18,7 @@ var _NextFrame = INF
 var _Stream
 var _File
 var _Feed
+var _FeedPosition
 
 func Notify(msg):
 	match msg.ID:
@@ -45,8 +48,13 @@ func _InitCreator():
 		var grid = grids[id][0]
 		var button = grids[id][1]
 		for i in _Gfx.Count(id) - 4:
-			grid.AddButton().SetTexture(_Gfx.Get(id, i))
+			var newbtn = grid.AddButton()
+			newbtn.SetTexture(_Gfx.Get(id, i))
+			newbtn._Button.mouse_entered.connect(_PlaySound.bind("Over"))
+			newbtn._Button.pressed.connect(_PlaySound.bind("Down"))
 		button.toggled.connect(func(s):grid.visible = s)
+		button.mouse_entered.connect(_PlaySound.bind("Over"))
+		button.pressed.connect(_PlaySound.bind("Down"))
 		grid.pressed.connect(_PanelItemSelected.bind(id))
 	var ss = %SongSelector
 	var songs:Array[WAD] = _Sfx.Songs
@@ -82,14 +90,46 @@ func _InitProfile():
 	}
 
 func _InitFeed():
-	#%FeedNext.pressed.connect(_FeedButton.bind(1))
-	#%FeedPrev.pressed.connect(_FeedButton.bind(-1))
+	_FeedPosition = 0
+	%FeedNext.pressed.connect(_FeedButton.bind(1))
+	%FeedNext.mouse_entered.connect(_PlaySound.bind("Over"))
+	%FeedNext.pressed.connect(_PlaySound.bind("Down"))
+	%FeedPrev.pressed.connect(_FeedButton.bind(-1))
+	%FeedPrev.mouse_entered.connect(_PlaySound.bind("Over"))
+	%FeedPrev.pressed.connect(_PlaySound.bind("Down"))
 	pass
+
+func _FeedButton(dir):
+	match dir:
+		1:
+			if _FeedPosition < _Feed.size()-1:
+				_FeedPosition = _FeedPosition + 1
+				_SetPlaying(false)
+				_LoadFile(_Feed[_FeedPosition])
+				_SetPlaying(true)
+		-1:
+			if _FeedPosition > 0:
+				_FeedPosition = _FeedPosition - 1
+				_SetPlaying(false)
+				_LoadFile(_Feed[_FeedPosition])
+				_SetPlaying(true)
+		0:
+			pass
 
 func _InitNav():
 	%NavProfile.pressed.connect(_SetState.bind(AppState.Profile))
+	%NavProfile.mouse_entered.connect(_PlaySound.bind("Over"))
+	%NavProfile.pressed.connect(_PlaySound.bind("Down"))
+	%NavProfile.pressed.connect(func():%SidePanelButton.button_pressed = false)
 	%NavCreator.pressed.connect(_SetState.bind(AppState.Creator))
+	%NavCreator.mouse_entered.connect(_PlaySound.bind("Over"))
+	%NavCreator.pressed.connect(_PlaySound.bind("Down"))
+	%NavCreator.pressed.connect(func():%SidePanelButton.button_pressed = false)
 	%NavFeed.pressed.connect(_SetState.bind(AppState.Feed))
+	%NavFeed.mouse_entered.connect(_PlaySound.bind("Over"))
+	%NavFeed.pressed.connect(_PlaySound.bind("Down"))
+	%NavFeed.pressed.connect(func():%SidePanelButton.button_pressed = false)
+	%NavPanel.visible = true
 
 func _SetState(state):
 	if state == _State:
@@ -106,14 +146,18 @@ func _SetState(state):
 			%ProfilePic.texture = _Gfx.Get("Profiles",_Data.Store["Creator"]["Profile"]["Kusp"]["Pic"])
 			%Blurb.text = _Data.Store["Creator"]["Profile"]["Kusp"]["Blurb"]
 			_Feed = _Data.Store["Creator"]["Profile"]["Kusp"]["DikDoks"]
+			%Handle.text = _Data.Store["Creator"]["Profile"]["Kusp"]["Handle"]
 		AppState.Profile:
 			config = {%Host:true,%Player:true,%Creator:false,%Feed:true,%Profile:true}
 			%ProfilePic.texture = _Gfx.Get("Profiles",_Data.Store["Creator"]["Profile"]["Hand"]["Pic"])
 			%Blurb.text = _Data.Store["Creator"]["Profile"]["Hand"]["Blurb"]
+			%Handle.text = _Data.Store["Creator"]["Profile"]["Hand"]["Handle"]
 			_Feed = _Data.Store["Creator"]["Profile"]["Hand"]["DikDoks"]
 		AppState.Feed:
 			config = {%Host:true,%Player:true,%Creator:false,%Feed:true,%Profile:false}
-			_Feed = [_GenerateRandomFeed()]
+			_Feed = []
+			_FeedPosition = 0
+			for r in 24: _Feed.append(_GenerateRandomFeedItem())
 		AppState.Creator:
 			config = {%Host:true,%Player:true,%Creator:true,%Feed:false,%Profile:false}
 			_Feed = []
@@ -121,12 +165,13 @@ func _SetState(state):
 		panel.visible = config[panel]
 	_State = state
 	_LoadFile((_Feed[0] if _Feed.size() else DikDok_dd.Empty) if state != AppState.Creator else _Data.Store["Creator"]["Temp"])
+	if _State != AppState.Creator: _SetPlaying(true)
 
 func _SetPlaying(playing):
 	if playing != _Playing:
 		SetFrame(0)
 		_Playing = playing
-		_NextFrame = _Time + 8 / _File.FrameCount if playing else INF
+		_NextFrame = _Time + 8.0 / _File.FrameCount if playing else INF
 		if playing: _Stream.play()
 		else: _Stream.stop()
 
@@ -183,14 +228,32 @@ func _ReadFrame():
 	_Host._Frame.Dance = _Gfx.Get("Dances", _File.Dances[_Frame])
 	pass
 
-func _GenerateRandomFeed() -> DikDok_dd:
-	return DikDok_dd.Empty
+func _GenerateRandomFeedItem() -> DikDok_dd:
+	var rd = func():return rng.randi_range(0,23)
+	var re = func():return rng.randi_range(0,19)
+	var dd = DikDok_dd.Empty
+	dd.Name = "untitled"
+	dd.SongID = rng.randi_range(0,3)
+	dd.BPM = 120
+	dd.FrameCount = rng.randi_range(2,4)*2
+	dd.Dances = [] as Array[int]
+	for d in dd.FrameCount: dd.Dances.append(rd.call())
+	dd.Emojis = [] as Array[int]
+	for e in dd.FrameCount: dd.Emojis.append(re.call())
+	dd.Words = [] as Array[int]
+	for e in dd.FrameCount: dd.Words.append(0)
+	dd.Background = null
+	dd.Plays = 0
+	dd.Likes = 0
+	dd.Shares = 0
+	dd.Date = 0
+	return dd
 
 func _process(delta):
 	_Time += delta
 	if (_Time >= _NextFrame):
 		SetFrame((_Frame + 1) % _File.FrameCount)
-		_NextFrame += 8 / _File.FrameCount
+		_NextFrame += 8.0 / _File.FrameCount
 		if _Frame == 0:
 			_Stream.play()
 

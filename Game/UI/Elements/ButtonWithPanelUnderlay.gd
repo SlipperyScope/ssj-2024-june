@@ -22,6 +22,7 @@ func _ready():
 	button.button_down.connect(_ButtonChanged.bind(true))
 	button.button_up.connect(_ButtonChanged.bind(false))
 	button.toggled.connect(_ButtonToggled)
+	#button.pressed.connect(_ButtonToggled.bind(!ButtonIsDown))
 	_UpdateTexture()
 	
 func _MouseChanged(state):

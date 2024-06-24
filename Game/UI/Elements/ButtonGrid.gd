@@ -19,10 +19,10 @@ var Count:int:
 var Selected
 
 func Select(index):
-	if _Buttons.size():
+	if _Buttons.size() && index < _Buttons.size():
 		_Buttons[index].button_pressed = true
 		_ButtonToggled(true, index)
-	else: print("there are no items")
+	else: print("there are no items and/or index is to high gamejam")
 
 func _ready():
 	if Toggles && !AllowMultiToggle:

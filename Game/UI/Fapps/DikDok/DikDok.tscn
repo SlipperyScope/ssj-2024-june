@@ -223,7 +223,6 @@ PathToButton = NodePath("./Button")
 
 [node name="Creator" type="MarginContainer" parent="."]
 unique_name_in_owner = true
-visible = false
 layout_mode = 2
 mouse_filter = 2
 theme_override_constants/margin_left = 16
@@ -451,6 +450,7 @@ autowrap_mode = 2
 
 [node name="NavPanel" type="MarginContainer" parent="."]
 unique_name_in_owner = true
+visible = false
 layout_mode = 2
 mouse_filter = 2
 theme_override_constants/margin_left = 0
@@ -518,7 +518,6 @@ border_color = Color(1, 0, 0, 0)
 editor_only = false
 
 [node name="Side Panel" type="MarginContainer" parent="NavPanel/Nav/HBoxContainer"]
-visible = false
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 size_flags_horizontal = 3
