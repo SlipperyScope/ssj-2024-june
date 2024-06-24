@@ -1,4 +1,4 @@
-[gd_scene load_steps=48 format=3 uid="uid://bwtx4th0g52c6"]
+[gd_scene load_steps=47 format=3 uid="uid://bwtx4th0g52c6"]
 
 [ext_resource type="Script" path="res://UI/Fapps/DikDok/DikDok.gd" id="1_dyqcs"]
 [ext_resource type="PackedScene" uid="uid://bdf75648bcift" path="res://UI/Fapps/DikDok/DDHost/DDHost.tscn" id="3_ey6ui"]
@@ -27,10 +27,9 @@ region = Rect2(384, 64, 64, 64)
 texture = SubResource("AtlasTexture_5v0su")
 region_rect = Rect2(24, 24, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_j0wsg"]
-region = Rect2(0, 0, 1, 1)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_m1ntx"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_ve68j"]
+atlas = ExtResource("7_o72ic")
+region = Rect2(72, 200, 48, 48)
 
 [sub_resource type="ImageTexture" id="ImageTexture_svitv"]
 
@@ -42,11 +41,11 @@ region = Rect2(72, 200, 48, 48)
 atlas = ExtResource("7_o72ic")
 region = Rect2(136, 200, 48, 48)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_1s3qa"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_ewgrc"]
 atlas = ExtResource("7_o72ic")
 region = Rect2(200, 200, 48, 48)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_gopl6"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_r6h8m"]
 atlas = ExtResource("7_o72ic")
 region = Rect2(264, 200, 48, 48)
 
@@ -138,8 +137,6 @@ theme_override_styles/panel = SubResource("StyleBoxTexture_ucj80")
 script = ExtResource("1_dyqcs")
 
 [node name="Host" type="MarginContainer" parent="."]
-unique_name_in_owner = true
-visible = false
 layout_mode = 2
 theme_override_constants/margin_left = 8
 theme_override_constants/margin_top = 163
@@ -151,12 +148,9 @@ layout_mode = 2
 ratio = 0.72
 
 [node name="DdHost" parent="Host/AspectRatioContainer" instance=ExtResource("3_ey6ui")]
-unique_name_in_owner = true
 layout_mode = 2
 
 [node name="Player" type="MarginContainer" parent="."]
-unique_name_in_owner = true
-visible = false
 layout_mode = 2
 theme_override_constants/margin_left = 16
 theme_override_constants/margin_top = 16
@@ -175,32 +169,35 @@ theme_override_constants/separation = 0
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="TextureRect" type="TextureRect" parent="Player/PanelContainer/HBoxContainer/MarginContainer"]
-custom_minimum_size = Vector2(1, 1)
+[node name="PPPlay" type="TextureRect" parent="Player/PanelContainer/HBoxContainer/MarginContainer"]
+unique_name_in_owner = true
 layout_mode = 2
-texture = SubResource("AtlasTexture_j0wsg")
+texture = SubResource("AtlasTexture_ve68j")
 expand_mode = 5
 stretch_mode = 5
 
-[node name="PPPicture" type="Panel" parent="Player/PanelContainer/HBoxContainer/MarginContainer"]
+[node name="PPPause" type="TextureRect" parent="Player/PanelContainer/HBoxContainer/MarginContainer"]
+unique_name_in_owner = true
 layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxTexture_m1ntx")
+texture = SubResource("AtlasTexture_ve68j")
+expand_mode = 5
+stretch_mode = 5
 
 [node name="PPButton" type="TextureButton" parent="Player/PanelContainer/HBoxContainer/MarginContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
-toggle_mode = true
 texture_normal = SubResource("ImageTexture_svitv")
 script = ExtResource("9_exnei")
-PanelPath = NodePath("../PPPicture")
+PanelPath = NodePath("../PPPlay")
 Up = SubResource("AtlasTexture_5506v")
 Over = SubResource("AtlasTexture_01pxn")
 Down = SubResource("AtlasTexture_01pxn")
-UseToggled = true
-Toggled_Up = SubResource("AtlasTexture_1s3qa")
-Toggled_Over = SubResource("AtlasTexture_gopl6")
-Toggled_Down = SubResource("AtlasTexture_gopl6")
+useToggled = true
+toggled_PanelPath = NodePath("../PPPause")
+toggled_Up = SubResource("AtlasTexture_ewgrc")
+toggled_Over = SubResource("AtlasTexture_r6h8m")
+toggled_Down = SubResource("AtlasTexture_r6h8m")
 
 [node name="MarginContainer2" type="MarginContainer" parent="Player/PanelContainer/HBoxContainer"]
 layout_mode = 2
@@ -221,63 +218,61 @@ script = ExtResource("6_ubwua")
 ButtonScene = ExtResource("5_iy3kl")
 PathToButton = NodePath("./Button")
 
-[node name="Creator" type="MarginContainer" parent="."]
+[node name="Editor" type="MarginContainer" parent="."]
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
-mouse_filter = 2
 theme_override_constants/margin_left = 16
 theme_override_constants/margin_top = 16
 theme_override_constants/margin_right = 16
 theme_override_constants/margin_bottom = 16
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Creator"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Editor"]
 layout_mode = 2
-mouse_filter = 2
 
-[node name="MusicLayer" type="HBoxContainer" parent="Creator/VBoxContainer"]
+[node name="MusicLayer" type="HBoxContainer" parent="Editor/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/separation = 8
 
-[node name="MarginContainer" type="MarginContainer" parent="Creator/VBoxContainer/MusicLayer"]
+[node name="MarginContainer" type="MarginContainer" parent="Editor/VBoxContainer/MusicLayer"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Panel" type="Panel" parent="Creator/VBoxContainer/MusicLayer/MarginContainer"]
+[node name="Panel" type="Panel" parent="Editor/VBoxContainer/MusicLayer/MarginContainer"]
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxEmpty_bp00y")
 
-[node name="TextureRect" type="TextureRect" parent="Creator/VBoxContainer/MusicLayer/MarginContainer"]
+[node name="TextureRect" type="TextureRect" parent="Editor/VBoxContainer/MusicLayer/MarginContainer"]
 layout_mode = 2
 texture = SubResource("AtlasTexture_l54e4")
 expand_mode = 5
 stretch_mode = 5
 
-[node name="SongSelector" type="OptionButton" parent="Creator/VBoxContainer/MusicLayer"]
+[node name="MusicDropdown" type="OptionButton" parent="Editor/VBoxContainer/MusicLayer"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 8.0
 
-[node name="EmojiLayer" type="HBoxContainer" parent="Creator/VBoxContainer"]
+[node name="EmojiLayer" type="HBoxContainer" parent="Editor/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/separation = 8
 
-[node name="MarginContainer" type="MarginContainer" parent="Creator/VBoxContainer/EmojiLayer"]
+[node name="MarginContainer" type="MarginContainer" parent="Editor/VBoxContainer/EmojiLayer"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Panel" type="Panel" parent="Creator/VBoxContainer/EmojiLayer/MarginContainer"]
+[node name="Panel" type="Panel" parent="Editor/VBoxContainer/EmojiLayer/MarginContainer"]
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_3tuei")
 
-[node name="TextureRect" type="TextureRect" parent="Creator/VBoxContainer/EmojiLayer/MarginContainer"]
+[node name="TextureRect" type="TextureRect" parent="Editor/VBoxContainer/EmojiLayer/MarginContainer"]
 layout_mode = 2
 texture = SubResource("AtlasTexture_8mdvv")
 expand_mode = 5
 stretch_mode = 5
 
-[node name="EmojiGridButton" type="TextureButton" parent="Creator/VBoxContainer/EmojiLayer/MarginContainer"]
+[node name="EmojiButton" type="TextureButton" parent="Editor/VBoxContainer/EmojiLayer/MarginContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 toggle_mode = true
@@ -286,14 +281,13 @@ PanelPath = NodePath("../Panel")
 Over = ExtResource("6_e3kgr")
 Down = ExtResource("5_3ivg7")
 
-[node name="MarginContainer2" type="MarginContainer" parent="Creator/VBoxContainer/EmojiLayer"]
+[node name="MarginContainer2" type="MarginContainer" parent="Editor/VBoxContainer/EmojiLayer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 8.0
 
-[node name="EmojiGrid" type="GridContainer" parent="Creator/VBoxContainer/EmojiLayer/MarginContainer2"]
+[node name="EmojiGrid" type="GridContainer" parent="Editor/VBoxContainer/EmojiLayer/MarginContainer2"]
 unique_name_in_owner = true
-visible = false
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 8.0
@@ -302,25 +296,25 @@ script = ExtResource("6_ubwua")
 ButtonScene = ExtResource("7_l6ca5")
 PathToButton = NodePath("./Button")
 
-[node name="DanceLayer" type="HBoxContainer" parent="Creator/VBoxContainer"]
+[node name="DanceLayer" type="HBoxContainer" parent="Editor/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/separation = 8
 
-[node name="MarginContainer" type="MarginContainer" parent="Creator/VBoxContainer/DanceLayer"]
+[node name="MarginContainer" type="MarginContainer" parent="Editor/VBoxContainer/DanceLayer"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Panel" type="Panel" parent="Creator/VBoxContainer/DanceLayer/MarginContainer"]
+[node name="Panel" type="Panel" parent="Editor/VBoxContainer/DanceLayer/MarginContainer"]
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_a37i1")
 
-[node name="TextureRect2" type="TextureRect" parent="Creator/VBoxContainer/DanceLayer/MarginContainer"]
+[node name="TextureRect2" type="TextureRect" parent="Editor/VBoxContainer/DanceLayer/MarginContainer"]
 layout_mode = 2
 texture = SubResource("AtlasTexture_gborf")
 expand_mode = 5
 stretch_mode = 5
 
-[node name="DanceGridButton" type="TextureButton" parent="Creator/VBoxContainer/DanceLayer/MarginContainer"]
+[node name="DanceButton" type="TextureButton" parent="Editor/VBoxContainer/DanceLayer/MarginContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 toggle_mode = true
@@ -329,14 +323,13 @@ PanelPath = NodePath("../Panel")
 Over = ExtResource("6_e3kgr")
 Down = ExtResource("5_3ivg7")
 
-[node name="MarginContainer2" type="MarginContainer" parent="Creator/VBoxContainer/DanceLayer"]
+[node name="MarginContainer2" type="MarginContainer" parent="Editor/VBoxContainer/DanceLayer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 8.0
 
-[node name="DanceGrid" type="GridContainer" parent="Creator/VBoxContainer/DanceLayer/MarginContainer2"]
+[node name="DanceGrid" type="GridContainer" parent="Editor/VBoxContainer/DanceLayer/MarginContainer2"]
 unique_name_in_owner = true
-visible = false
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 8.0
@@ -345,30 +338,29 @@ script = ExtResource("6_ubwua")
 ButtonScene = ExtResource("7_l6ca5")
 PathToButton = NodePath("./Button")
 
-[node name="Feed" type="MarginContainer" parent="."]
+[node name="Navigate" type="MarginContainer" parent="."]
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
-mouse_filter = 2
 theme_override_constants/margin_right = 20
 theme_override_constants/margin_bottom = 80
 
-[node name="MarginContainer" type="MarginContainer" parent="Feed"]
+[node name="MarginContainer" type="MarginContainer" parent="Navigate"]
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 8
 
-[node name="Panel" type="Panel" parent="Feed/MarginContainer"]
+[node name="Panel" type="Panel" parent="Navigate/MarginContainer"]
 self_modulate = Color(1, 1, 1, 0.717647)
 layout_mode = 2
 theme_override_styles/panel = ExtResource("4_yndx8")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Feed/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Navigate/MarginContainer"]
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 8
 
-[node name="FeedPrev" type="TextureButton" parent="Feed/MarginContainer/VBoxContainer"]
+[node name="NavUp" type="TextureButton" parent="Navigate/MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 texture_normal = SubResource("AtlasTexture_j6nc0")
@@ -376,7 +368,7 @@ texture_pressed = SubResource("AtlasTexture_b3vtn")
 texture_hover = SubResource("AtlasTexture_b3vtn")
 stretch_mode = 5
 
-[node name="FeedNext" type="TextureButton" parent="Feed/MarginContainer/VBoxContainer"]
+[node name="NavDown" type="TextureButton" parent="Navigate/MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 texture_normal = SubResource("AtlasTexture_r5isa")
@@ -384,13 +376,12 @@ texture_pressed = SubResource("AtlasTexture_op62e")
 texture_hover = SubResource("AtlasTexture_op62e")
 stretch_mode = 5
 
-[node name="Profile" type="MarginContainer" parent="."]
+[node name="TopPanel" type="MarginContainer" parent="."]
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
-mouse_filter = 2
 
-[node name="P_Panel" type="MarginContainer" parent="Profile"]
+[node name="P_Panel" type="MarginContainer" parent="TopPanel"]
 layout_mode = 2
 size_flags_vertical = 0
 theme_override_constants/margin_left = 16
@@ -398,47 +389,49 @@ theme_override_constants/margin_top = 0
 theme_override_constants/margin_right = 16
 theme_override_constants/margin_bottom = 0
 
-[node name="Panel" type="Panel" parent="Profile/P_Panel"]
+[node name="Panel" type="Panel" parent="TopPanel/P_Panel"]
 custom_minimum_size = Vector2(0, 141)
 layout_mode = 2
 theme_override_styles/panel = ExtResource("6_a4npv")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Profile/P_Panel"]
+[node name="HBoxContainer" type="HBoxContainer" parent="TopPanel/P_Panel"]
 layout_mode = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="Profile/P_Panel/HBoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="TopPanel/P_Panel/HBoxContainer"]
 layout_mode = 2
 
-[node name="ProfilePic" type="TextureRect" parent="Profile/P_Panel/HBoxContainer/MarginContainer"]
+[node name="ProfilePic" type="TextureRect" parent="TopPanel/P_Panel/HBoxContainer/MarginContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 texture = ExtResource("7_juryr")
 expand_mode = 3
 stretch_mode = 5
 
-[node name="MarginContainer2" type="MarginContainer" parent="Profile/P_Panel/HBoxContainer"]
+[node name="MarginContainer2" type="MarginContainer" parent="TopPanel/P_Panel/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_constants/margin_left = 16
 theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 16
 theme_override_constants/margin_bottom = 16
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Profile/P_Panel/HBoxContainer/MarginContainer2"]
+[node name="VBoxContainer" type="VBoxContainer" parent="TopPanel/P_Panel/HBoxContainer/MarginContainer2"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Handle" type="Label" parent="Profile/P_Panel/HBoxContainer/MarginContainer2/VBoxContainer"]
+[node name="Handle" type="Label" parent="TopPanel/P_Panel/HBoxContainer/MarginContainer2/VBoxContainer"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(1, 1)
 layout_mode = 2
 text = "@EvronKusp"
 label_settings = SubResource("LabelSettings_l8mk6")
 
-[node name="MarginContainer" type="MarginContainer" parent="Profile/P_Panel/HBoxContainer/MarginContainer2/VBoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="TopPanel/P_Panel/HBoxContainer/MarginContainer2/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_constants/margin_left = 16
 
-[node name="Blurb" type="Label" parent="Profile/P_Panel/HBoxContainer/MarginContainer2/VBoxContainer/MarginContainer"]
+[node name="Blurb" type="Label" parent="TopPanel/P_Panel/HBoxContainer/MarginContainer2/VBoxContainer/MarginContainer"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(1, 1)
 layout_mode = 2
@@ -449,15 +442,16 @@ Unlock more stuff to prove you're not a bot 🤖
 vertical_alignment = 1
 autowrap_mode = 2
 
-[node name="NavPanel" type="MarginContainer" parent="."]
+[node name="SidePanel" type="MarginContainer" parent="."]
 unique_name_in_owner = true
+visible = false
 layout_mode = 2
 mouse_filter = 2
 theme_override_constants/margin_left = 0
 theme_override_constants/margin_top = 8
 theme_override_constants/margin_bottom = 8
 
-[node name="Nav" type="PanelContainer" parent="NavPanel"]
+[node name="NavPanel" type="PanelContainer" parent="SidePanel"]
 unique_name_in_owner = true
 layout_mode = 2
 mouse_filter = 2
@@ -466,40 +460,39 @@ script = ExtResource("5_dhowa")
 _ButtonPath = NodePath("HBoxContainer/Side Panel Button/VBoxContainer/MarginContainer/SidePanelButton")
 _ItemsToHide = Array[NodePath]([NodePath("HBoxContainer/Side Panel Button/Panel2"), NodePath("HBoxContainer/Side Panel"), NodePath("HBoxContainer/ReferenceRect")])
 
-[node name="HBoxContainer" type="HBoxContainer" parent="NavPanel/Nav"]
+[node name="HBoxContainer" type="HBoxContainer" parent="SidePanel/NavPanel"]
 layout_mode = 2
 mouse_filter = 2
 theme_override_constants/separation = 0
 
-[node name="Side Panel Button" type="MarginContainer" parent="NavPanel/Nav/HBoxContainer"]
+[node name="Side Panel Button" type="MarginContainer" parent="SidePanel/NavPanel/HBoxContainer"]
 layout_mode = 2
 
-[node name="Panel2" type="Panel" parent="NavPanel/Nav/HBoxContainer/Side Panel Button"]
-visible = false
+[node name="Panel2" type="Panel" parent="SidePanel/NavPanel/HBoxContainer/Side Panel Button"]
 self_modulate = Color(1, 1, 1, 0.866667)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_b2ygd")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="NavPanel/Nav/HBoxContainer/Side Panel Button"]
+[node name="VBoxContainer" type="VBoxContainer" parent="SidePanel/NavPanel/HBoxContainer/Side Panel Button"]
 layout_mode = 2
 
-[node name="ReferenceRect2" type="ReferenceRect" parent="NavPanel/Nav/HBoxContainer/Side Panel Button/VBoxContainer"]
+[node name="ReferenceRect2" type="ReferenceRect" parent="SidePanel/NavPanel/HBoxContainer/Side Panel Button/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 border_color = Color(1, 0, 0, 0)
 editor_only = false
 
-[node name="MarginContainer" type="MarginContainer" parent="NavPanel/Nav/HBoxContainer/Side Panel Button/VBoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="SidePanel/NavPanel/HBoxContainer/Side Panel Button/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Panel" type="Panel" parent="NavPanel/Nav/HBoxContainer/Side Panel Button/VBoxContainer/MarginContainer"]
+[node name="Panel" type="Panel" parent="SidePanel/NavPanel/HBoxContainer/Side Panel Button/VBoxContainer/MarginContainer"]
 custom_minimum_size = Vector2(16, 0)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_hjayx")
 
-[node name="SidePanelButton" type="TextureButton" parent="NavPanel/Nav/HBoxContainer/Side Panel Button/VBoxContainer/MarginContainer"]
+[node name="SidePanelButton" type="TextureButton" parent="SidePanel/NavPanel/HBoxContainer/Side Panel Button/VBoxContainer/MarginContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 toggle_mode = true
@@ -510,42 +503,41 @@ Up = ExtResource("10_73qim")
 Over = ExtResource("11_di8go")
 Down = ExtResource("11_di8go")
 
-[node name="ReferenceRect3" type="ReferenceRect" parent="NavPanel/Nav/HBoxContainer/Side Panel Button/VBoxContainer"]
+[node name="ReferenceRect3" type="ReferenceRect" parent="SidePanel/NavPanel/HBoxContainer/Side Panel Button/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 border_color = Color(1, 0, 0, 0)
 editor_only = false
 
-[node name="Side Panel" type="MarginContainer" parent="NavPanel/Nav/HBoxContainer"]
-visible = false
+[node name="Side Panel" type="MarginContainer" parent="SidePanel/NavPanel/HBoxContainer"]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Panel" type="Panel" parent="NavPanel/Nav/HBoxContainer/Side Panel"]
+[node name="Panel" type="Panel" parent="SidePanel/NavPanel/HBoxContainer/Side Panel"]
 self_modulate = Color(1, 1, 1, 0.866667)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_bjw6f")
 
-[node name="Buttons" type="MarginContainer" parent="NavPanel/Nav/HBoxContainer/Side Panel"]
+[node name="Buttons" type="MarginContainer" parent="SidePanel/NavPanel/HBoxContainer/Side Panel"]
 layout_mode = 2
 size_flags_vertical = 4
 theme_override_constants/margin_top = 8
 theme_override_constants/margin_right = 8
 theme_override_constants/margin_bottom = 8
 
-[node name="VBoxContainer" type="VBoxContainer" parent="NavPanel/Nav/HBoxContainer/Side Panel/Buttons"]
+[node name="VBoxContainer" type="VBoxContainer" parent="SidePanel/NavPanel/HBoxContainer/Side Panel/Buttons"]
 layout_mode = 2
 
-[node name="Profile" type="MarginContainer" parent="NavPanel/Nav/HBoxContainer/Side Panel/Buttons/VBoxContainer"]
+[node name="Profile" type="MarginContainer" parent="SidePanel/NavPanel/HBoxContainer/Side Panel/Buttons/VBoxContainer"]
 layout_mode = 2
 
-[node name="Panel" type="Panel" parent="NavPanel/Nav/HBoxContainer/Side Panel/Buttons/VBoxContainer/Profile"]
+[node name="Panel" type="Panel" parent="SidePanel/NavPanel/HBoxContainer/Side Panel/Buttons/VBoxContainer/Profile"]
 visible = false
 layout_mode = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="NavPanel/Nav/HBoxContainer/Side Panel/Buttons/VBoxContainer/Profile"]
+[node name="MarginContainer" type="MarginContainer" parent="SidePanel/NavPanel/HBoxContainer/Side Panel/Buttons/VBoxContainer/Profile"]
 layout_mode = 2
 mouse_filter = 2
 theme_override_constants/margin_left = 10
@@ -553,14 +545,14 @@ theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 
-[node name="TextureRect" type="TextureRect" parent="NavPanel/Nav/HBoxContainer/Side Panel/Buttons/VBoxContainer/Profile/MarginContainer"]
+[node name="TextureRect" type="TextureRect" parent="SidePanel/NavPanel/HBoxContainer/Side Panel/Buttons/VBoxContainer/Profile/MarginContainer"]
 layout_mode = 2
 mouse_filter = 2
 texture = SubResource("AtlasTexture_6eeg0")
 expand_mode = 5
 stretch_mode = 5
 
-[node name="NavProfile" type="TextureButton" parent="NavPanel/Nav/HBoxContainer/Side Panel/Buttons/VBoxContainer/Profile"]
+[node name="ProfileButton" type="TextureButton" parent="SidePanel/NavPanel/HBoxContainer/Side Panel/Buttons/VBoxContainer/Profile"]
 unique_name_in_owner = true
 layout_mode = 2
 texture_pressed = ExtResource("6_ll6a0")
@@ -568,20 +560,20 @@ texture_hover = ExtResource("7_3p6pv")
 ignore_texture_size = true
 stretch_mode = 5
 
-[node name="Label" type="Label" parent="NavPanel/Nav/HBoxContainer/Side Panel/Buttons/VBoxContainer/Profile"]
+[node name="Label" type="Label" parent="SidePanel/NavPanel/HBoxContainer/Side Panel/Buttons/VBoxContainer/Profile"]
 layout_mode = 2
 size_flags_vertical = 8
 text = "MY PROFILE"
 horizontal_alignment = 1
 
-[node name="Create" type="MarginContainer" parent="NavPanel/Nav/HBoxContainer/Side Panel/Buttons/VBoxContainer"]
+[node name="Create" type="MarginContainer" parent="SidePanel/NavPanel/HBoxContainer/Side Panel/Buttons/VBoxContainer"]
 layout_mode = 2
 
-[node name="Panel" type="Panel" parent="NavPanel/Nav/HBoxContainer/Side Panel/Buttons/VBoxContainer/Create"]
+[node name="Panel" type="Panel" parent="SidePanel/NavPanel/HBoxContainer/Side Panel/Buttons/VBoxContainer/Create"]
 visible = false
 layout_mode = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="NavPanel/Nav/HBoxContainer/Side Panel/Buttons/VBoxContainer/Create"]
+[node name="MarginContainer" type="MarginContainer" parent="SidePanel/NavPanel/HBoxContainer/Side Panel/Buttons/VBoxContainer/Create"]
 layout_mode = 2
 mouse_filter = 2
 theme_override_constants/margin_left = 10
@@ -589,14 +581,14 @@ theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 
-[node name="TextureRect" type="TextureRect" parent="NavPanel/Nav/HBoxContainer/Side Panel/Buttons/VBoxContainer/Create/MarginContainer"]
+[node name="TextureRect" type="TextureRect" parent="SidePanel/NavPanel/HBoxContainer/Side Panel/Buttons/VBoxContainer/Create/MarginContainer"]
 layout_mode = 2
 mouse_filter = 2
 texture = SubResource("AtlasTexture_xcicl")
 expand_mode = 5
 stretch_mode = 5
 
-[node name="NavCreator" type="TextureButton" parent="NavPanel/Nav/HBoxContainer/Side Panel/Buttons/VBoxContainer/Create"]
+[node name="CreateButton" type="TextureButton" parent="SidePanel/NavPanel/HBoxContainer/Side Panel/Buttons/VBoxContainer/Create"]
 unique_name_in_owner = true
 layout_mode = 2
 texture_pressed = ExtResource("6_ll6a0")
@@ -604,21 +596,21 @@ texture_hover = ExtResource("7_3p6pv")
 ignore_texture_size = true
 stretch_mode = 5
 
-[node name="Label" type="Label" parent="NavPanel/Nav/HBoxContainer/Side Panel/Buttons/VBoxContainer/Create"]
+[node name="Label" type="Label" parent="SidePanel/NavPanel/HBoxContainer/Side Panel/Buttons/VBoxContainer/Create"]
 layout_mode = 2
 size_flags_vertical = 8
 text = "CREATE!
 "
 horizontal_alignment = 1
 
-[node name="Watch" type="MarginContainer" parent="NavPanel/Nav/HBoxContainer/Side Panel/Buttons/VBoxContainer"]
+[node name="Watch" type="MarginContainer" parent="SidePanel/NavPanel/HBoxContainer/Side Panel/Buttons/VBoxContainer"]
 layout_mode = 2
 
-[node name="Panel" type="Panel" parent="NavPanel/Nav/HBoxContainer/Side Panel/Buttons/VBoxContainer/Watch"]
+[node name="Panel" type="Panel" parent="SidePanel/NavPanel/HBoxContainer/Side Panel/Buttons/VBoxContainer/Watch"]
 visible = false
 layout_mode = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="NavPanel/Nav/HBoxContainer/Side Panel/Buttons/VBoxContainer/Watch"]
+[node name="MarginContainer" type="MarginContainer" parent="SidePanel/NavPanel/HBoxContainer/Side Panel/Buttons/VBoxContainer/Watch"]
 layout_mode = 2
 mouse_filter = 2
 theme_override_constants/margin_left = 10
@@ -626,14 +618,14 @@ theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 
-[node name="TextureRect" type="TextureRect" parent="NavPanel/Nav/HBoxContainer/Side Panel/Buttons/VBoxContainer/Watch/MarginContainer"]
+[node name="TextureRect" type="TextureRect" parent="SidePanel/NavPanel/HBoxContainer/Side Panel/Buttons/VBoxContainer/Watch/MarginContainer"]
 layout_mode = 2
 mouse_filter = 2
 texture = SubResource("AtlasTexture_py3tf")
 expand_mode = 5
 stretch_mode = 5
 
-[node name="NavFeed" type="TextureButton" parent="NavPanel/Nav/HBoxContainer/Side Panel/Buttons/VBoxContainer/Watch"]
+[node name="WatchButton" type="TextureButton" parent="SidePanel/NavPanel/HBoxContainer/Side Panel/Buttons/VBoxContainer/Watch"]
 unique_name_in_owner = true
 layout_mode = 2
 texture_pressed = ExtResource("6_ll6a0")
@@ -641,13 +633,13 @@ texture_hover = ExtResource("7_3p6pv")
 ignore_texture_size = true
 stretch_mode = 5
 
-[node name="Label" type="Label" parent="NavPanel/Nav/HBoxContainer/Side Panel/Buttons/VBoxContainer/Watch"]
+[node name="Label" type="Label" parent="SidePanel/NavPanel/HBoxContainer/Side Panel/Buttons/VBoxContainer/Watch"]
 layout_mode = 2
 size_flags_vertical = 8
 text = "WATCH!"
 horizontal_alignment = 1
 
-[node name="ReferenceRect" type="ReferenceRect" parent="NavPanel/Nav/HBoxContainer"]
+[node name="ReferenceRect" type="ReferenceRect" parent="SidePanel/NavPanel/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 3.0

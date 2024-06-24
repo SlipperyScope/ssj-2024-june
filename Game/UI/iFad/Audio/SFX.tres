@@ -41,3 +41,4 @@ Metadata = {}
 [resource]
 script = ExtResource("2_ep5mn")
 General = Array[ExtResource("1_5trno")]([SubResource("Resource_dngve"), SubResource("Resource_3iyn0"), SubResource("Resource_ax7s7"), SubResource("Resource_qxwxw"), SubResource("Resource_ujb06")])
+Songs = Array[ExtResource("1_5trno")]([])

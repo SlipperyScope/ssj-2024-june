@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://btds70nrkquew"
-path="res://.godot/imported/UI_half.png-ec44edf594aff72ca51db52ac9c1eb66.ctex"
+uid="uid://dsec4m6v38sj2"
+path="res://.godot/imported/Portraits.png-dd04eee59ec2aba2a9b97744c2b4c648.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://UI/iFad/Graphics/UI_half.png"
-dest_files=["res://.godot/imported/UI_half.png-ec44edf594aff72ca51db52ac9c1eb66.ctex"]
+source_file="res://UI/Fapps/DikDok/Data/Portraits.png"
+dest_files=["res://.godot/imported/Portraits.png-dd04eee59ec2aba2a9b97744c2b4c648.ctex"]
 
 [params]
 

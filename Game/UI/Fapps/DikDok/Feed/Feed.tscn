@@ -1,0 +1,129 @@
+[gd_scene load_steps=6 format=3 uid="uid://cr580lt3s4nhd"]
+
+[ext_resource type="Script" path="res://UI/Fapps/DikDok/Feed/Feed.gd" id="1_b3wu6"]
+[ext_resource type="Texture2D" uid="uid://bxgeuugoc8i7s" path="res://UI/Fapps/DikDok/Data/GFX.png" id="2_8pikw"]
+[ext_resource type="PackedScene" uid="uid://b0o5l1niildx3" path="res://UI/Fapps/DikDok/Feed/Feedee.tscn" id="3_xlcwq"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ltj4j"]
+atlas = ExtResource("2_8pikw")
+region = Rect2(472, 72, 8, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mfxr7"]
+atlas = ExtResource("2_8pikw")
+region = Rect2(352, 72, 8, 48)
+
+[node name="Feed" type="MarginContainer"]
+offset_top = 2.0
+offset_right = 706.0
+offset_bottom = 984.0
+script = ExtResource("1_b3wu6")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="ReferenceRect" type="ReferenceRect" parent="HBoxContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+border_color = Color(1, 0, 0, 0)
+editor_only = false
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="ReferenceRect4" type="ReferenceRect" parent="HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+border_color = Color(1, 0, 0, 0)
+editor_only = false
+
+[node name="PanelContainer" type="PanelContainer" parent="HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.5
+
+[node name="TextureButton" type="TextureButton" parent="HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/PanelContainer"]
+layout_mode = 2
+texture_normal = SubResource("AtlasTexture_ltj4j")
+texture_pressed = SubResource("AtlasTexture_mfxr7")
+texture_hover = SubResource("AtlasTexture_mfxr7")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="ReferenceRect3" type="ReferenceRect" parent="HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.5
+border_color = Color(1, 0, 0, 0)
+editor_only = false
+
+[node name="ReferenceRect2" type="ReferenceRect" parent="HBoxContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+border_color = Color(1, 0, 0, 0)
+editor_only = false
+
+[node name="Feedee" parent="HBoxContainer" instance=ExtResource("3_xlcwq")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="MarginContainer2" type="MarginContainer" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="HBoxContainer/MarginContainer2"]
+layout_mode = 2
+
+[node name="ReferenceRect" type="ReferenceRect" parent="HBoxContainer/MarginContainer2/VBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 3
+border_color = Color(1, 0, 0, 0)
+editor_only = false
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="HBoxContainer/MarginContainer2/VBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="ReferenceRect4" type="ReferenceRect" parent="HBoxContainer/MarginContainer2/VBoxContainer2/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.5
+border_color = Color(1, 0, 0, 0)
+editor_only = false
+
+[node name="PanelContainer2" type="PanelContainer" parent="HBoxContainer/MarginContainer2/VBoxContainer2/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.5
+
+[node name="TextureButton" type="TextureButton" parent="HBoxContainer/MarginContainer2/VBoxContainer2/HBoxContainer2/PanelContainer2"]
+layout_mode = 2
+texture_normal = SubResource("AtlasTexture_ltj4j")
+texture_pressed = SubResource("AtlasTexture_mfxr7")
+texture_hover = SubResource("AtlasTexture_mfxr7")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="ReferenceRect3" type="ReferenceRect" parent="HBoxContainer/MarginContainer2/VBoxContainer2/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+border_color = Color(1, 0, 0, 0)
+editor_only = false
+
+[node name="ReferenceRect2" type="ReferenceRect" parent="HBoxContainer/MarginContainer2/VBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 3
+border_color = Color(1, 0, 0, 0)
+editor_only = false

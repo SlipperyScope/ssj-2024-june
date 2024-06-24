@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://druyw7lxi2rgs"]
+[gd_scene load_steps=10 format=3 uid="uid://druyw7lxi2rgs"]
 
 [ext_resource type="Script" path="res://UI/Fapps/DikDok/DDHost/DDFrame.gd" id="1_jiqyu"]
 [ext_resource type="Texture2D" uid="uid://bxgeuugoc8i7s" path="res://UI/Fapps/DikDok/Data/GFX.png" id="2_qtvt6"]
@@ -17,9 +17,6 @@ region = Rect2(0, 0, 64, 64)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nc25y"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_dmcqg"]
-region = Rect2(0, 0, 240, 320)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_rllwn"]
 atlas = ExtResource("2_qtvt6")
 region = Rect2(0, 64, 16, 16)
@@ -29,8 +26,8 @@ atlas = ExtResource("2_qtvt6")
 region = Rect2(0, 384, 64, 64)
 
 [node name="DdFrame" type="PanelContainer"]
-offset_right = 176.0
-offset_bottom = 321.0
+offset_right = 625.0
+offset_bottom = 870.0
 size_flags_horizontal = 3
 size_flags_vertical = 10
 theme_override_styles/panel = SubResource("StyleBoxTexture_4375n")
@@ -45,30 +42,25 @@ stretch_mode = 6
 
 [node name="AspectRatioContainer" type="AspectRatioContainer" parent="."]
 layout_mode = 2
+ratio = 0.72
 alignment_vertical = 2
 
 [node name="PanelContainer" type="PanelContainer" parent="AspectRatioContainer"]
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxEmpty_nc25y")
 
-[node name="Aspect" type="TextureRect" parent="AspectRatioContainer/PanelContainer"]
-visible = false
-layout_mode = 2
-texture = SubResource("AtlasTexture_dmcqg")
-expand_mode = 1
-stretch_mode = 4
-
 [node name="Dance" type="TextureRect" parent="AspectRatioContainer/PanelContainer"]
 unique_name_in_owner = true
 layout_mode = 2
+size_flags_vertical = 8
 texture = SubResource("AtlasTexture_rllwn")
-expand_mode = 1
+expand_mode = 5
 stretch_mode = 4
 
 [node name="AspectRatioContainer2" type="AspectRatioContainer" parent="."]
 layout_mode = 2
+ratio = 0.72
 alignment_horizontal = 0
-alignment_vertical = 0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="AspectRatioContainer2"]
 layout_mode = 2
@@ -83,6 +75,7 @@ editor_only = false
 [node name="HBoxContainer" type="HBoxContainer" parent="AspectRatioContainer2/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
+size_flags_stretch_ratio = 1.59
 
 [node name="Emoji" type="TextureRect" parent="AspectRatioContainer2/VBoxContainer/HBoxContainer"]
 unique_name_in_owner = true
@@ -102,5 +95,6 @@ editor_only = false
 [node name="ReferenceRect2" type="ReferenceRect" parent="AspectRatioContainer2/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
+size_flags_stretch_ratio = 3.49
 border_color = Color(1, 0, 0, 0)
 editor_only = false

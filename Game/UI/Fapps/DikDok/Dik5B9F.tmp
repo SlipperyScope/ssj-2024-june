@@ -156,7 +156,6 @@ layout_mode = 2
 
 [node name="Player" type="MarginContainer" parent="."]
 unique_name_in_owner = true
-visible = false
 layout_mode = 2
 theme_override_constants/margin_left = 16
 theme_override_constants/margin_top = 16
@@ -451,6 +450,7 @@ autowrap_mode = 2
 
 [node name="NavPanel" type="MarginContainer" parent="."]
 unique_name_in_owner = true
+visible = false
 layout_mode = 2
 mouse_filter = 2
 theme_override_constants/margin_left = 0

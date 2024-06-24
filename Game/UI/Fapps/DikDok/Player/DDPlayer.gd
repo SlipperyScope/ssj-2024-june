@@ -31,6 +31,7 @@ func SetupAudio(sfx, auxChannel):
 	for s in sfx.General:
 		if s.Metadata.has("SongID"):
 			_Songs[s.Metadata["SongID"]] = s.Name
+	_AUX.stream = _SFX.GetWadByName(_Songs[0]).Stream
 
 func ReloadFrame():
 	_SetFrame(_Frame, true)
@@ -72,6 +73,9 @@ func _SetFrame(num, noSignal:bool = false):
 
 func _SetPlay(state):
 	SetFrame(0)
+	SetAllowFrameSelect(!state)
 	_PlayStart = _Time + _File.BPM / 60 if state else INF
 	if state:
 		_AUX.play()
+	else:
+		_AUX.stop()

@@ -1,8 +1,7 @@
-[gd_scene load_steps=22 format=3 uid="uid://b3svw3sgdnhi1"]
+[gd_scene load_steps=21 format=3 uid="uid://b3svw3sgdnhi1"]
 
 [ext_resource type="Texture2D" uid="uid://bxgeuugoc8i7s" path="res://UI/Fapps/DikDok/Data/GFX.png" id="1_lslx7"]
 [ext_resource type="Script" path="res://UI/Fapps/DikDok/Editor/Editor.gd" id="1_wunk7"]
-[ext_resource type="SpriteFrames" uid="uid://bmok5puubool3" path="res://UI/Fapps/DikDok/Data/GFXSets.tres" id="2_4e62u"]
 [ext_resource type="PackedScene" uid="uid://cyk7fds4nvoi4" path="res://UI/Elements/GridSelector/GridSelector.tscn" id="2_dnig2"]
 [ext_resource type="PackedScene" uid="uid://p5ckx62pxpen" path="res://UI/Fapps/DikDok/Player/DDPlayer.tscn" id="3_y15lb"]
 [ext_resource type="PackedScene" uid="uid://2y2an6vpkbiv" path="res://UI/Fapps/DikDok/Editor/EmojiButton.tscn" id="4_jnss2"]
@@ -53,16 +52,14 @@ Down = ExtResource("7_8kaqb")
 
 [node name="Editor" type="MarginContainer"]
 offset_right = 625.0
-offset_bottom = 1081.0
+offset_bottom = 870.0
 script = ExtResource("1_wunk7")
-_GFX = ExtResource("2_4e62u")
 
 [node name="DDPlayer" parent="." instance=ExtResource("3_y15lb")]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-DD = null
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 2

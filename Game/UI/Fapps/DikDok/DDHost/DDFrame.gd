@@ -17,5 +17,5 @@ func SetAll(emoji, dance, text, background):
 	Emoji = emoji
 	Dance = dance
 	Text = text
-	Background = background
+	if background: Background = background
 	

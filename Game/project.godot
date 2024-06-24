@@ -26,6 +26,10 @@ window/stretch/mode="viewport"
 folder_colors={
 "res://UI/Elements/": "yellow",
 "res://UI/Fapps/": "green",
+"res://UI/Fapps/DikDok/": "purple",
+"res://UI/Fapps/FappTapper/": "orange",
+"res://UI/Fapps/Null/": "gray",
+"res://UI/Fapps/Testee/": "blue",
 "res://UI/iFad/": "teal"
 }
 

@@ -1,0 +1,122 @@
+[gd_scene load_steps=9 format=3 uid="uid://b0o5l1niildx3"]
+
+[ext_resource type="Texture2D" uid="uid://bxgeuugoc8i7s" path="res://UI/Fapps/DikDok/Data/GFX.png" id="1_8pw4k"]
+[ext_resource type="Script" path="res://UI/Fapps/DikDok/Feed/Feedee.gd" id="1_l4r1i"]
+[ext_resource type="Texture2D" uid="uid://djpdgia36ugn1" path="res://UI/Fapps/DikDok/Data/Fill_Grey.tres" id="3_7q4kr"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_d2rv8"]
+texture = ExtResource("1_8pw4k")
+texture_margin_left = 16.0
+texture_margin_top = 16.0
+texture_margin_right = 16.0
+texture_margin_bottom = 16.0
+region_rect = Rect2(256, 64, 64, 64)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_rvbk4"]
+texture = ExtResource("3_7q4kr")
+texture_margin_left = 16.0
+texture_margin_top = 16.0
+texture_margin_right = 16.0
+texture_margin_bottom = 16.0
+modulate_color = Color(1, 1, 1, 0.501961)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e1dwm"]
+atlas = ExtResource("1_8pw4k")
+region = Rect2(192, 320, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ul4eo"]
+atlas = ExtResource("1_8pw4k")
+region = Rect2(64, 328, 64, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mllsa"]
+atlas = ExtResource("1_8pw4k")
+region = Rect2(128, 320, 64, 64)
+
+[node name="Feedee" type="MarginContainer"]
+offset_right = 625.0
+offset_bottom = 870.0
+script = ExtResource("1_l4r1i")
+
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="."]
+layout_mode = 2
+size_flags_vertical = 3
+ratio = 0.72
+
+[node name="PanelContainer" type="PanelContainer" parent="AspectRatioContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_d2rv8")
+
+[node name="PlayerGoesHere" type="MarginContainer" parent="AspectRatioContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="AspectRatioContainer"]
+layout_mode = 2
+size_flags_vertical = 8
+
+[node name="Panel" type="Panel" parent="AspectRatioContainer/MarginContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_rvbk4")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="AspectRatioContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="AspectRatioContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="AspectRatioContainer/MarginContainer/HBoxContainer/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="TextureRect" type="TextureRect" parent="AspectRatioContainer/MarginContainer/HBoxContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_e1dwm")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="AspectRatioContainer/MarginContainer/HBoxContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 23
+text = "69,420"
+
+[node name="MarginContainer2" type="MarginContainer" parent="AspectRatioContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="AspectRatioContainer/MarginContainer/HBoxContainer/MarginContainer2"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="TextureRect" type="TextureRect" parent="AspectRatioContainer/MarginContainer/HBoxContainer/MarginContainer2/HBoxContainer"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_ul4eo")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="AspectRatioContainer/MarginContainer/HBoxContainer/MarginContainer2/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 23
+text = "9,001"
+
+[node name="MarginContainer3" type="MarginContainer" parent="AspectRatioContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="AspectRatioContainer/MarginContainer/HBoxContainer/MarginContainer3"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="TextureRect" type="TextureRect" parent="AspectRatioContainer/MarginContainer/HBoxContainer/MarginContainer3/HBoxContainer"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_mllsa")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="AspectRatioContainer/MarginContainer/HBoxContainer/MarginContainer3/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 23
+text = "1,337"

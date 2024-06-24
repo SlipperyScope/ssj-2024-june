@@ -20,3 +20,9 @@ enum IID
 	LaunchFapp,
 	Home
 }
+
+func _to_string():
+	var id = IID.keys()[ID]
+	var params: = ""
+	for p in Params: params = "%s, %s"%[params,p]
+	return "ID: %s with params %s and callback %s"%[id, params, Callback]

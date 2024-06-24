@@ -30,7 +30,7 @@ func Install(pk:Package):
 		#_FappMan.Launch(manifest)
 
 func _PlayOnFirstPress(speaker, button):
-	speaker.Play(_SFX.GetWadByName("Hohaw").Stream)
+	speaker.Play(_SFX.GetWadByName("General","Hohaw").Stream)
 	button.Pressed.disconnect(_PlayOnFirstPress)
 		
 func _init(devices:Dictionary):
@@ -44,6 +44,7 @@ func _init(devices:Dictionary):
 	_ScreenCom = _ScreenCompositor.new(devices[Screen])
 
 func _HandleInterrupt(sender, i:Interrupt):
+	#print("Interrupt %s from %s"%[i,sender])
 	match i.ID:
 		
 		i.IID.GetFappList:

@@ -45,6 +45,7 @@ func _PopulateMusic():
 			_Songs[sfx.Metadata["SongID"]] = sfx.Name
 	for id in _Songs:
 		MusicSelector.add_item(_Songs[id],id)
+	MusicSelector.select(0)
 
 func _OnSelection(index, panel):
 	var data
@@ -56,7 +57,6 @@ func _OnSelection(index, panel):
 		Player.ReloadFrame()
 
 func _OnFrameChange(frame):
-	print("frame changed to %s"%frame)
 	_Frame = frame
 	Emojis.Select(_File.Emojis[frame])
 	Dances.Select(_File.Dances[frame])

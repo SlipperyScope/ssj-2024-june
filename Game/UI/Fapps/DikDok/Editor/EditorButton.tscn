@@ -1,0 +1,49 @@
+[gd_scene load_steps=8 format=3 uid="uid://be6klatf5uc8p"]
+
+[ext_resource type="Script" path="res://UI/Fapps/DikDok/Editor/GridButton.gd" id="1_nulkl"]
+[ext_resource type="Texture2D" uid="uid://cwi7fa4hodw7g" path="res://UI/Fapps/DikDok/Data/Style/Grey_Fill_16.tres" id="2_wdyaf"]
+[ext_resource type="Texture2D" uid="uid://q1losifhrwww" path="res://UI/Fapps/DikDok/Data/Style/Blue_Hollow_16.tres" id="3_7difp"]
+[ext_resource type="Texture2D" uid="uid://cb4pb10a8oas3" path="res://UI/Fapps/DikDok/Data/Style/Green_Hollow_16.tres" id="4_s4wib"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0nnke"]
+resource_local_to_scene = true
+texture_margin_left = 16.0
+texture_margin_top = 16.0
+texture_margin_right = 16.0
+texture_margin_bottom = 16.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1xsks"]
+resource_local_to_scene = true
+texture_margin_left = 16.0
+texture_margin_top = 16.0
+texture_margin_right = 16.0
+texture_margin_bottom = 16.0
+
+[sub_resource type="ImageTexture" id="ImageTexture_tsu54"]
+
+[node name="GridButton" type="MarginContainer"]
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_nulkl")
+UnderlayUpOverDown = Array[Texture]([ExtResource("2_wdyaf"), ExtResource("2_wdyaf"), ExtResource("2_wdyaf")])
+OverlayUpOverDown = Array[Texture]([null, ExtResource("3_7difp"), ExtResource("4_s4wib")])
+
+[node name="Under" type="Panel" parent="."]
+self_modulate = Color(1, 1, 1, 0.866667)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_0nnke")
+
+[node name="Texture" type="TextureRect" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+expand_mode = 5
+stretch_mode = 5
+
+[node name="Over" type="Panel" parent="."]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_1xsks")
+
+[node name="Button" type="TextureButton" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+texture_normal = SubResource("ImageTexture_tsu54")

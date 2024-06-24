@@ -1,29 +1,13 @@
-[gd_scene load_steps=14 format=3 uid="uid://p5ckx62pxpen"]
+[gd_scene load_steps=11 format=3 uid="uid://p5ckx62pxpen"]
 
 [ext_resource type="Script" path="res://UI/Fapps/DikDok/Player/DDPlayer.gd" id="1_1d6w7"]
-[ext_resource type="Script" path="res://UI/Fapps/DikDok/DikDok.dd.gd" id="2_nlyi4"]
 [ext_resource type="PackedScene" uid="uid://bdf75648bcift" path="res://UI/Fapps/DikDok/DDHost/DDHost.tscn" id="2_sxdwi"]
 [ext_resource type="Texture2D" uid="uid://bxgeuugoc8i7s" path="res://UI/Fapps/DikDok/Data/GFX.png" id="3_b4nfe"]
 [ext_resource type="PackedScene" uid="uid://bt5h3rrlkv63t" path="res://UI/Elements/NineButton/NineButton.tscn" id="3_ikupp"]
-[ext_resource type="SpriteFrames" uid="uid://bmok5puubool3" path="res://UI/Fapps/DikDok/Data/GFXSets.tres" id="3_tfpxb"]
 [ext_resource type="Resource" uid="uid://bwv4xlns52iqb" path="res://UI/Fapps/DikDok/Player/Play.tres" id="5_qyinu"]
 [ext_resource type="Resource" uid="uid://b5pu6cntnlhlo" path="res://UI/Fapps/DikDok/Player/Stop.tres" id="6_7qryi"]
 [ext_resource type="PackedScene" uid="uid://cyk7fds4nvoi4" path="res://UI/Elements/GridSelector/GridSelector.tscn" id="7_c6jpc"]
 [ext_resource type="PackedScene" uid="uid://m5k1ayqapvjk" path="res://UI/Fapps/DikDok/Player/FrameButton.tscn" id="7_dnvhd"]
-
-[sub_resource type="Resource" id="Resource_us33d"]
-script = ExtResource("2_nlyi4")
-Name = "Testing the DD"
-SongID = 0
-BPM = 120.0
-Dances = Array[int]([16, 17])
-Emojis = Array[int]([8, 7])
-Words = Array[int]([0, 1])
-Plays = 0
-Likes = 0
-Shares = 0
-Date = 0
-FrameCount = 2
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3e56b"]
 atlas = ExtResource("3_b4nfe")
@@ -40,9 +24,9 @@ texture_margin_bottom = 8.0
 anchors_preset = -1
 anchor_right = 0.222396
 anchor_bottom = 0.564815
+offset_right = 198.0
+offset_bottom = 260.0
 script = ExtResource("1_1d6w7")
-DD = SubResource("Resource_us33d")
-_GFX = ExtResource("3_tfpxb")
 metadata/_edit_use_anchors_ = true
 
 [node name="MarginContainer" type="MarginContainer" parent="."]

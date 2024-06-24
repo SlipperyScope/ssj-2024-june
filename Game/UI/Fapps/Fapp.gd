@@ -2,7 +2,7 @@ class_name Fapp extends PanelContainer
 
 signal PushInterrupt(sender:Fapp, i:Interrupt)
 
-func _PlaySound(name) : PushInterrupt.emit(self, Interrupt.new(Interrupt.IID.FappOut, [Speaker, _Data.Sfx.GetWadByName(name).Stream]))
+func _PlaySound(name) : PushInterrupt.emit(self, Interrupt.new(Interrupt.IID.FappOut, [Speaker, _Data.Sfx.GetWadByName("General", name).Stream]))
 
 enum Type {
 	Fapplet,

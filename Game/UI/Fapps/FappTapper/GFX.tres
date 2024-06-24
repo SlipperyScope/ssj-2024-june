@@ -1,7 +1,7 @@
 [gd_resource type="SpriteFrames" script_class="GFX" load_steps=67 format=3 uid="uid://ydi40bcgmy5i"]
 
 [ext_resource type="Texture2D" uid="uid://txntk02c2f2l" path="res://UI/Fapps/FappTapper/GFX.png" id="1_biu7y"]
-[ext_resource type="Script" path="res://UI/Fapps/FappTapper/GFX.gd" id="2_frh36"]
+[ext_resource type="Script" path="res://UI/Fapps/GFX.gd" id="2_4ymx8"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7vr8a"]
 atlas = ExtResource("1_biu7y")
@@ -458,4 +458,4 @@ animations = [{
 "name": &"default",
 "speed": 5.0
 }]
-script = ExtResource("2_frh36")
+script = ExtResource("2_4ymx8")
