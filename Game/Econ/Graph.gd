@@ -46,6 +46,16 @@ func FindOrMake(id: String, type: EconNode.NodeType):
     self.Nodes[id] = make
     return make
 
+func MinToMaxResourceIter():
+    var nodes = self.Nodes.values().filter(func(n:EconNode): return n.Type == EconNode.NodeType.Resource)
+    nodes.sort_custom(func(a,b): return b.MaxDistanceToRoot() > a.MaxDistanceToRoot())
+    return nodes
+
+func WalkCosts():
+    for i in self.MinToMaxResourceIter():
+        if i.ApproxCost.size() == 0:
+            i.RawCost()
+
 func RawCost(id: String):
     if !self.Nodes.has(id):
         print('Node "%s" not found' % id)

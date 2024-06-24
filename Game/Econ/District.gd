@@ -16,6 +16,7 @@ static func Motivate(type:MotivationType, resource: String, magnitude:int, durat
 
 var Name: String = ''
 var Econ: Graph = null
+var Growth: Callable = func(): pass
 
 # Mappings of all resource types to an int
 var Demands:Dictionary = {}
@@ -33,8 +34,10 @@ var Motivations = [
     District.Motivate(MotivationType.Supply, "Animal", 5, 3, func(i): return i-1)
 ]
 
-func _init(name:String):
+func _init(name:String, growth:Callable):
     self.Name = name
+    self.Growth = growth
+
     self.Econ = Graph.new()
     self.Econ.Element('Water')
     self.Econ.Element('Rock')
@@ -54,6 +57,15 @@ func _init(name:String):
             self.Demands[n] = 0
             self.Supplies[n] = 0
 
+    # Every district starts with basic resources, why not?
+    for n in self.Econ.Nodes.values().filter(func(n:EconNode): return n.IsRoot()):
+        self.Supplies[n.ID] = randi() % 70 + 30
+
+    self.Demands["Bed"] = randi() % 20 + 5
+
+    # Set costs
+    self.Econ.WalkCosts()
+
 func TechIndustry():
     # Upgraded recipes for tech stuff
     pass
@@ -62,8 +74,44 @@ func TechArt():
     # Upgraded recipes for art stuff
     pass
 
+func BuildMax(n:String, cost:Dictionary):
+    self.BuildMaxAtSurplus(n, cost, 0)
+
+func BuildMaxAtSurplus(n:String, cost:Dictionary, surplus:int):
+    var qty = -1
+    for i in cost.keys():
+        var maxOfIngredient = max(0, floor((self.Supplies[i] - self.Demands[i] - surplus) / cost[i]))
+        print("=== before %s, this (%s) %s" % [qty, i, maxOfIngredient])
+        qty = maxOfIngredient if qty == -1 else min(qty, maxOfIngredient)
+
+    print("Building %s of %s" % [qty, n])
+    for i in cost.keys():
+        self.Supplies[i] -= qty * cost[i]
+    self.Supplies[n] += qty
+
+# When advanced supplies are in demand, that demand should
+# put pressure on its own ingredients to an extent (encouraging
+# an economy to build instead of buy, assuming its growth strat
+# even allows for that)
+func ForwardDemand():
+    for n in self.Econ.MinToMaxResourceIter():
+        var touched = []
+        var delta = self.Demands[n.ID] - self.Supplies[n.ID]
+        if delta > 0:
+            for rec in n.From.keys():
+                var ingredients = rec.From
+                for i in ingredients.keys():
+                    if i not in touched:
+                        touched.push_back(i)
+                        var weight = ingredients[i]
+                        var localDemand = weight * delta
+                        if self.Demands[i.ID] < localDemand:
+                            # Apply math vigorously
+                            self.Demands[i.ID] += ceil((localDemand - self.Demands[i.ID]) / 10)
+
+# Call to progress the econ simulation
 func Next():
-    # Call to progress the econ simulation
+    # 1: Run through all motivations
     var toRemove = []
     for m in self.Motivations:
         # Update supply/demand
@@ -80,3 +128,12 @@ func Next():
 
     for r in toRemove:
         self.Motivations.remove_at(self.Motivations.find(r))
+
+    # 2: Perform local growth strategy
+    self.Growth.call(self)
+
+    # 3: Propagate demand
+    self.ForwardDemand()
+    print("Demands ", self.Demands)
+
+    # 4: Every once in awhile, engage in trade (should this be part of trade? Probably not)
