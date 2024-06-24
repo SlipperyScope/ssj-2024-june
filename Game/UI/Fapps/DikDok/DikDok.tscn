@@ -1,4 +1,4 @@
-[gd_scene load_steps=48 format=3 uid="uid://bwtx4th0g52c6"]
+[gd_scene load_steps=51 format=3 uid="uid://bwtx4th0g52c6"]
 
 [ext_resource type="Script" path="res://UI/Fapps/DikDok/DikDok.gd" id="1_dyqcs"]
 [ext_resource type="PackedScene" uid="uid://bdf75648bcift" path="res://UI/Fapps/DikDok/DDHost/DDHost.tscn" id="3_ey6ui"]
@@ -49,6 +49,18 @@ region = Rect2(200, 200, 48, 48)
 [sub_resource type="AtlasTexture" id="AtlasTexture_gopl6"]
 atlas = ExtResource("7_o72ic")
 region = Rect2(264, 200, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0f0ik"]
+atlas = ExtResource("7_o72ic")
+region = Rect2(64, 256, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fcnoa"]
+atlas = ExtResource("7_o72ic")
+region = Rect2(192, 256, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hndfb"]
+atlas = ExtResource("7_o72ic")
+region = Rect2(128, 256, 64, 64)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bp00y"]
 
@@ -139,7 +151,6 @@ script = ExtResource("1_dyqcs")
 
 [node name="Host" type="MarginContainer" parent="."]
 unique_name_in_owner = true
-visible = false
 layout_mode = 2
 theme_override_constants/margin_left = 8
 theme_override_constants/margin_top = 163
@@ -156,7 +167,6 @@ layout_mode = 2
 
 [node name="Player" type="MarginContainer" parent="."]
 unique_name_in_owner = true
-visible = false
 layout_mode = 2
 theme_override_constants/margin_left = 16
 theme_override_constants/margin_top = 16
@@ -229,6 +239,28 @@ theme_override_constants/margin_left = 16
 theme_override_constants/margin_top = 16
 theme_override_constants/margin_right = 16
 theme_override_constants/margin_bottom = 16
+
+[node name="MarginContainer" type="MarginContainer" parent="Creator"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 75
+
+[node name="PanelContainer" type="PanelContainer" parent="Creator/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+
+[node name="PostButton" type="TextureButton" parent="Creator/MarginContainer/PanelContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(96, 96)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4
+texture_normal = SubResource("AtlasTexture_0f0ik")
+texture_pressed = SubResource("AtlasTexture_fcnoa")
+texture_hover = SubResource("AtlasTexture_hndfb")
+stretch_mode = 5
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Creator"]
 layout_mode = 2

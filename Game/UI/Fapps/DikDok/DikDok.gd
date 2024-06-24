@@ -47,7 +47,7 @@ func _InitCreator():
 	for id in grids:
 		var grid = grids[id][0]
 		var button = grids[id][1]
-		for i in _Gfx.Count(id) - 4:
+		for i in _Gfx.Count(id) - (4 if id == "Emojis" else 0):
 			var newbtn = grid.AddButton()
 			newbtn.SetTexture(_Gfx.Get(id, i))
 			newbtn._Button.mouse_entered.connect(_PlaySound.bind("Over"))
@@ -61,6 +61,14 @@ func _InitCreator():
 	for s in songs.size() - 1:
 		ss.add_item(songs[s].Name, s)
 	ss.item_selected.connect(_SetSong)
+	%PostButton.pressed.connect(_PostDD)
+	%PostButton.mouse_entered.connect(_PlaySound.bind("Over"))
+	%PostButton.pressed.connect(_PlaySound.bind("Down"))
+
+func _PostDD():
+	_Data.Store["Creator"]["Profile"]["Hand"]["DikDoks"].append(_File) 
+	PushInterrupt.emit(self, Interrupt.new(Interrupt.IID.FappOut, [Radio, {DikDok_dd:_File}]))
+	_LoadFile(DikDok_dd.Empty)
 
 func _InitPlayer():
 	%PPButton.toggled.connect(_SetPlaying)
@@ -226,14 +234,13 @@ func _SetFrame(num):
 func _ReadFrame():
 	_Host._Frame.Emoji = _Gfx.Get("Emojis", _File.Emojis[_Frame])
 	_Host._Frame.Dance = _Gfx.Get("Dances", _File.Dances[_Frame])
-	pass
 
 func _GenerateRandomFeedItem() -> DikDok_dd:
 	var rd = func():return rng.randi_range(0,23)
-	var re = func():return rng.randi_range(0,19)
+	var re = func():return rng.randi_range(0,15 + rng.randi_range(0,4))
 	var dd = DikDok_dd.Empty
 	dd.Name = "untitled"
-	dd.SongID = rng.randi_range(0,3)
+	dd.SongID = rng.randi_range(0,2 + rng.randi_range(0,1))
 	dd.BPM = 120
 	dd.FrameCount = rng.randi_range(2,4)*2
 	dd.Dances = [] as Array[int]
