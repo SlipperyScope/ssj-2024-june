@@ -1,4 +1,4 @@
-[gd_scene load_steps=51 format=3 uid="uid://bwtx4th0g52c6"]
+[gd_scene load_steps=54 format=3 uid="uid://bwtx4th0g52c6"]
 
 [ext_resource type="Script" path="res://UI/Fapps/DikDok/DikDok.gd" id="1_dyqcs"]
 [ext_resource type="PackedScene" uid="uid://bdf75648bcift" path="res://UI/Fapps/DikDok/DDHost/DDHost.tscn" id="3_ey6ui"]
@@ -142,6 +142,18 @@ region = Rect2(384, 384, 64, 64)
 [sub_resource type="AtlasTexture" id="AtlasTexture_py3tf"]
 atlas = ExtResource("7_o72ic")
 region = Rect2(64, 80, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7ybya"]
+atlas = ExtResource("7_o72ic")
+region = Rect2(192, 320, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rng6n"]
+atlas = ExtResource("7_o72ic")
+region = Rect2(64, 320, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kvbpq"]
+atlas = ExtResource("7_o72ic")
+region = Rect2(128, 320, 64, 64)
 
 [node name="DikDok" type="PanelContainer"]
 offset_right = 625.0
@@ -684,3 +696,72 @@ size_flags_horizontal = 3
 size_flags_stretch_ratio = 3.0
 border_color = Color(1, 0, 0, 0)
 editor_only = false
+
+[node name="Stats" type="MarginContainer" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/margin_right = 8
+
+[node name="PanelContainer" type="PanelContainer" parent="Stats"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Stats/PanelContainer"]
+layout_mode = 2
+theme_override_constants/separation = 32
+
+[node name="Views" type="MarginContainer" parent="Stats/PanelContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Stats/PanelContainer/VBoxContainer/Views"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="TextureRect" type="TextureRect" parent="Stats/PanelContainer/VBoxContainer/Views/VBoxContainer"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_7ybya")
+
+[node name="Views" type="Label" parent="Stats/PanelContainer/VBoxContainer/Views/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Likes" type="MarginContainer" parent="Stats/PanelContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Stats/PanelContainer/VBoxContainer/Likes"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="TextureRect" type="TextureRect" parent="Stats/PanelContainer/VBoxContainer/Likes/VBoxContainer"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_rng6n")
+
+[node name="Likes" type="Label" parent="Stats/PanelContainer/VBoxContainer/Likes/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Shares" type="MarginContainer" parent="Stats/PanelContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Stats/PanelContainer/VBoxContainer/Shares"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="TextureRect" type="TextureRect" parent="Stats/PanelContainer/VBoxContainer/Shares/VBoxContainer"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_kvbpq")
+
+[node name="Shares" type="Label" parent="Stats/PanelContainer/VBoxContainer/Shares/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1

@@ -82,6 +82,9 @@ func _InitProfile():
 	dd.Dances = [2,3,14,15,16,17,16,17] as Array[int]
 	dd.Words = [1,0,2,6,3,4,5,6] as Array[int]
 	dd.SongID = 3
+	dd.Plays = 69420
+	dd.Likes = 9001
+	dd.Shares = 1337
 	_Data.Store["Creator"]["Profile"] = {
 		"Hand":{
 			"Pic":0,
@@ -150,24 +153,24 @@ func _SetState(state):
 	var config
 	match state:
 		AppState.Home:
-			config = {%Host:true,%Player:true,%Creator:false,%Feed:false,%Profile:true}
+			config = {%Host:true,%Player:true,%Creator:false,%Feed:false,%Profile:true,%Stats:true}
 			%ProfilePic.texture = _Gfx.Get("Profiles",_Data.Store["Creator"]["Profile"]["Kusp"]["Pic"])
 			%Blurb.text = _Data.Store["Creator"]["Profile"]["Kusp"]["Blurb"]
 			_Feed = _Data.Store["Creator"]["Profile"]["Kusp"]["DikDoks"]
 			%Handle.text = _Data.Store["Creator"]["Profile"]["Kusp"]["Handle"]
 		AppState.Profile:
-			config = {%Host:true,%Player:true,%Creator:false,%Feed:true,%Profile:true}
+			config = {%Host:true,%Player:true,%Creator:false,%Feed:true,%Profile:true,%Stats:true}
 			%ProfilePic.texture = _Gfx.Get("Profiles",_Data.Store["Creator"]["Profile"]["Hand"]["Pic"])
 			%Blurb.text = _Data.Store["Creator"]["Profile"]["Hand"]["Blurb"]
 			%Handle.text = _Data.Store["Creator"]["Profile"]["Hand"]["Handle"]
 			_Feed = _Data.Store["Creator"]["Profile"]["Hand"]["DikDoks"]
 		AppState.Feed:
-			config = {%Host:true,%Player:true,%Creator:false,%Feed:true,%Profile:false}
+			config = {%Host:true,%Player:true,%Creator:false,%Feed:true,%Profile:false,%Stats:true}
 			_Feed = []
 			_FeedPosition = 0
 			for r in 24: _Feed.append(_GenerateRandomFeedItem())
 		AppState.Creator:
-			config = {%Host:true,%Player:true,%Creator:true,%Feed:false,%Profile:false}
+			config = {%Host:true,%Player:true,%Creator:true,%Feed:false,%Profile:false,%Stats:false}
 			_Feed = []
 	for panel in config:
 		panel.visible = config[panel]
@@ -218,9 +221,18 @@ func _SetSong(id):
 
 func _LoadFile(dd):
 	_File = dd
+	dd.Plays += rng.randi_range(0,400)
+	dd.Likes += rng.randi_range(0,40)
+	dd.Shares += rng.randi_range(0,4)
+	_SetStats()
 	_SetSong(_File.SongID)
 	_SetFrameButtons()
 	SetFrame(0)
+
+func _SetStats():
+	%Views.text = str(_File.Plays)
+	%Likes.text = str(_File.Likes)
+	%Shares.text = str(_File.Shares)
 
 func SetFrame(num):
 	_Timeline.Select(num)
@@ -250,9 +262,9 @@ func _GenerateRandomFeedItem() -> DikDok_dd:
 	dd.Words = [] as Array[int]
 	for e in dd.FrameCount: dd.Words.append(0)
 	dd.Background = null
-	dd.Plays = 0
-	dd.Likes = 0
-	dd.Shares = 0
+	dd.Plays = rng.randi_range(0,69420)
+	dd.Likes = rng.randi_range(0,6942)
+	dd.Shares = rng.randi_range(0,694)
 	dd.Date = 0
 	return dd
 
